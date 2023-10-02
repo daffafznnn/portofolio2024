@@ -1,5 +1,5 @@
 <template>
-<div id="#home" class="mx-auto p-12 flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
+<div id="section0" class="mx-auto p-12 flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
   <!-- Left Column -->
   <div class="mx-auto mt-10 w-full max-w-xl md:mt-36 lg:max-w-screen-xl">
     <div class="mb-16 lg:mb-0 lg:max-w-lg">
@@ -8,10 +8,10 @@
             Welcome To  <br />
           <span class="inline-block font-bold text-cyan-500"> DaffaFznnn</span>
         </h2>
-        <p class="text-base text-white md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ullam rem voluptatem, animi tempora expedita!Lorem ipsum dolor.</p>
+        <p class="text-base text-white md:text-lg">My name is Muhammad Daffa fauzan, I live in Bandung, I'm 18 years old, I'm Software Engineering Student at Assalaam Vocational High School, Maybe, Java Script is my favorite language.</p>
       </div>
       <div class="flex items-center">
-        <a href="/" class="bg-sky-400a mr-6 inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition duration-200 hover:scale-110 hover:bg-sky-500 focus:ring"> Get started </a>
+        <a href="/" class="bg-sky-400a mr-6 inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition duration-200 hover:scale-110 hover:bg-sky-500 focus:ring"> Work on me </a>
         <a href="/" aria-label="" class="inline-flex items-center font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-400">Learn more</a>
       </div>
     </div>
@@ -21,8 +21,8 @@
   <!-- Right Column -->
   <div class="flex h-full w-full space-x-3 overflow-hidden px-2 md:justify-end">
     <!-- Col 2 -->
-    <div class="my-auto hidden w-72 flex-col space-y-3 md:mt-36 lg:flex">
-      <img src="../assets/logo-daffa-a219537a.png" alt="" />
+    <div class="my-auto hidden w-72 flex-col space-y-2 md:mt-30 lg:flex">
+      <img src="../assets/header-daffa.png" alt="" />
     </div>
     <div class="my-auto w-80 flex-col space-y-3 md:mt-36 lg:flex bg-blue-900 shadow-lg rounded-xl px-4 py-4">
       <div class="flex py-2 px-2 text-cyan-400">
