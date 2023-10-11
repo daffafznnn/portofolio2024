@@ -4,7 +4,7 @@
       'bg-blue-950': !isScrolled,
       'shadow-xl': isScrolled,
     }" class="bg-blue-950 text-cyan-400 container top-0 left-0 z-50 fixed mx-auto max-w-screen-2xl flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center">
-  <a href="#section0" class="flex items-center whitespace-nowrap text-2xl font-black ml-10">
+  <a href="#header" class="flex items-center whitespace-nowrap text-2xl font-black ml-10">
     <!-- <span class="mr-2 w-8 img-fluid">
       <img src="../assets/logo-daffa-a219537a.png" alt="" />
     </span> -->
@@ -18,9 +18,9 @@
   </label>
   <nav aria-label="Header Navigation" class="peer-checked:pt-8 peer-checked:max-h-60 flex max-h-0 w-full flex-col items-center overflow-hidden transition-all lg:ml-24 lg:max-h-full lg:flex-row">
     <ul class="flex w-full flex-col items-center space-y-2 lg:flex-row lg:justify-center lg:space-y-0">
-      <li class="lg:mr-12"><a class="rounded  text-cyan-400 transition-all hover:text-cyan-300" href="#section1">Portofolio</a></li>
-      <li class="lg:mr-12"><a class="rounded  text-cyan-400 transition-all hover:text-cyan-300" href="#section2">About</a></li>
-      <li class="lg:mr-12"><a class="rounded  text-cyan-400 transition-all hover:text-cyan-300" href="#section3">Contact</a></li>
+      <li class="lg:mr-12"><a class="rounded  text-cyan-400 transition-all hover:text-cyan-300" href="#porto">Portofolio</a></li>
+      <li class="lg:mr-12"><a class="rounded  text-cyan-400 transition-all hover:text-cyan-300" href="#about">About</a></li>
+      <li class="lg:mr-12"><a class="rounded  text-cyan-400 transition-all hover:text-cyan-300" href="#contact">Contact</a></li>
       
     </ul>
     <hr class="mt-4 w-full lg:hidden" />

@@ -1,5 +1,5 @@
 <template>
-<div id="section0" class="mx-auto p-12 flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
+<div id="header" class="mx-auto p-12 flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
   <!-- Left Column -->
   <div class="mx-auto mt-10 w-full max-w-xl md:mt-36 lg:max-w-screen-xl">
     <div class="mb-16 lg:mb-0 lg:max-w-lg">
@@ -33,7 +33,7 @@
   </svg>
         </div>
         <div class="">
-    <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}</span>
+    <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}+</span>
     <span class="text-2xl font-bold" v-else>{{ stats.initialNumberA }}+</span>
           <p class="text-sm">Projects</p>
         </div>
