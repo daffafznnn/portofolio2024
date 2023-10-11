@@ -27,40 +27,39 @@
     <div class="my-auto w-80 flex-col space-y-3 md:mt-36 lg:flex bg-blue-900 shadow-lg rounded-xl px-4 py-4">
       <div class="flex py-2 px-2 text-cyan-400">
         <div class="my-auto mr-4 p-3 text-cyan-500 ">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z"/>
+    <path d="M6 5H5v1h1V5Z"/>
+  </svg>
         </div>
         <div class="">
-    <span class="text-2xl font-bold" v-if="showRandomNumber">{{ randomNumber }}</span>
-    <span class="text-2xl font-bold" v-else>{{ initialNumber }}</span>
-          <p class="text-sm">Monthly Users</p>
+    <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}</span>
+    <span class="text-2xl font-bold" v-else>{{ stats.initialNumberA }}+</span>
+          <p class="text-sm">Projects</p>
         </div>
       </div>
       <div class="flex py-2 px-2 text-cyan-400">
         <div class="my-auto mr-4 p-3 text-cyan-500 ">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path d="M12 14l9-5-9-5-9 5 9 5z" />
-            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-          </svg>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 10c1.5 1.5 5.25 3 9 3s7.5-1.5 9-3m-9-1h.01M2 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1ZM14 5V3a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2h8Z"/>
+  </svg>
         </div>
         <div class="">
-          <span class="text-2xl font-bold" v-if="showRandomNumber">{{ randomNumber }}</span>
-          <span class="text-2xl font-bold" v-else>{{ initialNumber }}</span>
-          <p class="text-sm">Graduates</p>
+          <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}</span>
+          <span class="text-2xl font-bold" v-else>{{ stats.initialNumberB }}</span>
+          <p class="text-sm">Year Experience</p>
         </div>
       </div>
       <div class="flex py-2 px-2 text-cyan-400">
         <div class="my-auto mr-4 p-3 text-cyan-500 ">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
+          <svg class="w-[25px] h-[25px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6.072 10.072 2 2 6-4m3.586 4.314.9-.9a2 2 0 0 0 0-2.828l-.9-.9a2 2 0 0 1-.586-1.414V5.072a2 2 0 0 0-2-2H13.8a2 2 0 0 1-1.414-.586l-.9-.9a2 2 0 0 0-2.828 0l-.9.9a2 2 0 0 1-1.414.586H5.072a2 2 0 0 0-2 2v1.272a2 2 0 0 1-.586 1.414l-.9.9a2 2 0 0 0 0 2.828l.9.9a2 2 0 0 1 .586 1.414v1.272a2 2 0 0 0 2 2h1.272a2 2 0 0 1 1.414.586l.9.9a2 2 0 0 0 2.828 0l.9-.9a2 2 0 0 1 1.414-.586h1.272a2 2 0 0 0 2-2V13.8a2 2 0 0 1 .586-1.414Z"/>
+  </svg>
         </div>
         <div class="">
-          <span class="text-2xl font-bold" v-if="showRandomNumber">{{ randomNumber }}</span>
-          <span class="text-2xl font-bold" v-else>{{ initialNumber }}</span>
-          <p class="text-sm">Fortune 500 Employed</p>
+          <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}</span>
+          <span class="text-2xl font-bold" v-else>{{ stats.initialNumberC }}</span>
+          <p class="text-sm">achievement</p>
         </div>
       </div>
     </div>
@@ -72,13 +71,22 @@
 
 </template>
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   data() {
     return {
-      initialNumber: 999,
+     stats: {
+      initialNumberA: 4,
+      initialNumberB: 3,
+      initialNumberC: 0,
       randomNumber: 0,
       showRandomNumber: false,
+    }
     };
+  },
+  computed: {
+   ...mapGetters('property', ['getStats'])
   },
   created() {
     // Setelah komponen dibuat, mulai animasi angka acak
@@ -87,18 +95,18 @@ export default {
   methods: {
     startRandomAnimation() {
       this.showRandomNumber = true;
-      const finalNumber = this.initialNumber;
+      const finalNumber = this.stats.initialNumberA + this.stats.initialNumberB  + this.stats.initialNumberC;
       const duration = 3000; // Durasi animasi dalam milidetik
 
       // Generate angka acak dengan interval setiap 100ms
       const interval = setInterval(() => {
-        this.randomNumber = Math.floor(Math.random() * finalNumber) + 1;
-      }, 100);
+        this.stats.randomNumber = Math.floor(Math.random() * finalNumber) + 3;
+      }, 300);
 
       // Setelah durasi tertentu, hentikan animasi dan tampilkan angka semula
       setTimeout(() => {
         clearInterval(interval);
-        this.randomNumber = finalNumber;
+        this.stats.randomNumber = finalNumber;
         this.showRandomNumber = false;
       }, duration);
     },
@@ -106,7 +114,6 @@ export default {
 };
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 body{
   font-family: 'Montserrat', sans-serif;
 }
