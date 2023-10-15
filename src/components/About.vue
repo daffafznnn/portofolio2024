@@ -11,13 +11,15 @@
         </p>
       </div>
       <div v-show="showLeftContent" class="transform translate-x-0 transition duration-500 ease-in-out">
-        <div class=" bg-cyan-500 transform -translate-x-1 scale-90 relative h-52 sm:h-64 sm:-translate-x-10">
+        <div class=" bg-cyan-500 transform -translate-x-1 translate-y-36 scale-y-150 scale-x-95  relative h-52 sm:h-64 sm:-translate-x-10">
         </div>
         <div class="transform md:rounded-md  bg-blue-800 rotate-3 scale-75 translate-x-1 md:shadow-2xl -ml-4 -mt-44 p-10  space-y-2 sm:translate-x-1 sm:scale-75">
-          <div class="px-4 sm:px-0 max-w-2xl mx-auto flex flex-wrap sm:flex-row sm:gap-12 flex-row gap-10 justify-center items-center">
-            <div v-for="item in getAbout" :key="item.id" class="basis-1/2 sm:basis-1/3">
-              <img :src="item.img" class="rounded-xl">
+          <div class="px-4 sm:px-0 max-w-2xl mx-auto flex-row gap-10 justify-center items-center">
+            <div class="grid grid-col-2 grid-flow-row gap-4">
+            <div v-for="one in getAbout">
+             <img :src="'./src/assets/img/'+ one.img" class="w-96  sm:ml-12 rounded-xl hover:scale-125 hover:shadow-lg hover:shadow-cyan-400 transition-all">
             </div>
+          </div>
         </div>
         </div>
       </div>
