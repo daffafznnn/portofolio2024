@@ -8,7 +8,9 @@
             Welcome To <br />
             <span class="inline-block font-bold text-cyan-500"> DaffaFznnn</span>
           </h2>
-          <p class="text-base text-white md:text-lg">Nama saya Daffa. Saya tinggal di Bandung, dan saya adalah seorang siswa jurusan Rekayasa Perangkat Lunak berusia 18 tahun di Sekolah Menengah Kejuruan Assalaam. JavaScript adalah bahasa pemrograman favorit saya.</p>
+          <p class="text-base text-white md:text-lg">Nama saya Daffa. Saya tinggal di Bandung, dan saya adalah seorang
+            siswa jurusan Rekayasa Perangkat Lunak berusia 18 tahun di Sekolah Menengah Kejuruan Assalaam. JavaScript
+            adalah bahasa pemrograman favorit saya.</p>
         </div>
         <div class="flex items-center">
           <button @click="showAlert"
@@ -16,7 +18,8 @@
             Work on me
           </button>
           <a href="/" aria-label=""
-            class="inline-flex items-center font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-400">Learn more</a>
+            class="inline-flex items-center font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-400">Learn
+            more</a>
         </div>
       </div>
     </div>
@@ -132,7 +135,19 @@ export default {
     },
     showAlert() {
       // Use sweetalert2
-      Swal.fire('Ayo lah Bang kerjain saya, saya pengen kerja bang ');
+      Swal.fire({
+        title: "Mohon berikan saya pekerjaan😄",
+        width: 600,
+        padding: "3em",
+        color: "#716add",
+        background: "#fff url()",
+        backdrop: `
+    rgba(0,0,123,0.4)
+    url("/images/nyan-cat.gif")
+    left top
+    no-repeat
+  `
+      });
     },
   },
   mounted() {
