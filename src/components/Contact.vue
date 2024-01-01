@@ -1,6 +1,6 @@
 <template>
   <div class="mx-2 pt-12 text-center md:mx-auto md:w-2/3 md:pb-1">
-    <h1 class="mb-4 text-3xl font-black sm:text-5xl xl:text-6xl text-cyan-400">Contact</h1>
+    <h1 class="mb-4 text-3xl font-black sm:text-5xl xl:text-6xl text-cyan-400">Kontak</h1>
     <div class="text-lg sm:text-xl xl:text-xl">
       <div class="text-gray-200">
         <p class="mb-4">Hubungi saya melalui kontak dibawah ini.</p>
@@ -10,7 +10,7 @@
   <section id="contact" class="mx-auto p-16 max-w-screen-xl md:rounded-md pb-16">
     <div class="grid grid-cols-4 text-cyan-400 lg:grid-cols-3 shadow-xl">
       <div class="col-span-4 bg-blue-900 px-8 py-10 text-gray-200 md:col-span-2 md:px-10 md:py-12 lg:col-span-1">
-        <h2 class="mb-8 text-2xl font-black text-cyan-400">Contact me</h2>
+        <h2 class="mb-8 text-2xl font-black text-cyan-400">Kontak saya</h2>
         <ul>
           <li class="mb-6 flex items-start text-left">
             <svg class="shrink-0 mr-6 text-2xl text-gray-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -52,7 +52,7 @@
       </div>
       <div
         class="order-first col-span-4 max-w-screen-md px-8 py-10 md:order-last md:col-span-2 md:px-10 md:py-12 bg-blue-900">
-        <h2 class="mb-8 text-2xl font-black">Get in touch</h2>
+        <h2 class="mb-8 text-2xl font-black">Hubungi saya</h2>
         <p class="mt-2 mb-4 text-sm tracking-normal text-gray-200">Jangan malu untuk bertanya kepada saya.</p>
         <form @submit.prevent="showAlert">
           <div class="md:col-gap-4 mb-5 grid md:grid-cols-2">
@@ -61,14 +61,14 @@
               type="email" placeholder="Email" name="email" />
             <input
               class="col-span-2 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-cyan-400 bg-blue-800 text-gray-200 placeholder:text-cyan-400 border-none rounded-lg"
-              type="text" placeholder="Name" name="name" />
+              type="text" placeholder="Nama" name="name" />
           </div>
           <textarea
             class="mb-10 w-full resize-y whitespace-pre-wrap border-b py-3 text-sm outline-none focus:border-b-2 focus:border-cyan-400 bg-blue-800 text-gray-200 placeholder:text-cyan-400 border-none rounded-lg"
-            id="" rows="6" placeholder="Question" name="question"></textarea>
+            id="" rows="6" placeholder="Pertanyaan" name="question"></textarea>
           <button type="submit"
             class="group flex cursor-pointer items-center rounded-xl bg-blue-800 hover:border border-cyan-400 bg-none px-8 py-4 text-center font-semibold leading-tight text-white">
-            Send
+            Kirim
             <svg class="group-hover:ml-8 ml-4 transition-all" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
               role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
               <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

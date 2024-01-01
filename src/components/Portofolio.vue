@@ -1,9 +1,11 @@
 <template>
   <section id="porto" class="py-20">
-    <h1 class="mb-12 text-center font-sans text-5xl font-bold text-cyan-400">My Project</h1>
-    <span class="flex justify-center items-center font-medium text-gray-200 pb-8">that have already been released</span>
+    <h1 class="mb-12 text-center font-sans text-5xl font-bold text-cyan-400">Proyek Saya</h1>
+    <span class="flex justify-center items-center font-medium text-gray-200 pb-8">Berikut yang telah dirilis </span>
     <div class="mx-auto grid max-w-screen-lg grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
-      <article v-for="(item, index) in getProject" :key="item.id" :id="item.id" :class="{ 'animate-fade-in': isVisible(index) }" class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-200 hover:translate-y-2">
+      <article v-for="(item, index) in getProject" :key="item.id" :id="item.id"
+        :class="{ 'animate-fade-in': isVisible(index), 'animate-slide-up': isVisible(index) }"
+        class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-200 hover:translate-y-2">
         <a :href="item.link" class="block h-full w-full">
           <img class="max-h-30 w-full object-cover rounded-lg" alt="featured image" :src="item.img" />
           <div class="w-full p-4">
@@ -49,12 +51,18 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 /* Animasi fade-in menggunakan CSS */
 .animate-fade-in {
   opacity: 0;
   animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* Animasi slide-up menggunakan CSS */
+.animate-slide-up {
+  opacity: 0; /* Atur opasitas awal menjadi 0 */
+  transform: translateY(30px);
+  animation: slideUp 1s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
@@ -63,6 +71,17 @@ export default {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0; /* Mulai dengan opasitas 0 */
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1; /* Akhiri dengan opasitas 1 */
+    transform: translateY(0);
   }
 }
 </style>

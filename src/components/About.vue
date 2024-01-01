@@ -1,30 +1,33 @@
 <template>
-  <section id="about" class="py-28 my-20">
+  <section id="about" class="py-8 sm:py-20 my-10 container mx-auto ml-5">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mx-auto items-center max-w-6xl">
-      <div :class="{ 'fade-in': showRightContent, 'fade-out': !showRightContent }"
-        class="px-4 md:mr-6 transform translate-x-0 transition duration-800 ease-in-out">
-        <h3 class="text-4xl text-cyan-400 pr-6 sm:leading-snug tracking-tight font-bold text-bold">
-          It's about me
+      <div
+        class="animate-left-content sm:animate-none"
+      >
+        <h3 class="text-4xl text-cyan-400 pr-6 sm:pr-0 sm:leading-snug tracking-tight font-bold text-bold">
+          Tentang saya
         </h3>
         <p class="mt-4 text-white">
           {{ getTextAbout.text }}
         </p>
       </div>
-      <div :class="{ 'fade-in': showLeftContent, 'fade-out': !showLeftContent }"
-        class="transform translate-x-0 transition duration-800 ease-in-out">
+      <div
+        class="animate-right-content sm:animate-none"
+      >
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div v-for="one in getAbout" :key="one.id">
             <img :src="one.img"
-              class="w-10/12 ml-10 sm:w-full md:w-full lg:w-full xl:w-full h-auto object-cover object-center rounded-xl hover:scale-125 hover:shadow-lg hover:shadow-cyan-400 transition-all">
+              class="w-10/12 ml-5 sm:ml-10 sm:w-full md:w-full lg:w-full xl:w-full h-auto object-cover object-center rounded-xl sm:hover:scale-125 sm:hover:shadow-lg sm:hover:shadow-cyan-400 transition-all">
           </div>
         </div>
       </div>
     </div>
     <!-- timeline pendidikan -->
-    <div :class="{ 'timeline-enter-active': timelineVisible, 'timeline-leave-to': !timelineVisible }"
-      class="container mx-auto pt-12">
-      <h3 class="text-3xl font-bold mb-6 pl-20 text-cyan-400">Education Timeline</h3>
-      <ol class="items-center ml-20 sm:flex">
+    <div
+      class="animate-timeline sm:animate-none"
+    >
+      <h3 class="text-3xl font-bold mb-6 pl-5 sm:pl-16 mt-8 text-cyan-400">Riwayat Pendidikan</h3>
+      <ol class="items-center ml-5 sm:ml-16 sm:flex mt-8">
         <li v-for="(item, index) in timelineItems" :key="index" class="relative mb-6 sm:mb-0">
           <div class="flex items-center">
             <div
@@ -51,25 +54,22 @@
 </template>
 
 <style scoped>
-.fade-in {
-  opacity: 1;
-}
-
-.fade-out {
+/* Animasi fade-in dan fade-out menggunakan CSS */
+.animate-left-content {
   opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 1s, transform 1s;
 }
 
-.timeline-enter-active,
-.timeline-leave-active {
+.animate-right-content {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 1s, transform 1s;
+}
+
+.animate-timeline {
+  opacity: 0;
   transition: opacity 1s;
-}
-
-.timeline-enter,
-.timeline-leave-to
-
-/* .timeline-leave-active for <2.1.8 */
-  {
-  opacity: 0;
 }
 </style>
 
@@ -79,8 +79,6 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      showLeftContent: false,
-      showRightContent: false,
       timelineItems: [
         {
           title: 'TK Salsabila',
@@ -106,29 +104,41 @@ export default {
           description: 'saya masih sekolah disini posisi di kelas 12 jurusan Rekaya Perangkat Lunak(RPL).',
           visible: false,
         },
-
       ],
-      timelineVisible: false,
     };
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-    this.handleScroll(); // Panggil handleScroll pada mounted untuk menentukan tampilan awal
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
+    this.setupIntersectionObserver('.animate-left-content');
+    this.setupIntersectionObserver('.animate-right-content');
+    this.setupIntersectionObserver('.animate-timeline');
   },
   computed: {
     ...mapGetters('property', ['getAbout', 'getTextAbout']),
-  },
+  }, 
   methods: {
-    handleScroll() {
-      const scrollPosition = window.scrollY;
-      this.showLeftContent = scrollPosition > 1390;
-      this.showRightContent = scrollPosition > 1300;
+    setupIntersectionObserver(targetClass) {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      };
 
-      // Tambahkan logika untuk menentukan kapan item-item timeline muncul
-      this.timelineVisible = scrollPosition > 1400;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          } else {
+            entry.target.style.opacity = 0;
+            entry.target.style.transform = 'translateY(50%)';
+          }
+        });
+      }, options);
+
+      const targets = document.querySelectorAll(targetClass);
+      targets.forEach((target) => {
+        observer.observe(target);
+      });
     },
   },
 };
