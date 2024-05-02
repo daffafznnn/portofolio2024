@@ -4,7 +4,7 @@ const property = {
     stats: [
       {
         projects: 4,
-        year: 2,
+        year: 3,
         achievement: 0,
       },
     ],
@@ -44,9 +44,6 @@ const property = {
         img: "https://i.ibb.co/3Bk2tBb/ab2.jpg",
       },
     ],
-    textAbout: {
-      text: "Nama lengkap saya Muhammad Daffa Fauzan, saya lahir pada tanggal 4 desember 2005 di bandung. Saya adalah anak pertama di keluarga saya, saya juga memiliki satu saudara laki-laki. ",
-    },
   },
   getters: {
     getProject: (state) => state.project,

@@ -1,0 +1,47 @@
+{
+  "navbar": {
+    "content":{
+    "portfolio": "Portofolio",
+    "about": "Tentang",
+    "contact": "Kontak"
+    },
+    "message": {
+    "confirmDownload": "Apakah Anda yakin ingin mengunduh CV?",
+    "cancel": "Batal",
+    "download": "Unduh CV",
+    "downloadFailed": "Terjadi kesalahan saat mengunduh CV"
+  }
+  },
+  "header":{
+    "welcome":{
+      "title": "Selamat datang di",
+      "subtitle": "DaffaFznnn",
+      "content": "Nama saya Daffa. Saya tinggal di Bandung, dan saya adalah seorang siswa jurusan Rekayasa Perangkat Lunak berusia 18 tahun di Sekolah Menengah Kejuruan Assalaam. JavaScriptadalah bahasa pemrograman favorit saya.",
+      "button": "Kerjakan saya"
+    },
+    "stats":{
+      "project": "Proyek",
+      "year-experience": "Pengalaman Tahun",
+      "year": "tahun",
+      "achievement": "Pencapaian"
+    }
+  },
+  "porto":{
+    "head":{
+      "title": "Proyek Saya",
+      "subtitle": "Proyek Saya"
+    },
+    "content":{
+
+    }
+  },
+  "about":{
+    "content1":{
+      "title": "Tentang saya",
+      "text": "Nama lengkap saya Muhammad Daffa Fauzan, saya lahir pada tanggal 4 desember 2005 di bandung. Saya adalah anak pertama di keluarga saya, saya juga memiliki satu saudara laki-laki."
+    },
+      "content2":{
+      "title": "Riwayat pendidikan"
+    }
+  }
+}

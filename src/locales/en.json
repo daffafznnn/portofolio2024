@@ -1,0 +1,47 @@
+{
+  "navbar": {
+    "content":{
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+    },
+  "message": {
+      "confirmDownload": "Are you sure you want to download the CV?",
+      "cancel": "Cancel",
+      "download": "Download CV",
+      "downloadFailed": "An error occurred while downloading the CV"
+    }
+  },
+  "header":{
+    "welcome":{
+      "title": "Welcome to",
+      "subtitle": "DaffaFznnn",
+      "content": "My name is Daffa. I live in Bandung, and I am an 18-year-old Software Engineering student at Assalaam Vocational High School. JavaScript is my favorite programming language.",
+      "button": "Work on me"
+    },
+    "stats":{
+      "project": "Projects",
+      "year-experience": "Year experience",
+      "year": "year",
+      "achievement": "Achievement"
+    }
+  },
+  "porto":{
+    "head":{
+      "title": "My Projects",
+      "subtitle": "The following have been released"
+    },
+    "content":{
+      
+    }
+  },
+  "about":{
+    "content1":{
+      "title": "About me",
+      "text": "My full name is Muhammad Daffa Fauzan, I was born on December 4, 2005 in Bandung. I am the first child in my family, I also have one brother."
+    },
+    "content2":{
+      "title": "Education history"
+    }
+  }
+}

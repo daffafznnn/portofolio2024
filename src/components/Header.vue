@@ -5,17 +5,15 @@
       <div class="mb-16 lg:mb-0 lg:max-w-lg">
         <div class="mb-6 max-w-xl">
           <h2 class="mb-6 max-w-lg text-3xl font-bold tracking-tight text-cyan-400 sm:text-5xl sm:leading-snug">
-           Selamat datang di<br/>
-            <span class="inline-block font-bold text-cyan-500"> DaffaFznnn</span>
+           {{ $t('header.welcome.title')}}<br/>
+            <span class="inline-block font-bold text-cyan-500">{{ $t('header.welcome.subtitle')}}</span>
           </h2>
-          <p class="text-base text-white md:text-lg">Nama saya Daffa. Saya tinggal di Bandung, dan saya adalah seorang
-            siswa jurusan Rekayasa Perangkat Lunak berusia 18 tahun di Sekolah Menengah Kejuruan Assalaam. JavaScript
-            adalah bahasa pemrograman favorit saya.</p>
+          <p class="text-base text-white md:text-lg">{{ $t('header.welcome.content')}}</p>
         </div>
         <div class="flex items-center">
           <button @click="showAlert"
             class="bg-sky-400a mr-6 inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition duration-200 hover:scale-110 hover:bg-sky-500 focus:ring">
-            Kerjakan saya
+            {{ $t('header.welcome.button')}}
           </button>
           <!-- <a href="/" aria-label=""
             class="inline-flex items-center font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-400">lebih banyak</a> -->
@@ -27,7 +25,7 @@
     <div class="flex h-full w-full space-x-3 overflow-hidden px-2 md:justify-end">
       <!-- Col 2 -->
       <div class="my-auto hidden w-72 flex-col space-y-2 md:mt-30 lg:flex">
-        <img src="../assets/daffa-formal-white.png" alt=""  class="pt-24 mt-5 w-56 h-96 rounded-xl"/>
+        <img src="../assets/daffa-formal-removebg-preview.png" alt=""  class="pt-24 mt-5 w-56 h-96 "/>
       </div>
       <div class="my-auto w-80 flex-col space-y-3 md:mt-36 lg:flex bg-blue-900 shadow-lg rounded-xl px-4 py-4">
         <div class="flex py-2 px-2 text-cyan-400">
@@ -42,7 +40,7 @@
           <div class="">
             <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}+</span>
             <span class="text-2xl font-bold" v-else>{{ stats.initialNumberA }}+</span>
-            <p class="text-sm">Projects</p>
+            <p class="text-sm">{{ $t('header.stats.project')}}</p>
           </div>
         </div>
         <div class="flex py-2 px-2 text-cyan-400">
@@ -55,8 +53,8 @@
           </div>
           <div class="">
             <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}</span>
-            <span class="text-2xl font-bold" v-else>{{ stats.initialNumberB }}</span>
-            <p class="text-sm">Year Experience</p>
+            <span class="text-2xl font-bold" v-else>{{ stats.initialNumberB }} <span class="text-sm">{{ $t('header.stats.year')}}</span></span>
+            <p class="text-sm">{{ $t('header.stats.year-experience')}}</p>
           </div>
         </div>
         <div class="flex py-2 px-2 text-cyan-400">
@@ -70,7 +68,7 @@
           <div class="">
             <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}</span>
             <span class="text-2xl font-bold" v-else>{{ stats.initialNumberC }}</span>
-            <p class="text-sm">achievement</p>
+            <p class="text-sm">{{ $t('header.stats.achievement')}}</p>
           </div>
         </div>
       </div>
