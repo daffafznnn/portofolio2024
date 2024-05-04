@@ -43,5 +43,27 @@
       "content2":{
       "title": "Riwayat pendidikan"
     }
+  },
+  "contact":{
+    "head": {
+      "title": "Kontak",
+      "subtitle": "Hubungi saya melalui kontak dibawah ini."
+    },
+    "content":{
+      "title1": "Kontak saya",
+      "title2": "Hubungi saya sekarang!",
+      "subtitle": "Silahkan untuk bertanya pada saya atau saran & kritik"
+    },
+    "form":{
+      "email":"Email",
+      "name":"Nama",
+      "question":"Pertanyaan",
+      "button": "Kirim"
+    }
+  },
+  "footer":{
+    "text1":"Github",
+    "text2":"Donasi",
+    "copyright":"© 2024 DaffaFznnn I Semua Hak Cipta Dilindungi oleh Undang-Undang"
   }
 }

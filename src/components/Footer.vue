@@ -4,9 +4,9 @@
       <img class="h-full object-contain" src="../assets/logo_polos_daffa_new-removebg-preview.png" alt="" />
     </div>
     <nav aria-label="Footer Navigation" class="mx-auto mb-10 pl-44 flex flex-col gap-5 sm:flex-row sm:max-w-lg">
-      <a href="https://github.com/muhammaddaffafauzan" class="font-medium text-white">Github</a>
-      <a href="https://sociabuzz.com/daffafznnn_/tribe" class="font-medium text-white">Donasi</a>
+      <a href="https://github.com/muhammaddaffafauzan" class="font-medium text-white">{{ $t('footer.text1') }}</a>
+      <a href="https://sociabuzz.com/daffafznnn_/tribe" class="font-medium text-white">{{ $t('footer.text2') }}</a>
     </nav>
-    <p class="py-5 mx-auto text-center sm:text-center text-gray-300">© 2024 DaffaFznnn | Semua Hak Cipta Dilindungi oleh Undang-Undang</p>
+    <p class="py-5 mx-auto text-center sm:text-center text-gray-300">{{ $t('footer.copyright') }}</p>
   </footer>
 </template>

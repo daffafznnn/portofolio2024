@@ -43,5 +43,27 @@
     "content2":{
       "title": "Education history"
     }
+  },
+   "contact":{
+    "head": {
+      "title": "Kontak",
+      "subtitle": "Hubungi saya melalui kontak dibawah ini."
+    },
+    "content":{
+      "title1": "Contact me",
+      "title2": "Contact me now!",
+      "subtitle": "Please feel free to ask me any questions or suggestions & criticisms"
+    },
+    "form":{
+      "email":"Email",
+      "name":"Name",
+      "question":"Questions",
+      "button": "Submit"
+    }
+  },
+    "footer":{
+    "text1":"Github",
+    "text2":"Donate",
+    "copyright":"© 2024 DaffaFznnn I All Rights Reserved"
   }
 }

@@ -6,7 +6,7 @@
       <article v-for="(item, index) in getProject" :key="item.id" :id="item.id"
         :class="{'animate-slide-up': isVisible(index) }"
         class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-200 hover:translate-y-2">
-        <a :href="item.link" class="block h-full w-full">
+        <a :href="item.link" target="_blank" class="block h-full w-full">
           <img class="max-h-30 w-full object-cover rounded-lg" alt="featured image" :src="item.img" />
           <div class="w-full p-4">
             <p class="text-md font-medium text-cyan-500">{{ item.title }}</p>

@@ -14,12 +14,17 @@
       <div
         class="animate-right-content sm:animate-none"
       >
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div v-for="one in getAbout" :key="one.id">
-            <img :src="one.img"
-              class="w-10/12 ml-5 sm:ml-10 sm:w-full md:w-full lg:w-full xl:w-full h-auto object-cover object-center rounded-xl sm:hover:scale-125 sm:hover:shadow-lg sm:hover:shadow-cyan-400 transition-all">
-          </div>
-        </div>
+        <div 
+         class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+       <div v-for="one in getAbout" :key="one.id">
+         <el-image
+          :src="one.img"
+          class="w-full h-auto object-cover object-center rounded-xl sm:hover:scale-125 sm:hover:shadow-lg sm:hover:shadow-cyan-400 transition-all z-20"
+          fit="cover"
+        >
+        </el-image>
+      </div>
+      </div>
       </div>
     </div>
     <!-- timeline pendidikan -->
