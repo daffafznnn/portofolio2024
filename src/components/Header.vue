@@ -1,14 +1,14 @@
 <template>
-  <div id="" class="mx-auto p-12 flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
+  <div class="mx-auto flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
     <!-- Left Column -->
-    <div class="mx-auto mt-10 w-full max-w-xl md:mt-36 lg:max-w-screen-xl">
+    <div class="mx-auto mt-16 w-full max-w-xl md:mt-36 lg:max-w-screen-xl">
       <div class="mb-16 lg:mb-0 lg:max-w-lg">
         <div class="mb-6 max-w-xl">
           <h2 class="mb-6 max-w-lg text-3xl font-bold tracking-tight text-cyan-400 sm:text-5xl sm:leading-snug">
            {{ $t('header.welcome.title')}}<br/>
             <span class="inline-block font-bold text-cyan-500">{{ $t('header.welcome.subtitle')}}</span>
           </h2>
-          <p class="text-base text-white md:text-lg">{{ $t('header.welcome.content')}}</p>
+        <p class="text-base text-white md:text-lg">{{ $t('header.welcome.content', { age: age }) }}</p>
         </div>
         <div class="flex items-center">
           <button @click="showAlert"
@@ -75,8 +75,7 @@
     </div>
     <!-- /Right Column -->
   </div>
-
-  <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 290" version="1.1"
+    <svg class="md:block hidden" id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 290" version="1.1"
     xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
@@ -91,7 +90,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex';
-import Swal from 'sweetalert2';
+import { ElNotification } from 'element-plus';
 
 export default {
   data() {
@@ -102,17 +101,21 @@ export default {
         initialNumberC: null,
         randomNumber: 0,
         showRandomNumber: false,
-      }
+      },
+       age: null
     };
   },
   computed: {
     ...mapGetters('property', ['getStats'])
   },
-  created() {
-    // Setelah komponen dibuat, mulai animasi angka acak
-    this.startRandomAnimation();
-  },
   methods: {
+     calculateAge() {
+      const birthDate = new Date('2005-12-04');
+      const currentDate = new Date();
+      const ageDiffMs = currentDate - birthDate;
+      const ageDate = new Date(ageDiffMs);
+      this.age = Math.abs(ageDate.getUTCFullYear() - 1970);
+    },
     startRandomAnimation() {
       this.showRandomNumber = true;
       const finalNumber = this.stats.initialNumberA + this.stats.initialNumberB + this.stats.initialNumberC;
@@ -130,20 +133,12 @@ export default {
         this.showRandomNumber = false;
       }, duration);
     },
-    showAlert() {
-      // Use sweetalert2
-      Swal.fire({
-        title: "Mohon berikan saya pekerjaan😄",
-        width: 600,
-        padding: "3em",
-        color: "#716add",
-        background: "#fff url()",
-        backdrop: `
-    rgba(0,0,123,0.4)
-    url("/images/nyan-cat.gif")
-    left top
-    no-repeat
-  `
+   showAlert() {
+      // Menggunakan ElNotification untuk menampilkan notifikasi dengan status informasi
+      ElNotification({
+        title: this.$t('notification.title'), // Sesuaikan dengan key yang sesuai di file locale Anda
+        message: this.$t('notification.message'), // Sesuaikan dengan key yang sesuai di file locale Anda
+        type: 'info'
       });
     },
   },
@@ -151,6 +146,12 @@ export default {
     this.stats.initialNumberA = this.getStats[0].projects;
     this.stats.initialNumberB = this.getStats[0].year;
     this.stats.initialNumberC = this.getStats[0].achievement;
-  }
+  },
+  created() {
+    // Hitung usia saat komponen dibuat
+    this.calculateAge();
+     // Setelah komponen dibuat, mulai animasi angka acak
+    this.startRandomAnimation();
+  },
 };
 </script>

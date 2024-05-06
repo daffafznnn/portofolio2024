@@ -16,7 +16,7 @@
     "welcome":{
       "title": "Selamat datang di",
       "subtitle": "DaffaFznnn",
-      "content": "Nama saya Daffa. Saya tinggal di Bandung, dan saya adalah seorang siswa jurusan Rekayasa Perangkat Lunak berusia 18 tahun di Sekolah Menengah Kejuruan Assalaam. JavaScriptadalah bahasa pemrograman favorit saya.",
+      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya ingin menjadi seorang backend-developer. Fokus saya adalah memahami Node.js dan Golang untuk pengembangan backend. Meskipun saya mahir dalam JavaScript, saya siap untuk memperluas pengetahuan saya dalam kedua bahasa tersebut.",
       "button": "Kerjakan saya"
     },
     "stats":{
@@ -39,9 +39,24 @@
     "content1":{
       "title": "Tentang saya",
       "text": "Nama lengkap saya Muhammad Daffa Fauzan, saya lahir pada tanggal 4 desember 2005 di bandung. Saya adalah anak pertama di keluarga saya, saya juga memiliki satu saudara laki-laki."
-    },
-      "content2":{
-      "title": "Riwayat pendidikan"
+    }, 
+    "timeline": {
+      "title": "Riwayat Pendidikan",
+      "items": [
+        {
+          "title": "SDN Jatimekar",
+          "date": "Bandung, 4 Juni 2018"
+        },
+        {
+          "title": "SMPN 3 Baleendah",
+          "date": "Bandung, 21 Juli 2021"
+        },
+        {
+          "title": "SMK Assalaam Bandung",
+          "date": "Bandung, 6 Mei 2024",
+          "major": "(Rekayasa Perangkat Lunak)"
+        }
+      ]
     }
   },
   "contact":{
@@ -57,7 +72,7 @@
     "form":{
       "email":"Email",
       "name":"Nama",
-      "question":"Pertanyaan",
+      "question":"Pertanyaan/saran & kritik/dll",
       "button": "Kirim"
     }
   },
@@ -65,5 +80,9 @@
     "text1":"Github",
     "text2":"Donasi",
     "copyright":"© 2024 DaffaFznnn I Semua Hak Cipta Dilindungi oleh Undang-Undang"
+  },
+   "notification": {
+    "title": "Pemberitahuan",
+    "message": "Ups! sabar ya fitur ini lagi saya kembangkan hehe😁"
   }
 }

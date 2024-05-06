@@ -81,15 +81,16 @@
   </div>
 </template>
 <script>
-import Swal from 'sweetalert2';
+import { ElNotification } from 'element-plus';
 
 export default {
   methods: {
     showAlert() {
-      Swal.fire({
-        icon: 'info',
-        title: 'Fitur Segera Hadir!',
-        text: 'Mohon maaf, fitur ini sedang dalam pengembangan dan akan segera hadir.',
+     // Menggunakan ElNotification untuk menampilkan notifikasi dengan status informasi
+      ElNotification({
+        title: this.$t('notification.title'), // Sesuaikan dengan key yang sesuai di file locale Anda
+        message: this.$t('notification.message'), // Sesuaikan dengan key yang sesuai di file locale Anda
+        type: 'info'
       });
     },
   },

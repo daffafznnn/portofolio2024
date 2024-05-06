@@ -16,7 +16,7 @@
     "welcome":{
       "title": "Welcome to",
       "subtitle": "DaffaFznnn",
-      "content": "My name is Daffa. I live in Bandung, and I am an 18-year-old Software Engineering student at Assalaam Vocational High School. JavaScript is my favorite programming language.",
+      "content": "My name is Daffa, {age} years old, living in Bandung. I want to be a backend-developer. My focus is to understand Node.js and Golang for backend development. Although I am proficient in JavaScript, I am ready to expand my knowledge in both languages.",
       "button": "Work on me"
     },
     "stats":{
@@ -40,14 +40,29 @@
       "title": "About me",
       "text": "My full name is Muhammad Daffa Fauzan, I was born on December 4, 2005 in Bandung. I am the first child in my family, I also have one brother."
     },
-    "content2":{
-      "title": "Education history"
+    "timeline": {
+      "title": "Education Timeline",
+      "items": [
+        {
+          "title": "Jatimekar Elementary School",
+          "date": "Bandung, June 4, 2018"
+        },
+        {
+          "title": "Baleendah 3 Junior High School",
+          "date": "Bandung, July 21, 2021"
+        },
+        {
+          "title": "Assalaam Bandung Vocational High School",
+          "date": "Bandung, May 6, 2024",
+           "major": "(Software Engineering)"
+        }
+      ]
     }
   },
    "contact":{
     "head": {
-      "title": "Kontak",
-      "subtitle": "Hubungi saya melalui kontak dibawah ini."
+      "title": "Contact",
+      "subtitle": "Contact me through the contact below."
     },
     "content":{
       "title1": "Contact me",
@@ -57,7 +72,7 @@
     "form":{
       "email":"Email",
       "name":"Name",
-      "question":"Questions",
+      "question":"Questions/suggestions & criticisms/etc.",
       "button": "Submit"
     }
   },
@@ -65,5 +80,9 @@
     "text1":"Github",
     "text2":"Donate",
     "copyright":"© 2024 DaffaFznnn I All Rights Reserved"
+  },
+   "notification": {
+    "title": "Notification",
+    "message": "Oops! I'm developing this feature again hehe😁"
   }
 }
