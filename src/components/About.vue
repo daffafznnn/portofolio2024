@@ -110,7 +110,7 @@ export default {
   }, 
   methods: {
     isHighSchool() {
-      this.$t.about.timeline.items === [2]
+      return JSON.stringify(this.$t.about.timeline.items) === JSON.stringify([2]);
     },
     setupIntersectionObserver(targetClass) {
       const options = {

@@ -14,9 +14,9 @@
   },
   "header":{
     "welcome":{
-      "title": "Welcome to",
-      "subtitle": "DaffaFznnn",
-      "content": "My name is Daffa, {age} years old, living in Bandung. I want to be a backend-developer. My focus is to understand Node.js and Golang for backend development. Although I am proficient in JavaScript, I am ready to expand my knowledge in both languages.",
+      "title": "Hi I am daffa",
+      "subtitle": "Web Developer",
+      "content": "My name is Daffa, {age} years old, living in Bandung. I want to become a Web Developer. My focus is to understand Node.js for backend development. Although I am proficient in JavaScript, I am ready to expand my knowledge in the language.",
       "button": "Work on me"
     },
     "stats":{

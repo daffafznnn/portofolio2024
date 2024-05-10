@@ -30,10 +30,14 @@ export default {
   data() {
     return {
       scrollPosition: 0,
+      isFirstLoad: true, // Tambahkan properti isFirstLoad
     };
   },
-    methods: {
+  methods: {
     isVisible(index) {
+      if (this.isFirstLoad) { // Jika ini adalah pengisian pertama, kembalikan nilai true
+        return true;
+      }
       // Tampilkan elemen dengan animasi setelah satu per satu
       return this.scrollPosition > index * 200;
     },
@@ -45,9 +49,18 @@ export default {
   mounted() {
     // Tambahkan event listener untuk memantau scroll
     window.addEventListener('scroll', this.handleScroll);
+
+    // Cek apakah halaman sudah dimuat sebelumnya
+    const isLoaded = localStorage.getItem('isLoaded');
+    if (isLoaded) {
+      this.isFirstLoad = false;
+    } else {
+      localStorage.setItem('isLoaded', 'true');
+    }
   },
 };
 </script>
+
 <style scoped>
 /* Animasi slide-up menggunakan CSS */
 .animate-slide-up {

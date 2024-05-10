@@ -14,9 +14,9 @@
   },
   "header":{
     "welcome":{
-      "title": "Selamat datang di",
-      "subtitle": "DaffaFznnn",
-      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya ingin menjadi seorang backend-developer. Fokus saya adalah memahami Node.js dan Golang untuk pengembangan backend. Meskipun saya mahir dalam JavaScript, saya siap untuk memperluas pengetahuan saya dalam kedua bahasa tersebut.",
+      "title": "Hi saya daffa",
+      "subtitle": "Web Developer",
+      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya ingin menjadi seorang Web Developer. Fokus saya adalah memahami Node.js untuk pengembangan backend. Meskipun saya mahir dalam JavaScript, saya siap untuk memperluas pengetahuan saya dalam bahasa tersebut.",
       "button": "Kerjakan saya"
     },
     "stats":{

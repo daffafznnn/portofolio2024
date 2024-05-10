@@ -1,28 +1,29 @@
 <template>
-  <div class="mx-auto flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
-    <!-- Left Column -->
-    <div class="mx-auto mt-16 w-full max-w-xl md:mt-36 lg:max-w-screen-xl">
-      <div class="mb-16 lg:mb-0 lg:max-w-lg">
-        <div class="mb-6 max-w-xl">
-          <h2 class="mb-6 max-w-lg text-3xl font-bold tracking-tight text-cyan-400 sm:text-5xl sm:leading-snug">
-           {{ $t('header.welcome.title')}}<br/>
-            <span class="inline-block font-bold text-cyan-500">{{ $t('header.welcome.subtitle')}}</span>
-          </h2>
+<div class="mx-auto flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
+  <!-- Left Column -->
+  <div class="mx-auto mt-16 w-full max-w-xl md:mt-36 lg:max-w-screen-xl lg:w-1/2 lg:mr-12">
+    <div class="mb-16 lg:mb-0 lg:max-w-lg">
+      <div class="mb-6 max-w-xl">
+        <h2 class="mb-6 max-w-lg text-3xl font-bold tracking-tight text-cyan-400 sm:text-5xl sm:leading-snug">
+          {{ $t('header.welcome.title')}}<br/>
+          <span class="inline-block font-bold text-cyan-500">{{ $t('header.welcome.subtitle')}}</span>
+        </h2>
         <p class="text-base text-white md:text-lg">{{ $t('header.welcome.content', { age: age }) }}</p>
-        </div>
-        <div class="flex items-center">
-          <button @click="showAlert"
-            class="bg-sky-400a mr-6 inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition duration-200 hover:scale-110 hover:bg-sky-500 focus:ring">
-            {{ $t('header.welcome.button')}}
-          </button>
-          <!-- <a href="/" aria-label=""
-            class="inline-flex items-center font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-400">lebih banyak</a> -->
-        </div>
+      </div>
+      <div class="flex items-center">
+        <button @click="showAlert"
+          class="bg-sky-400a mr-6 inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition duration-200 hover:scale-110 hover:bg-sky-500 focus:ring">
+          {{ $t('header.welcome.button')}}
+        </button>
+        <!-- <a href="/" aria-label=""
+          class="inline-flex items-center font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-400">lebih banyak</a> -->
       </div>
     </div>
-    <!-- /Left Column -->
-    <!-- Right Column -->
-    <div class="flex h-full w-full space-x-3 overflow-hidden px-2 md:justify-end">
+  </div>
+  <!-- /Left Column -->
+  <!-- Right Column -->
+  <div class="flex flex-col justify-center w-full max-w-xl md:max-w-none md:w-1/2">
+    <div class="flex justify-center md:justify-end">
       <!-- Col 2 -->
       <div class="my-auto hidden w-72 flex-col space-y-2 md:mt-30 lg:flex">
         <img src="../assets/daffa-formal-removebg-preview.png" alt=""  class="pt-24 mt-5 w-56 h-96 "/>
@@ -33,7 +34,7 @@
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
               viewBox="0 0 20 20">
               <path
-                d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z" />
+                d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z" />
               <path d="M6 5H5v1h1V5Z" />
             </svg>
           </div>
@@ -73,8 +74,10 @@
         </div>
       </div>
     </div>
-    <!-- /Right Column -->
   </div>
+  <!-- /Right Column -->
+</div>
+
     <svg class="md:block hidden" id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 290" version="1.1"
     xmlns="http://www.w3.org/2000/svg">
     <defs>
