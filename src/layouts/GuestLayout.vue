@@ -7,6 +7,7 @@
   <Stack></Stack>
   <Contact></Contact>
   <Footer></Footer>
+  <Cookie></Cookie>
   </div>
 </template>
 <script>
@@ -17,6 +18,8 @@ import About from '../components/About.vue';
 import Portofolio from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Stack from "../components/Stack.vue";
+import Cookie from "../components/Cookie.vue";
+
 
 export default{
  name: "GuestLayout",
@@ -27,7 +30,8 @@ export default{
     About,
     Portofolio,
     Contact,
-    Stack
+    Stack,
+    Cookie
  }
 };
 </script>

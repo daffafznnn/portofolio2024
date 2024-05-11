@@ -68,7 +68,7 @@
             <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{{ $t('about.timeline.items.1.date') }}</time>
           </div>
         </li>
-        <li class="relative mb-6 sm:mb-0">
+        <li class="relative mb-6 sm:-mb-6">
           <div class="flex items-center">
             <div
               class="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">

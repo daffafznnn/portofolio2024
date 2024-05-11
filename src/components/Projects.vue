@@ -59,14 +59,6 @@ export default {
     },
   },
   methods: {
-    isVisible(index) {
-      // Tampilkan elemen dengan animasi setelah satu per satu
-      return this.scrollPosition > index * 300;
-    },
-    handleScroll() {
-      // Update posisi scroll
-      this.scrollPosition = window.scrollY;
-    },
     prevPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -85,31 +77,11 @@ export default {
     },
   },
   mounted() {
-    // Tambahkan event listener untuk memantau scroll
-    window.addEventListener('scroll', this.handleScroll);
 
     // Hapus kelas animasi setelah elemen dimuat pertama kali
     setTimeout(() => {
       this.isFirstLoad = false;
-    }, 1000); // Waktu penundaan dalam milidetik, disesuaikan dengan durasi animasi
+    }, 2000); // Waktu penundaan dalam milidetik, disesuaikan dengan durasi animasi
   },
 };
 </script>
-
-<style scoped>
-/* Animasi slide-up menggunakan CSS */
-.animate-slide-up {
-  opacity: 0;
-  transform: translateY(30px); /* Posisi awal transisi */
-}
-
-.animate-slide-up.animate {
-  opacity: 1;
-  transform: translateY(0); /* Posisi akhir transisi */
-}
-
-/* Atur transisi berdasarkan properti yang diubah */
-.animate-slide-up {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-</style>

@@ -64,6 +64,7 @@
         <!-- Contact Form Section -->
         <div class="order-first md:order-last bg-blue-900 p-8 text-cyan-400 rounded-lg shadow-xl">
           <h2 class="mb-8 text-2xl font-black">{{ $t('contact.content.title2') }}</h2>
+          <p class="text-sm text-white">{{ $t('contact.content.subtitle') }}</p>
           <!-- Form -->
           <form @submit.prevent="showAlert">
             <div class="mb-5 grid md:grid-cols-2 md:col-gap-4">
