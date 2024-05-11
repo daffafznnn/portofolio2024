@@ -7,7 +7,7 @@
   <Stack></Stack>
   <Contact></Contact>
   <Footer></Footer>
-  <Cookie></Cookie>
+ <-- <Cookie></Cookie> -->
   </div>
 </template>
 <script>
