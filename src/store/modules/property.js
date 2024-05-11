@@ -24,15 +24,7 @@ const property = {
         link: "https://e-commerce-flame-theta.vercel.app/",
         name: "E-commerece",
         desc: "Ini Project E-commerce pertama saya, waktu saya masih Prakerin di sekolah dan sudah di presentasikan saat sidang pkl di sekolah",
-      },
-      {
-        id: 3,
-        img: "https://img.freepik.com/free-vector/coming-soon-text-grunge-background_91128-1643.jpg",
-        title: "coming soon",
-        link: "#",
-        name: "unreleased",
-        desc: "Project saya sudah lumayan banyak tapi sebagian belum saya rilis",
-      },
+      }
     ],
     about: [
       {

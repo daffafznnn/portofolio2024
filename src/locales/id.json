@@ -1,7 +1,8 @@
 {
   "navbar": {
     "content":{
-    "portfolio": "Portofolio",
+    "portfolio": "Proyek",
+    "tech": "Teknologi",
     "about": "Tentang",
     "contact": "Kontak"
     },
@@ -16,12 +17,12 @@
     "welcome":{
       "title": "Hi saya daffa",
       "subtitle": "Web Developer",
-      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya ingin menjadi seorang Web Developer. Fokus saya adalah memahami Node.js untuk pengembangan backend. Meskipun saya mahir dalam JavaScript, saya siap untuk memperluas pengetahuan saya dalam bahasa tersebut.",
+      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya seorang Web Developer, fokus saya adalah memahami Node.js untuk pengembangan backend. Meskipun saya mahir dalam JavaScript, saya siap untuk memperluas pengetahuan saya dalam bahasa tersebut.",
       "button": "Kerjakan saya"
     },
     "stats":{
       "project": "Proyek",
-      "year-experience": "Pengalaman Tahun",
+      "year-experience": "Pengalaman",
       "year": "tahun",
       "achievement": "Pencapaian"
     }
@@ -29,11 +30,19 @@
   "porto":{
     "head":{
       "title": "Proyek Saya",
-      "subtitle": "Proyek Saya"
+      "subtitle": "Berikut ini telah dirilis"
     },
     "content":{
 
+    },
+    "button":{
+      "prev": "Sebelumnya",
+      "next": "Selanjutnya"
     }
+  },
+  "tech":{
+    "title": "Tumpukan Teknologi",
+    "subtitle": "Berikut adalah teknologi yang saya gunakan untuk membangun proyek"
   },
   "about":{
     "content1":{

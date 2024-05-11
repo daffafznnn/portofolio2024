@@ -1,18 +1,22 @@
 <template>
- <Navbar></Navbar>
+  <div>
+  <Navbar></Navbar>
   <Header></Header>
-  <Portofolio></Portofolio>
   <About></About>
+  <Portofolio></Portofolio>
+  <Stack></Stack>
   <Contact></Contact>
   <Footer></Footer>
+  </div>
 </template>
 <script>
 import Navbar from "../components/Navbar.vue";
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 import About from '../components/About.vue';
-import Portofolio from "../components/Portofolio.vue";
+import Portofolio from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
+import Stack from "../components/Stack.vue";
 
 export default{
  name: "GuestLayout",
@@ -22,7 +26,8 @@ export default{
     Footer,
     About,
     Portofolio,
-    Contact
+    Contact,
+    Stack
  }
 };
 </script>

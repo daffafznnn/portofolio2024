@@ -1,7 +1,8 @@
 {
   "navbar": {
     "content":{
-    "portfolio": "Portfolio",
+    "portfolio": "Projects",
+    "tech": "Tech",
     "about": "About",
     "contact": "Contact"
     },
@@ -16,12 +17,12 @@
     "welcome":{
       "title": "Hi I am daffa",
       "subtitle": "Web Developer",
-      "content": "My name is Daffa, {age} years old, living in Bandung. I want to become a Web Developer. My focus is to understand Node.js for backend development. Although I am proficient in JavaScript, I am ready to expand my knowledge in the language.",
+      "content": "My name is Daffa, {age} years old, living in Bandung. I am a Web Developer, my focus is to understand Node.js for backend development. Although I am proficient in JavaScript, I am ready to expand my knowledge in the language.",
       "button": "Work on me"
     },
     "stats":{
       "project": "Projects",
-      "year-experience": "Year experience",
+      "year-experience": "experience",
       "year": "year",
       "achievement": "Achievement"
     }
@@ -33,7 +34,15 @@
     },
     "content":{
       
+    },
+    "button":{
+      "prev": "Previous",
+      "next": "Next"
     }
+  },
+  "tech":{
+    "title": "Tech Stack",
+    "subtitle": "Here are the technologies I used to build the project"
   },
   "about":{
     "content1":{

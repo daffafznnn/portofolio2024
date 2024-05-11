@@ -13,15 +13,16 @@
     </span>
   </a>
   <input type="checkbox" class="peer hidden" id="navbar-open" />
-  <label class="absolute top-5 right-5 cursor-pointer lg:hidden" for="navbar-open">
+  <label class="absolute top-5 right-8 cursor-pointer lg:hidden" for="navbar-open">
     <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
     </svg>
   </label>
   <nav aria-label="Header Navigation" class="peer-checked:pt-8 peer-checked:max-h-60 flex max-h-0 w-full flex-col items-center overflow-hidden transition-all lg:ml-auto lg:max-h-full lg:flex-row">
     <ul class="flex w-full flex-col items-center space-y-2 lg:flex-row lg:justify-end lg:space-y-0">
-      <li class="lg:mr-12"><a class="rounded text-cyan-400 transition-all hover:text-cyan-300" href="#porto">{{ $t('navbar.content.portfolio') }}</a></li>
       <li class="lg:mr-12"><a class="rounded text-cyan-400 transition-all hover:text-cyan-300" href="#about">{{ $t('navbar.content.about') }}</a></li>
+      <li class="lg:mr-12"><a class="rounded text-cyan-400 transition-all hover:text-cyan-300" href="#porto">{{ $t('navbar.content.portfolio') }}</a></li>
+            <li class="lg:mr-12"><a class="rounded text-cyan-400 transition-all hover:text-cyan-300" href="#tech">{{ $t('navbar.content.tech') }}</a></li>
       <li class="lg:mr-12"><a class="rounded text-cyan-400 transition-all hover:text-cyan-300" href="#contact">{{ $t('navbar.content.contact') }}</a></li>
     </ul>
     <hr class="mt-4 w-full lg:hidden" />
