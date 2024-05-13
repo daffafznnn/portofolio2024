@@ -6,11 +6,15 @@ import "./style.css";
 import axios from "axios";
 import i18n from "./i18n.js";
 import ElementPlus from "element-plus";
+import Cookies from "js-cookie";
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "https://server-daffafznnn.vercel.app";
+axios.defaults.baseURL = "https://daffafznnn-api.cleverapps.io/api/v1";
+
 
 const app = createApp(App);
+app.config.globalProperties.$cookies = Cookies;
+
 app.use(i18n);
 app.use(store);
 app.use(ElementPlus);

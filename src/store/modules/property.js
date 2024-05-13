@@ -24,16 +24,16 @@ const property = {
         link: "https://e-commerce-flame-theta.vercel.app/",
         name: "E-commerece",
         desc: "Ini Project E-commerce pertama saya, waktu saya masih Prakerin di sekolah dan sudah di presentasikan saat sidang pkl di sekolah",
-      }
+      },
     ],
     about: [
       {
         id: 1,
-        img: "https://i.ibb.co/B2H24zC/ab1.jpg",
+        img: "https://i.ibb.co/SwZw8Np/ab1.jpg",
       },
       {
         id: 2,
-        img: "https://i.ibb.co/3Bk2tBb/ab2.jpg",
+        img: "https://i.ibb.co/kJvYgFV/ab2.jpg",
       },
     ],
   },
