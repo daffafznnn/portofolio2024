@@ -1,5 +1,5 @@
 <template>
-   <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
+   <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6 outline outline-cyan-500">
             <div id="24h">
                 <h1 class="font-bold py-4 uppercase">Last 24h Statistics</h1>
                 <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -11,7 +11,7 @@
                                   </svg>
                             </div>
                             <div>
-                                <p class="text-indigo-300 text-sm font-medium uppercase leading-4">Users</p>
+                                <p class="text-indigo-300 text-sm font-medium uppercase leading-4">Guest</p>
                                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
                                     <span>+28</span>
                                     <span>

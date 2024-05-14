@@ -8,9 +8,8 @@ import i18n from "./i18n.js";
 import ElementPlus from "element-plus";
 import Cookies from "js-cookie";
 
-axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "https://daffafznnn-api.cleverapps.io/api/v1";
-
+// axios.defaults.baseURL = "http://localhost:5000/api/v1";
 
 const app = createApp(App);
 app.config.globalProperties.$cookies = Cookies;
