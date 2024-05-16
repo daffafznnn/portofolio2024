@@ -3,10 +3,10 @@ const property = {
   state: {
     stats: [
       {
-        projects: 4,
+        projectCount: 0, // Tambahkan properti projectCount di dalam stats
         year: 3,
         achievement: 0,
-      },
+      }
     ],
     project: [
       {
@@ -26,23 +26,17 @@ const property = {
         desc: "Ini Project E-commerce pertama saya, waktu saya masih Prakerin di sekolah dan sudah di presentasikan saat sidang pkl di sekolah",
       },
     ],
-    about: [
-      {
-        id: 1,
-        img: "https://i.ibb.co/SwZw8Np/ab1.jpg",
-      },
-      {
-        id: 2,
-        img: "https://i.ibb.co/kJvYgFV/ab2.jpg",
-      },
-    ],
   },
   getters: {
     getProject: (state) => state.project,
-    getAbout: (state) => state.about,
     getStats: (state) => state.stats,
-    getTextAbout: (state) => state.textAbout,
   },
+  actions: {
+    
+  },
+  mutations: {
+    
+  }
 };
 
 export default property;

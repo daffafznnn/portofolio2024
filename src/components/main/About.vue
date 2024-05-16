@@ -10,16 +10,32 @@
           {{ $t('about.content1.text') }}
         </p>
       </div>
-      <!-- Konten sebelah kanan -->
+     <!-- Konten sebelah kanan -->
       <div class="animate-right-content sm:animate-none">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Menampilkan gambar menggunakan Element Plus -->
-          <div v-for="one in getAbout" :key="one.id">
-            <el-image
-              :src="one.img"
-              class="w-full h-full rounded-xl"
-              fit="cover"
-            ></el-image>
+          <!-- Gambar 1 -->
+          <div class="relative">
+            <img
+              src="https://i.ibb.co/SwZw8Np/ab1.jpg"
+              class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
+              alt="Image 1"
+              @mouseover="hoverImage(1)"
+              @focus="hoverImage(1)"
+              @click="zoomImage(1)"
+            />
+            <div v-show="zoomed !== 1" class="hidden absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+          </div>
+          <!-- Gambar 2 -->
+          <div class="relative">
+            <img
+              src="https://i.ibb.co/kJvYgFV/ab2.jpg"
+              class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
+              alt="Image 2"
+              @mouseover="hoverImage(2)"
+              @focus="hoverImage(2)"
+              @click="zoomImage(2)"
+            />
+            <div v-show="zoomed !== 2" class="hidden absolute inset-0 bg-black bg-opacity-50 z-10"></div>
           </div>
         </div>
       </div>
@@ -96,6 +112,11 @@
 import { mapGetters } from 'vuex';
 
 export default {
+  data() {
+    return {
+       zoomed: null
+    }
+  },
   mounted() {
     this.setupIntersectionObserver('.animate-left-content');
     this.setupIntersectionObserver('.animate-right-content');
@@ -105,6 +126,16 @@ export default {
     ...mapGetters('property', ['getAbout', 'getTextAbout']),
   }, 
   methods: {
+   hoverImage(index) {
+      this.zoomed = index;
+    },
+    zoomImage(index) {
+      if (this.zoomed === index) {
+        this.zoomed = null;
+      } else {
+        this.zoomed = index;
+      }
+    },
     isHighSchool() {
       return JSON.stringify(this.$t.about.timeline.items) === JSON.stringify([2]);
     },

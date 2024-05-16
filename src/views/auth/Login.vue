@@ -3,7 +3,7 @@
     <section class="flex flex-col space-y-10">
       <div class="text-center text-4xl font-bold text-cyan-500">Masuk</div>
       <span class="text-sm text-center sm:text-wrap">Silahkan masuk terlebih dahulu untuk mengakses dashboard portofolio daffafznnn</span>
-               <div class="sm:w-full w-96 mx-auto focus-within:border-none transform border-b-2 border-cyan-400 bg-transparent text-lg duration-300 focus-within:border-cyan-500">
+      <div class="sm:w-full w-96 mx-auto focus-within:border-none transform border-b-2 border-cyan-400 bg-transparent text-lg duration-300 focus-within:border-cyan-500">
         <input
           v-model="form.identifier"
           type="text"
@@ -19,7 +19,7 @@
           class="w-full border-none bg-transparent outline-none placeholder:italic placeholder:text-cyan-400 focus:outline-none"
         />
       </div>
-      <button type="button" @click="loginUser" :disabled="loading" class="sm:w-full w-96 mx-auto transform rounded-sm bg-transparent py-2 font-bold duration-300 hover:outline hover:outline-cyan-400 text-cyan-400 border border-cyan-400 border-opacity-30">
+      <button type="submit" @click="loginUser" :disabled="loading" class="sm:w-full w-96 mx-auto transform rounded-sm bg-transparent py-2 font-bold duration-300 hover:outline hover:outline-cyan-400 text-cyan-400 border border-cyan-400 border-opacity-30">
        <div v-if="loading" class="flex items-center justify-center text-cyan-400">
         <div>
           <h1 class="text-lg font-bold flex items-center">L<svg stroke="currentColor" fill="currentColor" stroke-width="0"
@@ -70,7 +70,7 @@ export default {
         });
 
         if (success){
-          window.location.href = '/dashboard'
+          window.location.href = '/dashboard/home'
         }
 
       } finally {

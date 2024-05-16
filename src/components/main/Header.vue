@@ -1,5 +1,5 @@
 <template>
-<div class="mx-auto flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
+<section class="mx-auto flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
   <!-- Left Column -->
   <div class="mx-auto mt-16 w-full max-w-xl md:mt-36 lg:max-w-screen-xl lg:w-1/2 lg:mr-12">
     <div class="mb-16 lg:mb-0 lg:max-w-lg">
@@ -26,7 +26,7 @@
     <div class="flex justify-center md:justify-end">
       <!-- Col 2 -->
       <div class="my-auto hidden w-72 flex-col space-y-2 md:mt-30 lg:flex">
-        <img src="../assets/daffa-formal-removebg-preview.png" alt=""  class="pt-24 mt-5 w-56 h-96 "/>
+        <img src="../../assets/daffa-formal-removebg-preview.png" alt=""  class="pt-24 mt-5 w-56 h-96 "/>
       </div>
       <div class="my-auto w-80 flex-col space-y-3 md:mt-36 lg:flex bg-blue-900 shadow-lg rounded-xl px-4 py-4">
         <div class="flex py-2 px-2 text-cyan-400">
@@ -53,7 +53,7 @@
             </svg>
           </div>
           <div class="">
-            <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }}</span>
+            <span class="text-2xl font-bold" v-if="showRandomNumber">{{ stats.randomNumber }} <span class="text-sm">{{ $t('header.stats.year')}}</span></span>
             <span class="text-2xl font-bold" v-else>{{ stats.initialNumberB }} <span class="text-sm">{{ $t('header.stats.year')}}</span></span>
             <p class="text-sm">{{ $t('header.stats.year-experience')}}</p>
           </div>
@@ -76,26 +76,18 @@
     </div>
   </div>
   <!-- /Right Column -->
-</div>
-
-    <svg class="md:block hidden" id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 290" version="1.1"
-    xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
-        <stop stop-color="rgba(23, 37, 84, 1)" offset="0%"></stop>
-        <stop stop-color="rgba(34, 211, 238, 1)" offset="100%"></stop>
-      </linearGradient>
-    </defs>
-    <path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)"
-      d="M0,58L40,53.2C80,48,160,39,240,43.5C320,48,400,68,480,96.7C560,126,640,164,720,149.8C800,135,880,68,960,77.3C1040,87,1120,174,1200,207.8C1280,242,1360,222,1440,207.8C1520,193,1600,184,1680,193.3C1760,203,1840,232,1920,222.3C2000,213,2080,164,2160,135.3C2240,106,2320,97,2400,87C2480,77,2560,68,2640,96.7C2720,126,2800,193,2880,227.2C2960,261,3040,261,3120,227.2C3200,193,3280,126,3360,91.8C3440,58,3520,58,3600,62.8C3680,68,3760,77,3840,106.3C3920,135,4000,184,4080,203C4160,222,4240,213,4320,203C4400,193,4480,184,4560,164.3C4640,145,4720,116,4800,111.2C4880,106,4960,126,5040,140.2C5120,155,5200,164,5280,154.7C5360,145,5440,116,5520,116C5600,116,5680,145,5720,159.5L5760,174L5760,290L5720,290C5680,290,5600,290,5520,290C5440,290,5360,290,5280,290C5200,290,5120,290,5040,290C4960,290,4880,290,4800,290C4720,290,4640,290,4560,290C4480,290,4400,290,4320,290C4240,290,4160,290,4080,290C4000,290,3920,290,3840,290C3760,290,3680,290,3600,290C3520,290,3440,290,3360,290C3280,290,3200,290,3120,290C3040,290,2960,290,2880,290C2800,290,2720,290,2640,290C2560,290,2480,290,2400,290C2320,290,2240,290,2160,290C2080,290,2000,290,1920,290C1840,290,1760,290,1680,290C1600,290,1520,290,1440,290C1360,290,1280,290,1200,290C1120,290,1040,290,960,290C880,290,800,290,720,290C640,290,560,290,480,290C400,290,320,290,240,290C160,290,80,290,40,290L0,290Z">
-    </path>
-  </svg>
+</section>
+  <Wave></Wave>
 </template>
 <script>
 import { mapGetters } from 'vuex';
 import { ElNotification } from 'element-plus';
+import Wave from '../Wave.vue';
 
 export default {
+  components: {
+    Wave
+  },
   data() {
     return {
       stats: {
@@ -105,14 +97,14 @@ export default {
         randomNumber: 0,
         showRandomNumber: false,
       },
-       age: null
+      age: null
     };
   },
   computed: {
-    ...mapGetters('property', ['getStats'])
+    ...mapGetters('property', ['getStats', 'getProject'])
   },
   methods: {
-     calculateAge() {
+    calculateAge() {
       const birthDate = new Date('2005-12-04');
       const currentDate = new Date();
       const ageDiffMs = currentDate - birthDate;
@@ -136,7 +128,7 @@ export default {
         this.showRandomNumber = false;
       }, duration);
     },
-   showAlert() {
+    showAlert() {
       // Menggunakan ElNotification untuk menampilkan notifikasi dengan status informasi
       ElNotification({
         title: this.$t('notification.title'), // Sesuaikan dengan key yang sesuai di file locale Anda
@@ -146,14 +138,15 @@ export default {
     },
   },
   mounted() {
-    this.stats.initialNumberA = this.getStats[0].projects;
-    this.stats.initialNumberB = this.getStats[0].year;
-    this.stats.initialNumberC = this.getStats[0].achievement;
-  },
-  created() {
+    // Mengambil nilai dari getter dan menginisialisasi properti stats
+    const stats = this.getStats[0];
+    this.stats.initialNumberA = this.getProject.length;
+    this.stats.initialNumberB = stats.year;
+    this.stats.initialNumberC = stats.achievement;
+
     // Hitung usia saat komponen dibuat
     this.calculateAge();
-     // Setelah komponen dibuat, mulai animasi angka acak
+    // Setelah komponen dibuat, mulai animasi angka acak
     this.startRandomAnimation();
   },
 };

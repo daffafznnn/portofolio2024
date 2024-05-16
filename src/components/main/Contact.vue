@@ -66,19 +66,27 @@
           <h2 class="mb-8 text-2xl font-black">{{ $t('contact.content.title2') }}</h2>
           <p class="text-sm text-white">{{ $t('contact.content.subtitle') }}</p>
           <!-- Form -->
-          <form @submit.prevent="showAlert">
+          <form @submit.prevent="submitQuestion">
             <div class="mb-5 grid md:grid-cols-2 md:col-gap-4">
               <!-- Email Input -->
-              <input class="col-span-2 my-5 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-cyan-400 bg-blue-800 text-gray-200 placeholder:text-cyan-400 border-none rounded-lg"
-                type="email" :placeholder="$t('contact.form.email')" name="email" />
+              <input 
+                class="col-span-2 my-5 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-cyan-400 bg-blue-800 text-gray-200 placeholder:text-cyan-400 border-none rounded-lg"
+                type="email" 
+                v-model="formContact.email" 
+                :placeholder="$t('contact.form.email')" 
+                name="email" 
+                required 
+                @input="validateEmail"
+              />
               <!-- Name Input -->
               <input class="col-span-2 w-full border-b py-3 text-sm outline-none focus:border-b-2 focus:border-cyan-400 bg-blue-800 text-gray-200 placeholder:text-cyan-400 border-none rounded-lg"
-                type="text" :placeholder="$t('contact.form.name')" name="name" />
+                type="text" v-model="formContact.name" :placeholder="$t('contact.form.name')" name="name" required/>
             </div>
             <!-- Question Textarea -->
             <textarea
+              v-model="formContact.question"
               class="mb-10 w-full resize-y whitespace-pre-wrap border-b py-3 text-sm outline-none focus:border-b-2 focus:border-cyan-400 bg-blue-800 text-gray-200 placeholder:text-cyan-400 border-none rounded-lg"
-              id="" rows="6" :placeholder="$t('contact.form.question')" name="question"></textarea>
+              id="" rows="6" :placeholder="$t('contact.form.question')" name="question" required></textarea>
             <!-- Submit Button -->
             <button type="submit"
               class="group flex cursor-pointer items-center rounded-xl bg-blue-800 hover:border border-cyan-400 bg-none px-8 py-4 text-center font-semibold leading-tight text-white">
@@ -90,6 +98,7 @@
               </svg>
             </button>
           </form>
+            <el-message :show-close="true" center class="mt-4" :type="messageType" :message="messageText"></el-message>
         </div>
         
       </div>
@@ -98,18 +107,70 @@
 </template>
 
 <script>
-import { ElNotification } from 'element-plus';
+import { mapActions } from 'vuex';
+import { ElMessageBox } from 'element-plus';
 
 export default {
-  methods: {
-    // Method to show notification
-    showAlert() {
-      ElNotification({
-        title: this.$t('notification.title'), // Notification title
-        message: this.$t('notification.message'), // Notification message
-        type: 'info' // Notification type
-      });
-    },
+  data() {
+    return {
+      formContact: {
+        email: '',
+        name: '',
+        question: ''
+      },
+      messageType: '',
+      messageText: ''
+    }
   },
+ methods: {
+  ...mapActions('question', ['sendQuestion']),
+  // Method to show notification
+  async submitQuestion() {
+    // Show confirmation dialog before sending question
+    ElMessageBox.confirm('Are you sure you want to send this question?', 'Confirmation', {
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+      plain: true,
+      type: 'warning'
+    }).then(async () => {
+      try {
+        // Check if email is a Gmail address
+        if (!this.formContact.email.endsWith('@gmail.com')) {
+          this.messageType = 'error';
+          this.messageText = 'Please enter a Gmail address.';
+          return;
+        }
+
+        const success = await this.sendQuestion(this.formContact);
+        if (success) {
+          // Show success message
+          this.messageType = 'success';
+          this.messageText = 'Question has been submitted successfully.';
+          // Clear form fields
+          this.formContact.email = '';
+          this.formContact.name = '';
+          this.formContact.question = '';
+        }
+      } catch (error) {
+        console.error('Error submitting question:', error);
+        // Handle error submission
+        this.messageType = 'error';
+        this.messageText = 'Failed to submit question. Please try again later.';
+      }
+    }).catch(() => {
+      // Do nothing if user cancels
+    });
+  },
+  // Method to validate email format
+  validateEmail() {
+    if (this.formContact.email && !this.formContact.email.endsWith('@gmail.com')) {
+      this.messageType = 'error';
+      this.messageText = 'Please enter a Gmail address.';
+    } else {
+      this.messageType = ''; // Clear error message if email is valid
+      this.messageText = '';
+    }
+  }
+}
 };
 </script>

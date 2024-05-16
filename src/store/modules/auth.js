@@ -1,4 +1,4 @@
-import axios from "axios";
+import apiClient from "../../apiClient.js";
 import { ElMessage } from "element-plus";
 import Cookies from "js-cookie";
 
@@ -6,6 +6,7 @@ const auth = {
   namespaced: true,
   state: {
     user: [],
+    loading: false
   },
   getters: {
     isLoading: (state) => state.Loading,
@@ -18,35 +19,40 @@ const auth = {
       try {
         commit("SET_LOADING", true);
 
-        const response = await axios.post("/auth/login", credentials);
+        const response = await apiClient.post("/auth/login", credentials);
 
-        const user = response.data;
+        if (response.status === 200) {
+          const user = response.data;
 
-        // Simpan token di cookie localStorage
-        Cookies.set("token", user.accessToken);
+          // Simpan token di cookie localStorage
+          Cookies.set("token", user.accessToken);
 
-        commit("SET_USER", user.data);
+          commit("SET_USER", user.data);
 
-        ElMessage({
-          type: "success",
-          message: user.msg,
-        });
+          ElMessage({
+            type: "success",
+            message: user.msg,
+          });
 
-        commit("SET_LOADING", false);
+          commit("SET_LOADING", false);
 
-        return true;
+          return true;
+        } else {
+          console.log(error)
+        }
+
       } catch (error) {
         commit("SET_LOADING", false);
         const errorMessage = error.response.data.msg;
         ElMessage({
           type: "error",
-          message: "Login gagal: " + errorMessage,
+          message: errorMessage,
         });
 
         return false;
       }
     },
-    async fetchMe({ commit }) {
+    async fetchMe({ commit, dispatch }) {
       try {
         // Set status loading menjadi true sebelum memuat data
         commit("SET_LOADING", true);
@@ -54,27 +60,38 @@ const auth = {
         // Ambil Bearer Token dari Local Storage
         const token = Cookies.get("token");
 
-        const response = await axios.get("/auth/me", {
+        const response = await apiClient.get("/auth/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+        if (response.status === 200) {
+          const user = response.data.data;
+          commit("SET_USER", user);
 
-        const user = response.data.data;
-        commit("SET_USER", user);
+          // Setelah data dimuat, atur status loading menjadi false
+          commit("SET_LOADING", false);
 
-        // Setelah data dimuat, atur status loading menjadi false
-        commit("SET_LOADING", false);
-
-        return user;
+          return user;
+        } else {
+          console.log(error)
+        }
       } catch (error) {
         console.error("Error fetching user data:", error.message);
-        const errorMessage = error.response.data.msg;
+        const errorMessage = error.response?.data.msg || error.message;
+
+        // Jika status kode adalah 403 Forbidden, lakukan logout
+        if (error.response && error.response.status === 403) {
+          await dispatch("logout");
+          return null; // Return null to indicate logout
+        }
+
         ElMessage({
           type: "error",
-          message: "Gagal mengambil data anda: " + errorMessage,
+          message: errorMessage,
         });
-        // Jika terjadi error, tetap set status loading menjadi false
+
+        // Jika terjadi error selain 403, tetap set status loading menjadi false
         commit("SET_LOADING", false);
 
         return false;
@@ -87,11 +104,11 @@ const auth = {
 
         // Periksa apakah token ada
         if (!token) {
-          throw new Error("Token tidak ditemukan.");
+          throw new Error("Token not found.");
         }
 
         // Melakukan logout dengan mengirimkan token bearer
-        const response = await axios.post(
+        const response = await apiClient.post(
           "/auth/logout",
           {},
           {
@@ -122,7 +139,7 @@ const auth = {
         ElMessage({
           type: "error",
           message:
-            "Logout gagal: " + (error.response?.data.msg || error.message),
+           error.response?.data.msg,
         });
       }
     },

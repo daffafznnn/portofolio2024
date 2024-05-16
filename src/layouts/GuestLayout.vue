@@ -11,14 +11,14 @@
   </div>
 </template>
 <script>
-import Navbar from "../components/Navbar.vue";
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
-import About from '../components/About.vue';
-import Portofolio from "../components/Projects.vue";
-import Contact from "../components/Contact.vue";
-import Stack from "../components/Stack.vue";
-import Cookie from "../components/Cookie.vue";
+import Navbar from "../components/main/Navbar.vue";
+import Header from '../components/main/Header.vue';
+import Footer from '../components/main/Footer.vue';
+import About from '../components/main/About.vue';
+import Portofolio from "../components/main/Projects.vue";
+import Contact from "../components/main/Contact.vue";
+import Stack from "../components/main/Stack.vue";
+import Cookie from "../components/services/Cookie.vue";
 
 
 export default{

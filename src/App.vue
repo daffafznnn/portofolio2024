@@ -36,7 +36,7 @@ onMounted(() => {
 </style>
 
 <script>
-import Loading from './components/Loading.vue';
+import Loading from './components/main/Loading.vue';
 
 export default {
   components: {
