@@ -1,3 +1,7 @@
+import apiClient from "../../apiClient.js";
+import { ElMessage } from "element-plus";
+import Cookies from "js-cookie";
+
 const property = {
   namespaced: true,
   state: {
@@ -6,37 +10,48 @@ const property = {
         projectCount: 0, // Tambahkan properti projectCount di dalam stats
         year: 3,
         achievement: 0,
-      }
-    ],
-    project: [
-      {
-        id: 1,
-        img: "https://i.ibb.co/DbJgSrh/p1.png",
-        title: "Vue.js",
-        link: "https://portofolio-daffa.vercel.app/",
-        name: "portofolio 2023",
-        desc: "Ini Web Portofolio saya di tahun 2023, karena waktu itu saya masih belajar membuat frontend menggunakan vue.js",
-      },
-      {
-        id: 2,
-        img: "https://i.ibb.co/G7DtJQ4/p2.png",
-        title: "Vue.js",
-        link: "https://e-commerce-flame-theta.vercel.app/",
-        name: "E-commerece",
-        desc: "Ini Project E-commerce pertama saya, waktu saya masih Prakerin di sekolah dan sudah di presentasikan saat sidang pkl di sekolah",
       },
     ],
+    project: [],
+    loading: false,
   },
   getters: {
+    isLoading: (state) => state.loading,
     getProject: (state) => state.project,
     getStats: (state) => state.stats,
   },
   actions: {
-    
+    async fetchProject({ commit }) {
+      try {
+        commit("SET_LOADING", true);
+        const response = await apiClient.get("/projects");
+
+        if (response.status === 200) {
+          commit("SET_PROJECT", response.data.data);
+
+          commit("SET_LOADING", false);
+          return response.data;
+        } else {
+          console.log(error);
+        }
+      } catch (error) {
+        commit("SET_LOADING", false);
+        ElMessage({
+          type: "error",
+          message: error.response.data.msg,
+        });
+        console.log(error);
+      }
+    },
   },
   mutations: {
-    
-  }
+    SET_LOADING(state, isLoading) {
+      state.isLoading = isLoading;
+    },
+    SET_PROJECT(state, project) {
+      state.project = project;
+    },
+  },
 };
 
 export default property;

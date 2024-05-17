@@ -1,5 +1,5 @@
 <template>
-   <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6 outline outline-cyan-500">
+   <section id="content">
             <div id="24h">
                 <h1 class="font-bold py-4 uppercase">Last 24h Statistics</h1>
                 <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -335,5 +335,5 @@
                 </div>
             </div>
            
-        </div>
+   </section>
 </template>

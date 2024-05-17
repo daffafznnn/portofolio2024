@@ -1,6 +1,4 @@
 <template>
-  <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6 outline outline-cyan-500">
-
     <div id="last-users">
       <h1 class="font-bold py-4 uppercase">Question</h1>
       <div class="flex items-center gap-x-2 mb-6">
@@ -71,7 +69,7 @@
             <th class="text-left py-3 px-2 rounded-r-lg">Actions</th>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in paginatedQuestion" :key="index" class="border-b border-gray-700 hover:bg-slate-400">
+            <tr v-for="(item, index) in paginatedQuestion" :key="index" class="border-b border-gray-200 hover:bg-slate-400">
               <!-- Row content -->
              <td class="py-3 px-2 font-bold cursor-pointer" @click="toggleDetail(item)">
                 <div class="space-x-3 text-xs">
@@ -132,16 +130,15 @@
               </div>
               <div class="space-y-4 mx-2 sm:mx-auto">
                 <!-- Form untuk menjawab pertanyaan -->
-                <form @submit.prevent="submitAnswer(selectedQuestion)">
                   <div class="mb-4">
                     <label for="answer" class="block text-sm font-medium text-gray-300">Your Answer:</label>
                     <textarea v-model="answer" :disabled="selectedQuestion.status === 'missed'" id="answer" name="answer" rows="4" placeholder="Input your answer..." class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
                   </div>
                   <div class="flex justify-end">
                     <!-- Tombol untuk submit jawaban -->
-                    <button type="submit" :disabled="selectedQuestion.status === 'missed'" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-600">Submit</button>
+                    <button type="button" @click="submitAnswer(selectedQuestion)" :class="{ 'hidden': selectedQuestion.status === 'missed'}" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-600 mx-2">Submit</button>
+                    <button type="button" @click="deleteQuestionWithUuid(selectedQuestion)"  class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-600">Delete</button>
                   </div>
-                </form>
                 <!-- Tombol untuk menutup modal -->
                 <button @click="selectedQuestion = null" class="p-3 bg-white/10 border border-cyan-400 text-cyan-400 rounded-full w-full font-semibold">Close</button>
               </div>
@@ -211,7 +208,6 @@
         </button>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -258,7 +254,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('question', ['answerQuestion', 'changeStatusQuestion']),
+    ...mapActions('question', ['answerQuestion', 'changeStatusQuestion', 'deleteQuestion']),
     async submitAnswer(item) {
       ElMessageBox.confirm('Are you sure you want to answer this question?', 'Confirmation', {
         confirmButtonText: 'Yes',
@@ -303,7 +299,36 @@ export default {
     }).catch(() => {
       console.log('Status change cancelled');
     });
-  },
+    },
+    async deleteQuestionWithUuid(question) {
+      try {
+        const confirmed = await ElMessageBox.confirm(
+          `Are you sure you want to remove the question status from ${question.email}?`, 
+          'Confirmation', 
+          {
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            plain: true,
+            type: 'warning'
+          }
+        );
+
+        if (confirmed) {
+          const success = await this.deleteQuestion(question.uuid); // Assuming `deleteQuestionById` is the correct method
+          if (success) {
+            console.log(`Deleted question of ${question.uuid}`);
+            this.selectedQuestion = null;
+            // If needed, you can trigger a re-fetch of the questions or update the local state
+          }
+        }
+      } catch (error) {
+        if (error !== 'cancel') {
+          console.log('Error deleting question:', error);
+        } else {
+          console.log('Delete question cancelled');
+        }
+      }
+},
    toggleDetail(question) {
       if (this.selectedQuestion === question) {
         this.selectedQuestion = null; // Close detail if already open

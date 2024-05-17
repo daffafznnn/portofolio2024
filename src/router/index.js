@@ -7,6 +7,7 @@ import Login from "../views/auth/Login.vue";
 import DashboardLayouts from "../layouts/DashboardLayouts.vue";
 import HomeDashboard from "../views/dashboard/HomeDashboard.vue";
 import QuestionDashboard from "../views/dashboard/QuestionDashboard.vue";
+import ProjectsDashboard from "../views/dashboard/ProjectsDashboard.vue";
 import apiClient from "../apiClient.js";
 
 import store from "../store";
@@ -79,6 +80,14 @@ const routes = [
         name: "QuestionDashboard",
         meta: {
           title: "Question",
+        },
+      },
+      {
+        path: "/dashboard/project",
+        component: ProjectsDashboard,
+        name: "ProjectsDashboard",
+        meta: {
+          title: "Projects",
         },
       },
     ],

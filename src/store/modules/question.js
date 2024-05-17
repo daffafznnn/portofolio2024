@@ -123,6 +123,32 @@ async changeStatusQuestion({ commit, dispatch }, { uuid, status }) {
         });
         console.log(error);
       }
+    },
+    async deleteQuestion({ commit, dispatch }, uuid) {
+      try {
+
+         const token = Cookies.get("token");
+
+        const response = await apiClient.delete(`/question/delete/${uuid}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (response.status === 200) {
+          dispatch("fetchQuestion");
+          ElMessage({
+            type: "success",
+            message: response.data.msg,
+          });
+          return true;
+        }
+      } catch (error) {
+         ElMessage({
+           type: "error",
+           message: error.response.data.msg,
+         });
+         console.log(error);
+      }
     }
   },
   mutations: {

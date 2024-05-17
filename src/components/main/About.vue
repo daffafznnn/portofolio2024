@@ -16,7 +16,7 @@
           <!-- Gambar 1 -->
           <div class="relative">
             <img
-              src="https://i.ibb.co/SwZw8Np/ab1.jpg"
+              src="../../assets/ab1.jpg"
               class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
               alt="Image 1"
               @mouseover="hoverImage(1)"
@@ -28,7 +28,7 @@
           <!-- Gambar 2 -->
           <div class="relative">
             <img
-              src="https://i.ibb.co/kJvYgFV/ab2.jpg"
+              src="../../assets/ab2.jpg"
               class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
               alt="Image 2"
               @mouseover="hoverImage(2)"

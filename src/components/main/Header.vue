@@ -148,6 +148,7 @@ export default {
     this.calculateAge();
     // Setelah komponen dibuat, mulai animasi angka acak
     this.startRandomAnimation();
+    this.$store.dispatch('property/fetchProject');
   },
 };
 </script>
