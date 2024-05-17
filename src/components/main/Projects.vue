@@ -23,8 +23,8 @@
     <p class="text-md font-medium text-cyan-500">{{ item.technologiesUsed }}</p>
     <p class="mb-2 text-xl font-medium text-cyan-400">{{ item.title }}</p>
     <p class="text-md font-light text-gray-200">{{ item.description }}</p>
-    <div class="block md:hidden">
-    <div class=" mt-2 flex flex-col">
+    <!-- for mobile -->
+    <div class="block md:hidden mt-2 flex flex-col">
       <a :href="item.websiteUrl" :class="{'hidden sm:flex' : !item.websiteUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-blue-600 px-3 py-1 rounded-md flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
           <!-- Icon for website link -->
@@ -41,26 +41,23 @@
         GitHub
       </a>
     </div>
-    </div>
     <!-- for desktop -->
-    <div class="hidden md:block">
-     <div class="absolute bottom-56 left-20 flex space-x-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <a :href="item.websiteUrl" :class="{'hidden' : !item.websiteUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-blue-600 px-3 py-1 rounded-md flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-            <!-- Icon for website link -->
-            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-            <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM1 10a9 9 0 1118 0 9 9 0 01-18 0z" clip-rule="evenodd" />
-          </svg>
-          Website
-        </a>
-        <a :href="item.githubUrl" :class="{'hidden' : !item.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-gray-600 px-3 py-1 rounded-md flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-            <!-- Icon for GitHub link -->
-            <path fill-rule="evenodd" d="M10 2a8 8 0 00-2.53 15.59c.4.08.55-.17.55-.38l-.01-1.34c-2.26.49-2.74-1.09-2.74-1.09-.37-.94-.9-1.19-.9-1.19-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.89.87 2.36.66.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.96 0-.87.31-1.59.83-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.52.56.83 1.27.83 2.15 0 3.08-1.88 3.76-3.66 3.96.29.25.54.74.54 1.49l-.01 2.21c0 .21.15.46.55.38A8 8 0 0010 2z" clip-rule="evenodd" />
-          </svg>
-          GitHub
-        </a>
-        </div>
+    <div class="hidden md:flex md:flex-col md:items-center md:justify-center absolute bottom-[17rem] left-32 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <a :href="item.websiteUrl" :class="{'hidden' : !item.websiteUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-blue-600 px-3 py-1 rounded-md flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+          <!-- Icon for website link -->
+          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+          <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM1 10a9 9 0 1118 0 9 9 0 01-18 0z" clip-rule="evenodd" />
+        </svg>
+        Website
+      </a>
+      <a :href="item.githubUrl" :class="{'hidden' : !item.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-gray-600 px-3 py-1 rounded-md flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+          <!-- Icon for GitHub link -->
+          <path fill-rule="evenodd" d="M10 2a8 8 0 00-2.53 15.59c.4.08.55-.17.55-.38l-.01-1.34c-2.26.49-2.74-1.09-2.74-1.09-.37-.94-.9-1.19-.9-1.19-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.89.87 2.36.66.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.96 0-.87.31-1.59.83-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.52.56.83 1.27.83 2.15 0 3.08-1.88 3.76-3.66 3.96.29.25.54.74.54 1.49l-.01 2.21c0 .21.15.46.55.38A8 8 0 0010 2z" clip-rule="evenodd" />
+        </svg>
+        GitHub
+      </a>
     </div>
   </div>
 </article>
