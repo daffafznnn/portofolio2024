@@ -7,7 +7,6 @@ const property = {
   state: {
     stats: [
       {
-        projectCount: 0, // Tambahkan properti projectCount di dalam stats
         year: 3,
         achievement: 0,
       },

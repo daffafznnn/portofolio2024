@@ -1,7 +1,7 @@
 <template>
 <section class="mx-auto flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
   <!-- Left Column -->
-  <div class="mx-auto mt-16 w-full max-w-xl md:mt-36 lg:max-w-screen-xl lg:w-1/2 lg:mr-12">
+  <div class="left-content mx-auto mt-16 w-full max-w-xl md:mt-36 lg:max-w-screen-xl lg:w-1/2 lg:mr-12">
     <div class="mb-16 lg:mb-0 lg:max-w-lg">
       <div class="mb-6 max-w-xl">
         <h2 class="mb-6 max-w-lg text-3xl font-bold tracking-tight text-cyan-400 sm:text-5xl sm:leading-snug">
@@ -22,11 +22,11 @@
   </div>
   <!-- /Left Column -->
   <!-- Right Column -->
-  <div class="flex flex-col justify-center w-full max-w-xl md:max-w-none md:w-1/2">
+  <div class="right-content flex flex-col justify-center w-full max-w-xl md:max-w-none md:w-1/2">
     <div class="flex justify-center md:justify-end">
       <!-- Col 2 -->
       <div class="my-auto hidden w-72 flex-col space-y-2 md:mt-30 lg:flex">
-        <img src="../../assets/daffa-formal-removebg-preview.png" alt=""  class="pt-24 mt-5 w-56 h-96 "/>
+        <img src="../../assets/daffa-formal-removebg-preview.png" alt="" class="pt-24 mt-5 w-56 h-96 "/>
       </div>
       <div class="my-auto w-80 flex-col space-y-3 md:mt-36 lg:flex bg-blue-900 shadow-lg rounded-xl px-4 py-4">
         <div class="flex py-2 px-2 text-cyan-400">
@@ -80,7 +80,7 @@
   <Wave></Wave>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import { ElNotification } from 'element-plus';
 import Wave from '../Wave.vue';
 
@@ -101,9 +101,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('property', ['getStats', 'getProject'])
+    ...mapGetters('property', ['getStats', 'getProject']),
+    projectCount() {
+      return this.getProject?.length;
+    }
   },
   methods: {
+    ...mapActions('property', ['fetchProject']),
     calculateAge() {
       const birthDate = new Date('2005-12-04');
       const currentDate = new Date();
@@ -136,19 +140,130 @@ export default {
         type: 'info'
       });
     },
+    addAnimationClasses() {
+      const leftContent = document.querySelector('.left-content');
+      const rightContent = document.querySelector('.right-content');
+      
+      const observerOptions = {
+        threshold: 0.1
+      };
+
+      const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (window.innerWidth >= 768) { // Untuk desktop
+              entry.target.classList.add('animated');
+              if (entry.target.classList.contains('left-content')) {
+                entry.target.classList.add('slide-in-left');
+              } else if (entry.target.classList.contains('right-content')) {
+                entry.target.classList.add('slide-in-down');
+              }
+            } else { // Untuk mobile
+              entry.target.classList.add('animated');
+              if (entry.target.classList.contains('left-content')) {
+                entry.target.classList.add('slide-in-left-mobile');
+              } else if (entry.target.classList.contains('right-content')) {
+                entry.target.classList.add('slide-in-right-mobile');
+              }
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      observer.observe(leftContent);
+      observer.observe(rightContent);
+    }
+  },
+  watch: {
+    projectCount(newVal) {
+      if (newVal) {
+        this.stats.initialNumberA = newVal;
+        const stats = this.getStats[0];
+        this.stats.initialNumberB = stats.year;
+        this.stats.initialNumberC = stats.achievement;
+        this.startRandomAnimation();
+      }
+    }
   },
   mounted() {
-    // Mengambil nilai dari getter dan menginisialisasi properti stats
-    const stats = this.getStats[0];
-    this.stats.initialNumberA = this.getProject.length;
-    this.stats.initialNumberB = stats.year;
-    this.stats.initialNumberC = stats.achievement;
-
     // Hitung usia saat komponen dibuat
     this.calculateAge();
-    // Setelah komponen dibuat, mulai animasi angka acak
-    this.startRandomAnimation();
-    this.$store.dispatch('property/fetchProject');
+    // Ambil data proyek saat komponen dibuat
+    this.fetchProject();
+    // Tambahkan kelas animasi
+    this.addAnimationClasses();
   },
 };
 </script>
+<style scoped>
+/* Animasi untuk desktop */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animasi untuk mobile */
+@keyframes slideInRightMobile {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeftMobile {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.slide-in-left {
+  animation-name: slideInLeft;
+}
+
+.slide-in-down {
+  animation-name: slideInDown;
+}
+
+.slide-in-right-mobile {
+  animation-name: slideInRightMobile;
+}
+
+.slide-in-left-mobile {
+  animation-name: slideInLeftMobile;
+}
+
+</style>

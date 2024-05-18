@@ -105,7 +105,7 @@
          <!-- Modal untuk menampilkan detail pertanyaan -->
       <transition name="modal">
       <div v-if="selectedQuestion" class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10">
-        <div class="max-h-screen w-full max-w-[90%] sm:max-w-xl sm:rounded-2xl outline outline-cyan-400 overflow-auto" style="background-color: #172554;">
+        <div class="max-h-screen w-full max-w-[90%] sm:max-w-xl rounded-xl sm:rounded-2xl outline outline-cyan-400 overflow-auto" style="background-color: #172554;">
           <div class="w-full">
             <div class="m-8 my-16 max-w-[400px] mx-auto">
               <div class="mb-4 text-center sm:text-left">
@@ -220,7 +220,7 @@ export default {
       selectedFilter: 'all',
       searchKeyword: '',
       currentPage: 1,
-      pageSize: 8,
+      pageSize: 10,
       searchResults: [],
       selectedQuestion: null,
       answer: ''

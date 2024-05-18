@@ -4,6 +4,7 @@ import router from "./router";
 // Buat instance Axios
 const apiClient = axios.create({
   baseURL: "https://daffafznnn-api.cleverapps.io/api/v1",
+  // baseURL: "http://localhost:8080/api/v1",
 });
 
 // Tambahkan interceptor untuk menangani kesalahan secara global

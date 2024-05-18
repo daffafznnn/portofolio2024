@@ -21,7 +21,7 @@
         suffix-icon="el-icon-search"
       ></el-input>
 
-      <el-button type="primary">
+      <el-button type="primary" @click="toggleDetail('', 'add')">
         Add project
       </el-button>
     </div>
@@ -51,8 +51,8 @@
                     :key="index"
                     class="border-b border-gray-200 hover:bg-gray-100 group"
                   >
-                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                      <div class="flex items-center">
+                    <td class="py-3 px-6 text-left whitespace-nowrap cursor-pointer">
+                      <div class="flex items-center" @click="toggleDetail(project, 'read')">
                         <div class="mr-2">
                           <img :src="getIconProject(project.technologiesUsed)" class="w-6 h-6" />
                         </div>
@@ -72,15 +72,15 @@
                     <td class="py-3 px-6 text-center">
                       <span :class="getStatusClass(project.status)">{{ project.status }}</span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center group-hover:text-slate-700">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td class="py-3 px-6 text-center ">
+                      <div class="flex item-center justify-center group-hover:text-slate-700 cursor-pointer">
+                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" @click="toggleDetail(project, 'read')">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110" @click="toggleDetail(project, 'edit')">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                           </svg>
@@ -116,6 +116,75 @@
                   </p>
                 </div>
               </el-empty>
+                       <!-- Modal untuk menampilkan detail pertanyaan -->
+      <transition name="modal">
+      <div v-if="showModal" class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10">
+        <div class="max-h-screen w-full max-w-[90%] sm:max-w-xl rounded-xl sm:rounded-2xl outline outline-cyan-400" style="background-color: #172554;">
+          <div class="w-full h-[38rem] overflow-y-auto">
+            <div class="m-8 my-16 max-w-[400px] mx-auto">
+               <div v-if="selectedActions === 'add'" class="mb-4 text-center sm:text-left">
+                <h1 class="mb-4 text-3xl font-extrabold text-cyan-400">Add your project</h1>
+                <span>make sure to fill in completely</span>
+              </div>
+              <div v-if="selectedActions === 'read'" class="mb-4 text-center sm:text-left">
+                <h1 class="mb-4 text-3xl font-extrabold text-cyan-400">{{ selectedProject.title }}</h1>
+                <span>{{ selectedProject.technologiesUsed }}</span>
+              </div>
+              <div class="mb-4 mx-2 sm:mx-auto">
+                <label for="title" class="block text-sm font-medium text-gray-300">Title:</label>
+                <div class="p-2">
+                <input type="text" id="title" v-model="form.title" placeholder="title" class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                </div>
+              </div>
+              <div class="mx-2 sm:mx-auto">
+                <!-- Form untuk menjawab pertanyaan -->
+                  <div class="mb-4">
+                    <label for="description" class="block text-sm font-medium text-gray-300">Description:</label>
+                    <textarea v-model="form.description" :disabled="selectedProject.status === 'missed'" id="answer" name="answer" rows="3" placeholder="description" class="bg-white/10 mt-1 ml-2 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
+                  </div>
+                </div>
+              <div class="mb-4 mx-2 sm:mx-auto">
+                <label for="technologiesUsed" class="block text-sm font-medium text-gray-300">TechnologiesUsed:</label>
+                <div class="p-2">
+                <input type="text" v-model="form.technologiesUsed" id="technologiesUsed" placeholder="technologiesUsed" class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                </div>
+              </div>
+               <div class="mb-4 mx-2 sm:mx-auto">
+                <label for="githubUrl" class="block text-sm font-medium text-gray-300">GithubUrl:</label>
+                <div class="p-2">
+                <input type="text" v-model="form.githubUrl" id="githubUrl" placeholder="githubUrl" class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                </div>
+              </div>
+              <div class="mb-4 mx-2 sm:mx-auto">
+                <label for="websiteUrl" class="block text-sm font-medium text-gray-300">WebsiteUrl:</label>
+                <div class="p-2">
+                <input type="text" v-model="form.websiteUrl" id="websiteUrl" placeholder="websiteUrl" class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                </div>
+              </div>
+                <div class="mb-4 mx-2 sm:mx-auto">
+                <label for="progress" class="block text-sm font-medium text-gray-300">Progress  <span class="flex justify-end items-end">{{ form.progress }}%</span></label>
+                  <input id="progress" type="range" v-model="form.progress" min="0" max="100" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+              </div>
+                <div class="mb-4 mx-2 sm:mx-auto">
+                <select v-model="form.status" name="" id="" class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <option>Pending</option>
+                  <option>Scheduled</option>
+                  <option>Active</option>
+                  <option>Completed</option>
+                </select>  
+                </div>
+                   <div class="flex justify-end mb-4">
+                    <!-- Tombol untuk submit jawaban -->
+                    <button type="button" @click="submitAnswer(selectedProject)" :class="{ 'hidden': selectedProject.status === 'missed'}" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-600 mx-2">Submit</button>
+                    <button type="button" @click="deleteQuestionWithUuid(selectedProject)"  class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-600">Delete</button>
+                  </div>
+                <!-- Tombol untuk menutup modal -->
+                <button @click="closeModal" class="p-3 bg-white/10 border border-cyan-400 text-cyan-400 rounded-full w-full font-semibold">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </transition>
             </template>
           </el-skeleton>
         </div>
@@ -188,10 +257,23 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
+      showModal: false,
       selectedFilter: 'all',
       searchKeyword: '',
       currentPage: 1,
-      itemsPerPage: 5,
+      itemsPerPage: 10,
+      selectedProject: null,
+      selectedActions: '',
+      form: {
+        title: '',
+        description: '',
+        technologiesUsed: '',
+        githubUrl: '',
+        websiteUrl: '',
+        progress: 0,
+        status: 'Pending',
+        inputFile: null
+      }
     };
   },
   computed: {
@@ -219,6 +301,32 @@ export default {
     },
   },
   methods: {
+    toggleDetail(project, actions) {
+      this.showModal = !this.showModal;
+      if (this.selectedProject === project) {
+        this.selectedProject = null; // Close detail if already open
+        this.showModal = false
+      } else {
+        this.showModal = true
+        this.selectedProject = project;
+        this.selectedActions = actions
+      }
+    },
+    closeModal() {
+        this.showModal = false
+        this.selectedProject = null;
+        this.selectedActions = '';
+        this.form = {
+        title: '',
+        description: '',
+        technologiesUsed: '',
+        githubUrl: '',
+        websiteUrl: '',
+        progress: 0,
+        status: 'Pending',
+        inputFile: null
+      }
+    },
     getStatusClass(status) {
       return status === 'Active'
         ? 'bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs'
@@ -252,7 +360,15 @@ export default {
   }
 };
 </script>
-
 <style scoped>
-/* Add your scoped styles here */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
 </style>
