@@ -2,7 +2,16 @@
     <div id="menu" class="bg-white/10 col-span-3 rounded-lg p-4 outline outline-cyan-500">
         <h1 class="font-bold text-lg lg:text-3xl bg-gradient-to-br from-cyan-400 via-cyan-400 to-transparent bg-clip-text text-transparent">Dashboard</h1>
         <p class="text-white text-sm mb-2 ">Portofolio daffafznnn</p>
-        <a href="#" class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+        <div v-if="$store.getters['auth/isLoading']" class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2 animate-pulse">
+       <div>
+        <div class="rounded-full w-10 h-10 bg-gray-300"></div>
+        </div>
+        <div>
+            <p class="font-medium group-hover:text-cyan-400 leading-4 w-24 h-2 rounded-md bg-gray-300 mb-1"></p>
+            <p class="text-xs text-slate-400 w-44 h-3 bg-gray-300 rounded-md"></p>
+        </div>
+       </div>
+        <div v-else class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
             <div>
                 <img class="rounded-full w-10 h-10 relative object-cover outline outline-cyan-400" src="../../assets/daffa-formal-removebg-preview.png" alt="">
             </div>
@@ -10,7 +19,7 @@
                 <p class="font-medium group-hover:text-cyan-400 leading-4 hidden sm:block">{{ profile?.username }}</p>
                 <span class="text-xs text-slate-400 hidden md:block">{{ profile?.email }}</span>
             </div>
-        </a>
+        </div>
         <hr class="my-2 border-slate-700">
         <div id="menu" class="flex flex-col space-y-2 my-5 mx-auto">
             <a href="#" @click="navigateTo('/dashboard/home')" 
@@ -77,13 +86,15 @@
             <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                 <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                     <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-cyan-400">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                        <svg class="w-[25px] h-[25px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 21 21">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m6.072 10.072 2 2 6-4m3.586 4.314.9-.9a2 2 0 0 0 0-2.828l-.9-.9a2 2 0 0 1-.586-1.414V5.072a2 2 0 0 0-2-2H13.8a2 2 0 0 1-1.414-.586l-.9-.9a2 2 0 0 0-2.828 0l-.9.9a2 2 0 0 1-1.414.586H5.072a2 2 0 0 0-2 2v1.272a2 2 0 0 1-.586 1.414l-.9.9a2 2 0 0 0 0 2.828l.9.9a2 2 0 0 1 .586 1.414v1.272a2 2 0 0 0 2 2h1.272a2 2 0 0 1 1.414.586l.9.9a2 2 0 0 0 2.828 0l.9-.9a2 2 0 0 1 1.414-.586h1.272a2 2 0 0 0 2-2V13.8a2 2 0 0 1 .586-1.414Z" />
                         </svg>
                     </div>
                     <div>
-                        <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-cyan-400">Users</p>
-                        <p class="text-slate-400 text-sm hidden md:block">Manage users</p>
+                        <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-cyan-400">achivment</p>
+                        <p class="text-slate-400 text-sm hidden md:block">Manage achivment</p>
                     </div>
                 </div>
             </a>

@@ -4,7 +4,7 @@
     <div class="bg-red-500 px-2 text-sm rounded rotate-12 absolute">
       Server Error
     </div>
-    <p class="text-white text-lg mt-5">Oops! Something went wrong with the server. Please try again later.</p>
+    <p class="text-white text-lg mt-5 text-center">Oops! Something went wrong with the server. Please try again later.</p>
     <button class="mt-5">
       <a
         class="relative inline-block text-sm font-medium text-cyan-400 group active:text-cyan-500 focus:outline-none focus:ring"

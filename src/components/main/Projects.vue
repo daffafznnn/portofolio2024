@@ -32,7 +32,7 @@
         <p class="text-md font-medium text-cyan-500">{{ item.technologiesUsed }}</p>
         <p class="mb-2 text-xl font-medium text-cyan-400">{{ item.title }}</p>
         <p class="text-md font-light text-gray-200">{{ item.description }}</p>
-        <div class="block md:hidden mt-2 flex flex-col">
+        <div class="md:hidden mt-2 flex flex-col">
           <a :href="item.websiteUrl" :class="{'hidden sm:flex' : !item.websiteUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-blue-600 px-3 py-1 rounded-md flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <!-- Icon for website link -->
@@ -83,8 +83,11 @@ paginatedProjects() {
     return { ...project, createdAt };
   });
 
+  // Filter proyek berdasarkan properti status
+  const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
+
   // Urutkan proyek berdasarkan properti createdAt
-  const sortedProjects = projectsWithDateTime.sort((a, b) => b.createdAt - a.createdAt); // Urutkan dari yang terbaru ke yang terlama
+  const sortedProjects = filteredProjects.sort((a, b) => b.createdAt - a.createdAt); // Urutkan dari yang terbaru ke yang terlama
 
   // Hitung indeks awal dan akhir untuk bagian yang akan ditampilkan
   const start = (this.currentPage - 1) * this.itemsPerPage;

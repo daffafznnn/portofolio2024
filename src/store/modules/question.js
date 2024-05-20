@@ -1,6 +1,5 @@
 import apiClient from "../../apiClient.js";
 import { ElMessage } from "element-plus";
-import Cookies from "js-cookie";
 
 const question = {
   namespaced: true,
@@ -17,29 +16,24 @@ const question = {
       try {
         commit("SET_LOADING", true);
         const response = await apiClient.get("/question");
-
         if (response.status === 200) {
           commit("SET_QUESTION", response.data.data);
-
-          commit("SET_LOADING", false);
-          return response.data;
         } else {
-          console.log(error)
+          console.error("Fetch question error:", response);
         }
-        
       } catch (error) {
-        commit("SET_LOADING", false);
         ElMessage({
           type: "error",
-          message:
-           error.response.data.msg,
+          message: error.response?.data?.msg || "Error fetching questions",
         });
-        console.log(error);
+        console.error(error);
+      } finally {
+        commit("SET_LOADING", false);
       }
     },
-    async sendQuestion({ commit, dispatch }, formContact) {
+    async sendQuestion({ dispatch }, formContact) {
       try {
-        const response = await apiClient.post('/question/send', formContact);
+        const response = await apiClient.post("/question/send", formContact);
         if (response.status === 201) {
           dispatch("fetchQuestion");
           ElMessage({
@@ -49,65 +43,63 @@ const question = {
           return true;
         }
       } catch (error) {
-          ElMessage({
-            type: "error",
-            message: error.response.data.msg,
-          });
-        console.log(error)
+        ElMessage({
+          type: "error",
+          message: error.response?.data?.msg || "Error sending question",
+        });
+        console.error(error);
+        return false;
       }
     },
-async changeStatusQuestion({ commit, dispatch }, { uuid, status }) {
-  try {
-
-     const token = Cookies.get("token");
-
-    const response = await apiClient.put(
-      `/question/change-status/${uuid}`,
-      { status },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`, // Pastikan token telah didefinisikan
-        },
-      }
-    );
-
-    if (response && response.status === 200) {
-      dispatch("fetchQuestion");
-      ElMessage({
-        type: "success",
-        message: response.data.msg,
-      });
-      return true;
-    } else {
-      // Tangani situasi respons tidak diharapkan
-      ElMessage({
-        type: "error",
-        message: 'Unexpected response: ' + response.status,
-      });
-      console.error('Unexpected response:', response);
-      return false;
-    }
-  } catch (error) {
-    // Tangani kesalahan saat melakukan permintaan
-    const errorMessage = error.response && error.response.data ? error.response.data.msg : 'An error occurred';
-    ElMessage({
-      type: "error",
-      message: errorMessage,
-    });
-    console.error('Error changing status:', error);
-    return false;
-  }
-},
-    async answerQuestion({ commit, dispatch }, {uuid, answer}) {
+    async changeStatusQuestion({ dispatch }, { uuid, status }) {
       try {
-
-        const token = Cookies.get("token");
-        
-        const response = await apiClient.post(`/question/answer/${uuid}`, {answer}, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        const token = localStorage.getItem("token");
+        const response = await apiClient.put(
+          `/question/change-status/${uuid}`,
+          { status },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (response.status === 200) {
+          dispatch("fetchQuestion");
+          ElMessage({
+            type: "success",
+            message: response.data.msg,
+          });
+          return true;
+        } else {
+          ElMessage({
+            type: "error",
+            message: "Unexpected response: " + response.status,
+          });
+          console.error("Unexpected response:", response);
+          return false;
+        }
+      } catch (error) {
+        const errorMessage = error.response?.data?.msg || "An error occurred";
+        ElMessage({
+          type: "error",
+          message: errorMessage,
         });
+        console.error("Error changing status:", error);
+        return false;
+      }
+    },
+    async answerQuestion({ dispatch }, { uuid, answer }) {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await apiClient.post(
+          `/question/answer/${uuid}`,
+          { answer },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         if (response.status === 200) {
           dispatch("fetchQuestion");
           ElMessage({
@@ -119,16 +111,15 @@ async changeStatusQuestion({ commit, dispatch }, { uuid, status }) {
       } catch (error) {
         ElMessage({
           type: "error",
-          message: error.response.data.msg,
+          message: error.response?.data?.msg || "Error answering question",
         });
-        console.log(error);
+        console.error(error);
+        return false;
       }
     },
-    async deleteQuestion({ commit, dispatch }, uuid) {
+    async deleteQuestion({ dispatch }, uuid) {
       try {
-
-         const token = Cookies.get("token");
-
+        const token = localStorage.getItem("token");
         const response = await apiClient.delete(`/question/delete/${uuid}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -143,17 +134,18 @@ async changeStatusQuestion({ commit, dispatch }, { uuid, status }) {
           return true;
         }
       } catch (error) {
-         ElMessage({
-           type: "error",
-           message: error.response.data.msg,
-         });
-         console.log(error);
+        ElMessage({
+          type: "error",
+          message: error.response?.data?.msg || "Error deleting question",
+        });
+        console.error(error);
+        return false;
       }
-    }
+    },
   },
   mutations: {
     SET_LOADING(state, isLoading) {
-      state.isLoading = isLoading;
+      state.loading = isLoading;
     },
     SET_QUESTION(state, question) {
       state.question = question;

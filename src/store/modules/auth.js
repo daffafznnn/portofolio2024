@@ -1,17 +1,16 @@
 import apiClient from "../../apiClient.js";
 import { ElMessage } from "element-plus";
-import Cookies from "js-cookie";
 
 const auth = {
   namespaced: true,
   state: {
     user: [],
-    loading: false
+    loading: false,
   },
   getters: {
-    isLoading: (state) => state.Loading,
+    isLoading: (state) => state.loading,
     isAuthenticated: () =>
-      !!Cookies.get("token") && Cookies.get("token") !== "",
+      !!localStorage.getItem("token") && localStorage.getItem("token") !== "",
     getMe: (state) => state.user,
   },
   actions: {
@@ -24,8 +23,8 @@ const auth = {
         if (response.status === 200) {
           const user = response.data;
 
-          // Simpan token di cookie localStorage
-          Cookies.set("token", user.accessToken);
+          // Simpan token di localStorage
+          localStorage.setItem("token", user.accessToken);
 
           commit("SET_USER", user.data);
 
@@ -34,31 +33,29 @@ const auth = {
             message: user.msg,
           });
 
-          commit("SET_LOADING", false);
-
           return true;
         } else {
-          console.log(error)
+          console.error("Login error:", response);
+          return false;
         }
-
       } catch (error) {
-        commit("SET_LOADING", false);
-        const errorMessage = error.response.data.msg;
+        const errorMessage = error.response?.data?.msg || "Error during login";
         ElMessage({
           type: "error",
           message: errorMessage,
         });
-
+        console.error("Login error:", error);
         return false;
+      } finally {
+        commit("SET_LOADING", false);
       }
     },
     async fetchMe({ commit, dispatch }) {
       try {
-        // Set status loading menjadi true sebelum memuat data
         commit("SET_LOADING", true);
 
-        // Ambil Bearer Token dari Local Storage
-        const token = Cookies.get("token");
+        // Ambil Bearer Token dari localStorage
+        const token = localStorage.getItem("token");
 
         const response = await apiClient.get("/auth/me", {
           headers: {
@@ -68,79 +65,46 @@ const auth = {
         if (response.status === 200) {
           const user = response.data.data;
           commit("SET_USER", user);
-
-          // Setelah data dimuat, atur status loading menjadi false
-          commit("SET_LOADING", false);
-
           return user;
         } else {
-          console.log(error)
+          console.error("Fetch me error:", response);
+          return null;
         }
       } catch (error) {
-        console.error("Error fetching user data:", error.message);
-        const errorMessage = error.response?.data.msg || error.message;
-
-        // Jika status kode adalah 403 Forbidden, lakukan logout
-        if (error.response && error.response.status === 403) {
-          await dispatch("logout");
-          return null; // Return null to indicate logout
-        }
-
+        const errorMessage =
+          error.response?.data?.msg || "Error fetching user data";
         ElMessage({
           type: "error",
           message: errorMessage,
         });
+        console.error("Fetch me error:", error);
 
-        // Jika terjadi error selain 403, tetap set status loading menjadi false
-        commit("SET_LOADING", false);
+        if (error.response?.status === 403) {
+          dispatch("logout");
+          return null;
+        }
 
         return false;
+      } finally {
+        commit("SET_LOADING", false);
       }
     },
     async logout({ commit }) {
       try {
-        // Mendapatkan token dari cookie localStorage
-        const token = Cookies.get("token");
-
-        // Periksa apakah token ada
-        if (!token) {
-          throw new Error("Token not found.");
-        }
-
-        // Melakukan logout dengan mengirimkan token bearer
-        const response = await apiClient.post(
-          "/auth/logout",
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        // Clear state
         commit("SET_USER", []);
 
-        if (response) {
-          // Hapus token dari cookie localStorage
-          Cookies.remove("token");
+        // Hapus token dari localStorage
+        localStorage.removeItem("token");
 
-          // Redirect ke halaman login
-          window.location.href = "/login";
-
-          // Tampilkan pesan sukses
-          ElMessage({
-            type: "success",
-            message: response.data.msg,
-          });
-        }
+        window.location.href = "/login";
         return true;
       } catch (error) {
         ElMessage({
           type: "error",
-          message:
-           error.response?.data.msg,
+          message: "Logout error",
         });
+        console.error("Logout error:", error);
+        return false;
       }
     },
   },
@@ -149,7 +113,7 @@ const auth = {
       state.user = user;
     },
     SET_LOADING(state, isLoading) {
-      state.isLoading = isLoading;
+      state.loading = isLoading;
     },
   },
 };

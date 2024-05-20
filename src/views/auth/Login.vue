@@ -19,6 +19,10 @@
           class="w-full border-none bg-transparent outline-none placeholder:italic placeholder:text-cyan-400 focus:outline-none"
         />
       </div>
+     <div class="flex items-center mb-4">
+    <input id="default-checkbox" type="checkbox" v-model="rememberMe" class="w-4 h-4 text-cyan-600 bg-gray-100 border-gray-300 rounded focus:ring-cyan-500 dark:focus:ring-cyan-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+    <label for="default-checkbox" class="ms-2 text-sm font-medium text-cyan-400 dark:text-gray-300">Remember me</label>
+    </div>
       <button type="submit" @click="loginUser" :disabled="loading" class="sm:w-full w-96 mx-auto transform rounded-sm bg-transparent py-2 font-bold duration-300 hover:outline hover:outline-cyan-400 text-cyan-400 border border-cyan-400 border-opacity-30">
        <div v-if="loading" class="flex items-center justify-center text-cyan-400">
         <div>
@@ -50,10 +54,11 @@ export default {
   data() {
     return {
       form: {
-      identifier: "",
-      password: "",
+        identifier: "",
+        password: "",
       },
       loading: false,
+      rememberMe: false, // tambahkan state untuk Remember Me
     };
   },
   methods: {
@@ -70,6 +75,9 @@ export default {
         });
 
         if (success){
+          if (this.rememberMe) { // simpan data jika Remember Me dicentang
+            localStorage.setItem("username", this.form.identifier);
+          }
           window.location.href = '/dashboard/home'
         }
 
@@ -86,7 +94,16 @@ export default {
     },
     goBack() {
       window.location.href = '/';
+    },
+  },
+  created() {
+    // cek apakah ada data username di localStorage dan isi bidang masukan
+    const rememberedUsername = localStorage.getItem("username");
+    if (rememberedUsername) {
+      this.form.identifier = rememberedUsername;
+      this.rememberMe = true;
     }
-  }
+  },
 };
 </script>
+

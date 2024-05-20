@@ -6,12 +6,9 @@ import "./style.css";
 import i18n from "./i18n.js";
 import ElementPlus from "element-plus";
 import apiClient from "./apiClient.js";
-import Cookies from "js-cookie";
 
 const app = createApp(App);
 
-// Inisialisasi cookies dan API client
-app.config.globalProperties.$cookies = Cookies;
 app.config.globalProperties.$api = apiClient;
 
 app.use(i18n);

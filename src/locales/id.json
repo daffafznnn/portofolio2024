@@ -88,7 +88,12 @@
   "footer":{
     "text1":"Github",
     "text2":"Donasi",
-    "copyright":"© 2024 DaffaFznnn I Semua Hak Cipta Dilindungi oleh Undang-Undang"
+    "copyright":"© 2024 DaffaFznnn. Dibuat dengan 🧡",
+    "thanks":{
+      "early":"Terima kasih kepada",
+      "and": "dan",
+      "late": "atas kontribusinya dalam pengembangan proyek ini."
+    }
   },
    "notification": {
     "title": "Pemberitahuan",
