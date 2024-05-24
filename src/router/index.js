@@ -4,10 +4,12 @@ import NotFound from "../components/services/NotFound.vue";
 import ServerError from "../components/services/ServerError.vue";
 import ServerNotFound from "../components/services/ServerNotFound.vue";
 import Login from "../views/auth/Login.vue";
+import ForgotPassword from "../views/auth/ForgotPassword.vue";
 import DashboardLayouts from "../layouts/DashboardLayouts.vue";
 import HomeDashboard from "../views/dashboard/HomeDashboard.vue";
 import QuestionDashboard from "../views/dashboard/QuestionDashboard.vue";
 import ProjectsDashboard from "../views/dashboard/ProjectsDashboard.vue";
+import AccountSettings from "../views/settings/AccountSettings.vue";
 import apiClient from "../apiClient.js";
 
 import store from "../store";
@@ -23,13 +25,21 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const isAuthenticated = store.getters["auth/isAuthenticated"];
       if (isAuthenticated) {
-        next("/");
+        next("/dashboard/home");
       } else {
         // Show loading page for 1 second before entering the component
         setTimeout(() => {
           next();
         }, 1000);
       }
+    },
+  },
+  {
+    path: "/forgot-password",
+    component: ForgotPassword,
+    name: "ForgotPassword",
+    meta: {
+      title: "Forgot password",
     },
   },
   {
@@ -88,6 +98,14 @@ const routes = [
         name: "ProjectsDashboard",
         meta: {
           title: "Projects",
+        },
+      },
+      {
+        path: "/dashboard/settings/account",
+        component: AccountSettings,
+        name: "AccountSettings",
+        meta: {
+          title: "Settings - Account",
         },
       },
     ],

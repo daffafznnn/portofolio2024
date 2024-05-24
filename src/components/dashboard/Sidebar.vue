@@ -6,9 +6,9 @@
        <div>
         <div class="rounded-full w-10 h-10 bg-gray-300"></div>
         </div>
-        <div>
-            <p class="font-medium group-hover:text-cyan-400 leading-4 w-24 h-2 rounded-md bg-gray-300 mb-1"></p>
-            <p class="text-xs text-slate-400 w-44 h-3 bg-gray-300 rounded-md"></p>
+        <div class="hidden md:block">
+            <p class="font-medium group-hover:text-cyan-400 leading-4 w-16 lg:w-24 h-2 rounded-md bg-gray-300 mb-1"></p>
+            <p class="text-xs text-slate-400 w-24 lg:w-44 h-3 bg-gray-300 rounded-md"></p>
         </div>
        </div>
         <div v-else class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
@@ -99,7 +99,9 @@
                 </div>
             </a>
             <div v-if="{ open: false }">
-                <button @click="open = !open" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group w-full text-left">
+                <button @click="open = !open" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group w-full text-left"
+                :class="{'bg-white/10': isActive('/dashboard/settings/profile' || '')}"
+                >
                     <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-cyan-400">
@@ -108,14 +110,16 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-cyan-400">Settings</p>
+                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-cyan-400"
+                            :class="{'text-cyan-400': isActive('/dashboard/settings/profile' || '/dashboard/settings/profile')}"
+                            >Settings</p>
                             <p class="text-slate-400 text-sm hidden md:block">Edit settings</p>
                         </div>
                     </div>
                 </button>
                 <div v-show="open" class="mt-2 pl-0 sm:pl-8">
                     <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-2 px-2 block">Profile Settings</a>
-                    <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-2 px-2 block">Account Settings</a>
+                    <a @click="navigateTo('/dashboard/settings/account')" href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-2 px-2 block">Account Settings</a>
                 </div>
             </div>
             <button @click="logout" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group text-left">
@@ -133,7 +137,7 @@
                 </div>
             </button>
         </div>
-        <p class="text-sm text-center text-gray-200">v1.0.1 | &copy; 2024 daffafznnn</p>
+        <p class="text-sm text-center text-gray-200">v1.0.2 | &copy; 2024 daffafznnn</p>
     </div>
 </template>
 
