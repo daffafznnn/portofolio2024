@@ -17,7 +17,7 @@
     "welcome":{
       "title": "Hi saya daffa",
       "subtitle": "Web Developer",
-      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya seorang Web Developer, fokus saya adalah memahami Node.js untuk pengembangan backend. Meskipun saya mahir dalam JavaScript, saya siap untuk memperluas pengetahuan saya dalam bahasa tersebut.",
+      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya seorang Web Developer yang fokus pada backend dengan Node.js dan mahir dalam frontend menggunakan Vue.js. JavaScript adalah bahasa favorit saya, dan saya selalu antusias memperluas pengetahuan dalam ekosistemnya serta teknologi web lainnya.",
       "button": "Kerjakan saya"
     },
     "stats":{
@@ -75,13 +75,13 @@
     },
     "content":{
       "title1": "Kontak saya",
-      "title2": "Hubungi saya sekarang!",
-      "subtitle": "Silahkan untuk bertanya pada saya atau saran & kritik dll."
+      "title2": "Hubungi kami",
+      "subtitle": "Jangan ragu untuk mengajukan pertanyaan atau pekerjaan kepada saya."
     },
     "form":{
       "email":"Email",
       "name":"Nama",
-      "question":"Pertanyaan/saran & kritik/dll",
+      "question":"Pesan",
       "button": "Kirim"
     }
   },
@@ -91,7 +91,6 @@
     "copyright":"© 2024 DaffaFznnn. Dibuat dengan 🧡",
     "thanks":{
       "early":"Terima kasih kepada",
-      "and": "dan",
       "late": "atas kontribusinya dalam pengembangan proyek ini."
     }
   },

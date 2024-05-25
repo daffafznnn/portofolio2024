@@ -11,10 +11,10 @@
           <p class="text-base text-white md:text-lg">{{ $t('header.welcome.content', { age: age }) }}</p>
         </div>
         <div class="flex items-center">
-          <button @click="showAlert"
+          <a href="#contact"
             class="bg-sky-400a mr-6 inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition duration-200 hover:scale-110 hover:bg-sky-500 focus:ring">
             {{ $t('header.welcome.button')}}
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -80,7 +80,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { ElNotification } from 'element-plus';
 import Wave from '../Wave.vue';
 
 export default {
@@ -136,14 +135,14 @@ export default {
         this.showRandomNumber = false;
       }, duration);
     },
-    showAlert() {
-      // Menggunakan ElNotification untuk menampilkan notifikasi dengan status informasi
-      ElNotification({
-        title: this.$t('notification.title'), // Sesuaikan dengan key yang sesuai di file locale Anda
-        message: this.$t('notification.message'), // Sesuaikan dengan key yang sesuai di file locale Anda
-        type: 'info'
-      });
-    },
+    // showAlert() {
+    //   // Menggunakan ElNotification untuk menampilkan notifikasi dengan status informasi
+    //   ElNotification({
+    //     title: this.$t('notification.title'), // Sesuaikan dengan key yang sesuai di file locale Anda
+    //     message: this.$t('notification.message'), // Sesuaikan dengan key yang sesuai di file locale Anda
+    //     type: 'info'
+    //   });
+    // },
     addAnimationClasses() {
       const leftContent = document.querySelector('.left-content');
       const rightContent = document.querySelector('.right-content');

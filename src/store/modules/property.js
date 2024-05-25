@@ -6,7 +6,7 @@ const property = {
   state: {
     stats: [
       {
-        year: 3,
+        year: import.meta.env.VITE_YEARS_EXPERIENCE,
         achievement: 2,
       },
     ],

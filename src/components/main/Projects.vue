@@ -2,6 +2,30 @@
   <section id="porto" ref="porto" class="py-20">
     <h1 class="mb-12 text-center font-sans text-5xl font-bold text-cyan-400">{{ $t('porto.head.title') }}</h1>
     <span class="flex justify-center items-center font-medium text-gray-200 pb-8">{{ $t('porto.head.subtitle') }}</span>
+  <div class="flex justify-center mb-2">
+   <div class="grid grid-cols-4 gap-2 rounded-xl bg-white/10 p-2 text-white">
+      <div
+        v-for="item in categories"
+        :key="item.id"
+      >
+        <input
+          type="radio"
+          :name="item.name"
+          :id="item.id"
+          :value="item.name"
+          class="peer hidden"
+          v-model="selectedCategory"
+          @click="$store.actions('settings/showAlert')"
+        />
+        <label
+          :for="item.id"
+          class="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-cyan-400 peer-checked:font-bold peer-checked:text-white"
+        >
+          {{ item.name }}
+        </label>
+      </div>
+    </div>
+  </div>
      <div v-if="isFirstLoad" class="mx-auto grid max-w-screen-xl grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
       <article v-for="index in 6" :key="index" class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-500 hover:translate-y-2">
         <div class="animate-pulse flex flex-col h-full">
@@ -18,14 +42,14 @@
     <article v-for="(item) in paginatedProjects" :key="item.id" :id="item.id"
               :class="{ 'animate-slide-up': isFirstLoad, 'article': true }"
               class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-500 hover:translate-y-2 relative group">
-      <img class="max-h-30 w-full object-cover rounded-lg transition-filter duration-300 ease-in-out" alt="featured image" :src="item.url" loading="lazy" @load="imageLoaded" />
+      <img class="h-56 w-full object-cover rounded-lg transition-filter duration-300 ease-in-out" alt="featured image" :src="item.url" loading="lazy" @load="imageLoaded" />
       <!-- Container untuk overlay saat hover -->
       <!-- for desktop -->
       <div class="overlay hidden md:flex flex-col">
         <!-- Konten tautan -->
         <div class="text-white text-center">
-          <a :href="item.websiteUrl" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-900 block mb-2 hover:underline">Visit Website</a>
-          <a :href="item.githubUrl" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-900 block hover:underline">GitHub</a>
+          <a :href="item.websiteUrl" target="_blank" rel="noopener noreferrer" :class="{'hidden sm:flex' : !item.websiteUrl}" class="text-white hover:text-cyan-300 block mb-2 hover:underline">Visit Website</a>
+          <a :href="item.githubUrl" target="_blank" rel="noopener noreferrer" :class="{'hidden sm:flex' : !item.githubUrl}" class="text-white hover:text-cyan-300 block hover:underline">GitHub</a>
         </div>
       </div>
       <div class="w-full p-4">
@@ -69,6 +93,17 @@ export default {
       isFirstLoad: true,
       itemsPerPage: 6,
       currentPage: 1,
+    selectedCategory: 'Web Application',
+      categories: [
+        {
+          id: 1,
+          name: 'Web Application',
+        },
+        {
+          id: 2,
+          name: 'Services APIs',
+        },
+      ],
     };
   },
   computed: {
@@ -76,28 +111,31 @@ export default {
      totalPages() {
       return Math.ceil(this.getProject.length / this.itemsPerPage);
     },
-paginatedProjects() {
-  // Mengubah properti createdAt menjadi objek Date
-  const projectsWithDateTime = this.getProject.map(project => {
-    const createdAt = new Date(project.createdAt);
-    return { ...project, createdAt };
-  });
+    paginatedProjects() {
+      // Mengubah properti createdAt menjadi objek Date
+      const projectsWithDateTime = this.getProject.map(project => {
+        const createdAt = new Date(project.createdAt);
+        return { ...project, createdAt };
+      });
 
-  // Filter proyek berdasarkan properti status
-  const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
+      // Filter proyek berdasarkan properti status
+      const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
 
-  // Urutkan proyek berdasarkan properti createdAt
-  const sortedProjects = filteredProjects.sort((a, b) => b.createdAt - a.createdAt); // Urutkan dari yang terbaru ke yang terlama
+      // Urutkan proyek berdasarkan properti createdAt
+      const sortedProjects = filteredProjects.sort((a, b) => b.createdAt - a.createdAt); // Urutkan dari yang terbaru ke yang terlama
 
-  // Hitung indeks awal dan akhir untuk bagian yang akan ditampilkan
-  const start = (this.currentPage - 1) * this.itemsPerPage;
-  const end = start + this.itemsPerPage;
+      // Tentukan itemsPerPage berdasarkan ukuran layar
+      const itemsPerPage = this.getItemsPerPage();
 
-  // Ambil sebagian data yang telah diurutkan
-  const paginatedData = sortedProjects.slice(start, end);
+      // Hitung indeks awal dan akhir untuk bagian yang akan ditampilkan
+      const start = (this.currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
 
-  return paginatedData;
-}
+      // Ambil sebagian data yang telah diurutkan
+      const paginatedData = sortedProjects.slice(start, end);
+
+      return paginatedData;
+    }
   },
   methods: {
     prevPage() {
@@ -116,13 +154,34 @@ paginatedProjects() {
       // Scroll to the top of the component
       this.$refs.porto.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
+    getItemsPerPage() {
+      // Cek ukuran layar dan sesuaikan itemsPerPage
+      if (window.innerWidth <= 576) { // Ukuran layar untuk perangkat mobile
+        return 3;
+      } else {
+        return 6; // Ukuran layar untuk iPad ke desktop
+      }
+    },
+    updateItemsPerPage() {
+      // Perbarui itemsPerPage berdasarkan ukuran layar saat ini
+      this.itemsPerPage = this.getItemsPerPage();
+    }
   },
   mounted() {
-
     // Hapus kelas animasi setelah elemen dimuat pertama kali
     setTimeout(() => {
       this.isFirstLoad = false;
     }, 2000); // Waktu penundaan dalam milidetik, disesuaikan dengan durasi animasi
+  },
+    created() {
+    // Tambahkan event listener untuk perubahan ukuran layar
+    window.addEventListener('resize', this.updateItemsPerPage);
+    // Set initial itemsPerPage value
+    this.itemsPerPage = this.getItemsPerPage();
+  },
+  beforeDestroy() {
+    // Hapus event listener saat komponen dihancurkan
+    window.removeEventListener('resize', this.updateItemsPerPage);
   },
 };
 </script>
