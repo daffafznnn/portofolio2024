@@ -3,8 +3,7 @@ import router from "./router";
 
 // Buat instance Axios
 const apiClient = axios.create({
-  // baseURL: "https://api-daffafznnn.vercel.app/api/v1",
-  baseURL: "http://localhost:8080/api/v1",
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 // Tambahkan interceptor untuk menangani kesalahan secara global
