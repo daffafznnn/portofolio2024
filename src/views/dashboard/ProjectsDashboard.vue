@@ -40,7 +40,7 @@
                   <tr class="bg-black/25 text-white uppercase text-sm leading-normal">
                     <th class="py-3 px-6 text-left">Project</th>
                     <th class="py-3 px-6 text-left">Title</th>
-                    <th class="py-3 px-6 text-center">Progres</th>
+                    <th class="py-3 px-6 text-center">Progress</th>
                     <th class="py-3 px-6 text-center">Status</th>
                     <th class="py-3 px-6 text-center">Actions</th>
                   </tr>
@@ -53,11 +53,9 @@
                   >
                     <td class="py-3 px-6 text-left whitespace-nowrap cursor-pointer">
                       <div class="flex items-center" @click="toggleDetail(project, 'read')">
-                        <div class="mr-2">
-                          <img :src="getIconProject(project.technologiesUsed)" class="w-6 h-6" />
-                        </div>
                         <span class="font-medium group-hover:text-slate-700">{{ project.technologiesUsed }}</span>
                       </div>
+                      <p class="text-sm">{{ project.category }}</p>
                     </td>
                     <td class="py-3 px-6 text-left">
                       <div class="flex items-center">
@@ -168,6 +166,13 @@
                   <input type="text" v-model="form.websiteUrl" id="websiteUrl" placeholder="websiteUrl" class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
                 </div>
+                 <div class="mb-4 mx-2 sm:mx-auto">
+                  <label for="category" class="block text-sm font-medium text-gray-300">Category:</label>
+                  <select v-model="form.categoryId"  class="bg-blue-900 text-white mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    <option value="" disabled selected>Select category</option>
+                    <option v-for="item in getCategories" :label="item.name" :key="item.id" :value="item.id">{{ item.name }}</option>
+                  </select>  
+                </div>
                   <div class="mb-4 mx-2 sm:mx-auto">
                   <label for="progress" class="block text-sm font-medium text-gray-300">Progress  <span class="flex justify-end items-end">{{ form.progress }}%</span></label>
                     <input id="progress" type="range" v-model="form.progress" min="0" max="100" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
@@ -252,7 +257,7 @@
                   </div>
               </form>
               <!-- end form -->
-              <!-- content read prokjet -->
+              <!-- content read project -->
               <div v-else class="container mx-auto">
                 <div class="mb-4 mx-2 sm:mx-auto">
                <img class="max-h-30 w-full object-cover rounded-lg transition-filter duration-300 ease-in-out" alt="featured image" :src="selectedProject.url" loading="lazy" @load="imageLoaded" />
@@ -385,12 +390,14 @@ export default {
         websiteUrl: '',
         progress: 0,
         status: 'Pending',
+        categoryId: '',
         inputFile: null
       }
     };
   },
   computed: {
     ...mapGetters('property', ['getProject', 'isLoading']),
+    ...mapGetters('categories', ['getCategories']),
      loading() {
       return this.isLoading;
     },
@@ -415,7 +422,7 @@ export default {
   },
   methods: {
     ...mapActions('property', ['addProject', 'deleteProject', 'updateProject']),
-
+    ...mapActions('categories', ['fetchCategories']),
     async submitProject() {
   try {
     this.loading = true; // Set loading to true before any asynchronous operation
@@ -435,6 +442,7 @@ export default {
     formData.append('websiteUrl', this.form.websiteUrl);
     formData.append('progress', this.form.progress);
     formData.append('status', this.form.status);
+    formData.append('categoryId', this.form.categoryId);
 
     // Add file if available
     if (this.form.inputFile) {
@@ -467,6 +475,7 @@ export default {
         websiteUrl: '',
         progress: 0,
         status: 'Pending',
+        categoryId: '',
         inputFile: null
       }
     }
@@ -536,6 +545,7 @@ export default {
         this.selectedProject = project;
         this.selectedActions = actions
         this.loadGithubRepositories();
+        this.fetchCategories();
         if (actions === 'edit') {
           this.setEditProject(project)
         }
@@ -566,6 +576,7 @@ export default {
         websiteUrl: project.websiteUrl,
         progress: project.progress,
         status: project.status,
+        categoryId: project.categoryId,
       };
       this.filePreview = project.url
     },
@@ -573,15 +584,6 @@ export default {
       return status === 'Active'
         ? 'bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs'
         : 'bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs';
-    },
-    getIconProject(technologiesUsed) {
-      const iconMap = {
-        'javascript': 'https://img.icons8.com/color/48/000000/javascript.png',
-        'vue.js': 'https://img.icons8.com/color/48/000000/vue-js.png',
-        'react': 'https://img.icons8.com/color/48/000000/react-native.png',
-        // Tambahkan mapping untuk teknologi lain jika diperlukan
-      };
-      return iconMap[technologiesUsed.toLowerCase()] || 'https://example.com/default-icon.png';
     },
     changePage(pageNumber) {
       this.currentPage = pageNumber;

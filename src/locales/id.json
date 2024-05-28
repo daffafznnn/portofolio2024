@@ -2,7 +2,7 @@
   "navbar": {
     "content":{
     "portfolio": "Proyek",
-    "tech": "Teknologi",
+    "tech": "Keahlian",
     "about": "Tentang",
     "contact": "Kontak"
     },
@@ -16,7 +16,7 @@
   "header":{
     "welcome":{
       "title": "Hi saya daffa",
-      "subtitle": "Web Developer",
+      "subtitle": "Jr. Back-End Web Developer",
       "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya seorang Web Developer yang fokus pada backend dengan Node.js dan mahir dalam frontend menggunakan Vue.js. JavaScript adalah bahasa favorit saya, dan saya selalu antusias memperluas pengetahuan dalam ekosistemnya serta teknologi web lainnya.",
       "button": "Kerjakan saya"
     },
@@ -41,7 +41,7 @@
     }
   },
   "tech":{
-    "title": "Tumpukan Teknologi",
+    "title": "Keahlian dan Alat",
     "subtitle": "Berikut adalah teknologi yang saya gunakan untuk membangun proyek"
   },
   "about":{

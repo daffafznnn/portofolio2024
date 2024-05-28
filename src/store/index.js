@@ -3,6 +3,7 @@ import property from "./modules/property.js";
 import auth from "./modules/auth.js";
 import question from "./modules/question.js";
 import settings from "./modules/settings.js";
+import categories from "./modules/categories.js";
 
 
 const store = createStore({
@@ -13,7 +14,8 @@ const store = createStore({
     property,
     auth,
     question,
-    settings
+    settings,
+    categories
   },
 });
 

@@ -1,19 +1,11 @@
 import apiClient from "../../apiClient.js";
-import { ElMessage, ElNotification } from "element-plus";
+import { ElMessage } from "element-plus";
 
 const settings = {
   namespaced: true,
   state: {},
   getters: {},
   actions: {
-    showAlert() {
-      // Menggunakan ElNotification untuk menampilkan notifikasi dengan status informasi
-      ElNotification({
-        title: this.$t('notification.title'), // Sesuaikan dengan key yang sesuai di file locale Anda
-        message: this.$t('notification.message'), // Sesuaikan dengan key yang sesuai di file locale Anda
-        type: 'info'
-      });
-    },
     async changePassword({ commit }, formData) {
       try {
         const token = localStorage.getItem("token");

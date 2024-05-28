@@ -2,30 +2,27 @@
   <section id="porto" ref="porto" class="py-20">
     <h1 class="mb-12 text-center font-sans text-5xl font-bold text-cyan-400">{{ $t('porto.head.title') }}</h1>
     <span class="flex justify-center items-center font-medium text-gray-200 pb-8">{{ $t('porto.head.subtitle') }}</span>
-  <div class="flex justify-center mb-2">
-   <div class="grid grid-cols-4 gap-2 rounded-xl bg-white/10 p-2 text-white">
-      <div
-        v-for="item in categories"
-        :key="item.id"
-      >
-        <input
-          type="radio"
-          :name="item.name"
-          :id="item.id"
-          :value="item.name"
-          class="peer hidden"
-          v-model="selectedCategory"
-          @click="$store.actions('settings/showAlert')"
-        />
-        <label
-          :for="item.id"
-          class="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-cyan-400 peer-checked:font-bold peer-checked:text-white"
-        >
-          {{ item.name }}
-        </label>
+    <div class="flex justify-center mb-2">
+    <div class="flex items-center gap-2 rounded-xl bg-white/10 p-2 text-white">
+        <div v-for="item in getCategories" :key="item.id">
+          <input
+            type="radio"
+            :name="'category-' + item.id"
+            :id="'category-' + item.id"
+            :value="item.name"
+            class="peer hidden"
+            v-model="selectedCategory"
+            @click="fetchProjects"
+          />
+          <label
+            :for="'category-' + item.id"
+            class="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-cyan-500 peer-checked:font-bold peer-checked:text-white"
+          >
+            {{ item.name }}
+          </label>
+        </div>
       </div>
     </div>
-  </div>
      <div v-if="isFirstLoad" class="mx-auto grid max-w-screen-xl grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
       <article v-for="index in 6" :key="index" class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-500 hover:translate-y-2">
         <div class="animate-pulse flex flex-col h-full">
@@ -75,8 +72,9 @@
         </div>
       </div>
     </article>
+    <el-empty v-if="paginatedProjects.length === 0" description="No projects found" class="h-90 col-span-1 sm:col-span-3 mx-auto grid max-w-screen-xl" />
     </div>
-     <div v-if="totalPages > 1" class="flex justify-center items-center mt-8">
+    <div v-if="totalPages > 1 && paginatedProjects.length !== 0" class="flex justify-center items-center mt-8">
       <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-2 mr-2 bg-transparent border-collapse border border-cyan-400 text-cyan-300 rounded-md cursor-pointer" :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }">{{ $t('porto.button.prev') }}</button>
       <button @click="nextPage" :disabled="currentPage === totalPages" class="px-4 py-2 bg-transparent border-collapse border border-cyan-400 text-cyan-300 rounded-md cursor-pointer" :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }">{{ $t('porto.button.next') }}</button>
     </div>
@@ -84,7 +82,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -93,22 +91,13 @@ export default {
       isFirstLoad: true,
       itemsPerPage: 6,
       currentPage: 1,
-    selectedCategory: 'Web Application',
-      categories: [
-        {
-          id: 1,
-          name: 'Web Application',
-        },
-        {
-          id: 2,
-          name: 'Services APIs',
-        },
-      ],
+      selectedCategory: null,
     };
   },
   computed: {
     ...mapGetters('property', ['getProject']),
-     totalPages() {
+    ...mapGetters('categories', ['getCategories']),
+    totalPages() {
       return Math.ceil(this.getProject.length / this.itemsPerPage);
     },
     paginatedProjects() {
@@ -121,8 +110,14 @@ export default {
       // Filter proyek berdasarkan properti status
       const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
 
+      // Filter proyek berdasarkan kategori yang dipilih
+      let filteredByCategory = filteredProjects;
+      if (this.selectedCategory) {
+        filteredByCategory = filteredProjects.filter(project => project.category === this.selectedCategory);
+      }
+
       // Urutkan proyek berdasarkan properti createdAt
-      const sortedProjects = filteredProjects.sort((a, b) => b.createdAt - a.createdAt); // Urutkan dari yang terbaru ke yang terlama
+      const sortedProjects = filteredByCategory.sort((a, b) => b.createdAt - a.createdAt); // Urutkan dari yang terbaru ke yang terlama
 
       // Tentukan itemsPerPage berdasarkan ukuran layar
       const itemsPerPage = this.getItemsPerPage();
@@ -138,6 +133,11 @@ export default {
     }
   },
   methods: {
+    ...mapActions('settings', ['showAlertDevelopment']),
+    ...mapActions('categories', ['fetchCategories']),
+    fetchProjects() {
+      this.$store.dispatch('property/fetchProjects');
+    },
     prevPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -165,15 +165,29 @@ export default {
     updateItemsPerPage() {
       // Perbarui itemsPerPage berdasarkan ukuran layar saat ini
       this.itemsPerPage = this.getItemsPerPage();
-    }
+    },
   },
   mounted() {
     // Hapus kelas animasi setelah elemen dimuat pertama kali
     setTimeout(() => {
       this.isFirstLoad = false;
     }, 2000); // Waktu penundaan dalam milidetik, disesuaikan dengan durasi animasi
+
+    // Panggil fetchCategories dan tunggu hingga selesai
+    this.fetchCategories().then(() => {
+      const defaultCategory = this.getCategories.find(category => category.id === 1);
+      if (defaultCategory) {
+        this.selectedCategory = defaultCategory.name;
+      } else {
+        // Jika kategori dengan ID 1 tidak ditemukan, pilih kategori pertama sebagai default
+        const firstCategory = this.getCategories[0];
+        if (firstCategory) {
+          this.selectedCategory = firstCategory.name;
+        }
+      }
+    });
   },
-    created() {
+  created() {
     // Tambahkan event listener untuk perubahan ukuran layar
     window.addEventListener('resize', this.updateItemsPerPage);
     // Set initial itemsPerPage value

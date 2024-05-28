@@ -2,7 +2,7 @@
   "navbar": {
     "content":{
     "portfolio": "Projects",
-    "tech": "Tech",
+    "tech": "Skills",
     "about": "About",
     "contact": "Contact"
     },
@@ -16,7 +16,7 @@
   "header":{
     "welcome":{
       "title": "Hi I am daffa",
-      "subtitle": "Web Developer",
+      "subtitle": "Jr. Back-End Web Developer",
       "content": "My name is Daffa, {age} years old, living in Bandung. I am a Web Developer who focuses on backend with Node.js and proficient in frontend using Vue.js. JavaScript is my favourite language, and I'm always enthusiastic about expanding my knowledge in its ecosystem and other web technologies.",
       "button": "Work on me"
     },
@@ -41,7 +41,7 @@
     }
   },
   "tech":{
-    "title": "Tech Stack",
+    "title": "Skills and Tools",
     "subtitle": "Here are the technologies I used to build the project"
   },
   "about":{

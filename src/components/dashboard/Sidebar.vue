@@ -93,8 +93,8 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-cyan-400">achivment</p>
-                        <p class="text-slate-400 text-sm hidden md:block">Manage achivment</p>
+                        <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-cyan-400">achievements</p>
+                        <p class="text-slate-400 text-sm hidden md:block">Manage achievement</p>
                     </div>
                 </div>
             </a>

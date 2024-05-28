@@ -57,7 +57,7 @@
               </svg>
             </div>
             <!-- garis setelah icon -->
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+            <div class="hidden sm:block w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
           </div>
           <div class="mt-3 sm:pe-8">
             <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline.items.0.title') }}</h3>
@@ -77,7 +77,7 @@
               </svg>
             </div>
             <!-- garis setelah icon -->
-            <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+            <div class="hidden sm:block w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
           </div>
           <div class="mt-3 sm:pe-8">
             <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline.items.1.title') }}</h3>
