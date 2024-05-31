@@ -66,6 +66,24 @@
           "major": "(Rekayasa Perangkat Lunak)"
         }
       ]
+    },
+     "timeline-working":{
+      "title": "Pengalaman kerja",
+      "items":[
+        {
+          "date":"Mei 2024 - Sekarang",
+          "title":"Backend Developer di Fiverr",
+          "subtitle": "Freelancer (Pekerja Mandiri)",
+          "items-works": [
+            {
+              "name": "Integrasi API"
+            },
+            {
+              "name": "Layanan & Perbaikan Bug"
+            }
+          ]
+        }
+      ]
     }
   },
   "contact":{

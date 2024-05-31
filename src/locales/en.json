@@ -66,6 +66,24 @@
            "major": "(Software Engineering)"
         }
       ]
+    },
+    "timeline-working":{
+      "title": "Working experience",
+      "items":[
+        {
+          "date":"May 2024 - Now",
+          "title":"Backend Developer on Fiverr",
+          "subtitle": "Freelancer (Self Employed)",
+          "items-works": [
+            {
+              "name": "API Integration"
+            },
+            {
+              "name": "Services & Bug Fixing"
+            }
+          ]
+        }
+      ]
     }
   },
    "contact":{

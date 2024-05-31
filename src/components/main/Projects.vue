@@ -12,7 +12,7 @@
             :value="item.name"
             class="peer hidden"
             v-model="selectedCategory"
-            @click="fetchProjects"
+            @click="fetchProject"
           />
           <label
             :for="'category-' + item.id"
@@ -37,8 +37,8 @@
     </div>
     <div v-else class="mx-auto grid max-w-screen-xl grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-10">
     <article v-for="(item) in paginatedProjects" :key="item.id" :id="item.id"
-              :class="{ 'animate-slide-up': isFirstLoad, 'article': true }"
-              class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-500 hover:translate-y-2 relative group">
+     :class="{ 'animate-slide-up': isFirstLoad, 'article': true }"
+    class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-500 hover:translate-y-2 relative group">
       <img class="h-56 w-full object-cover rounded-lg transition-filter duration-300 ease-in-out" alt="featured image" :src="item.url" loading="lazy" @load="imageLoaded" />
       <!-- Container untuk overlay saat hover -->
       <!-- for desktop -->
@@ -62,7 +62,7 @@
             </svg>
             Website
           </a>
-          <a :href="item.githubUrl" :class="{'hidden sm:flex' : !item.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-gray-600 px-3 py-1 rounded-md flex items-center">
+          <a :href="item.githubUrl" :class="{'hidden sm:flex' : !item.githubUrl}" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-blue-600 px-3 py-1 rounded-md flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <!-- Icon for GitHub link -->
               <path fill-rule="evenodd" d="M10 2a8 8 0 00-2.53 15.59c.4.08.55-.17.55-.38l-.01-1.34c-2.26.49-2.74-1.09-2.74-1.09-.37-.94-.9-1.19-.9-1.19-.73-.5.06-.49.06-.49.81.06 1.24.83 1.24.83.72 1.23 1.89.87 2.36.66.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.96 0-.87.31-1.59.83-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.52.56.83 1.27.83 2.15 0 3.08-1.88 3.76-3.66 3.96.29.25.54.74.54 1.49l-.01 2.21c0 .21.15.46.55.38A8 8 0 0010 2z" clip-rule="evenodd" />
@@ -81,13 +81,13 @@
   </section>
 </template>
 
+
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
   data() {
     return {
-      scrollPosition: 0,
       isFirstLoad: true,
       itemsPerPage: 6,
       currentPage: 1,
@@ -101,32 +101,25 @@ export default {
       return Math.ceil(this.getProject.length / this.itemsPerPage);
     },
     paginatedProjects() {
-      // Mengubah properti createdAt menjadi objek Date
       const projectsWithDateTime = this.getProject.map(project => {
         const createdAt = new Date(project.createdAt);
         return { ...project, createdAt };
       });
 
-      // Filter proyek berdasarkan properti status
       const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
 
-      // Filter proyek berdasarkan kategori yang dipilih
       let filteredByCategory = filteredProjects;
       if (this.selectedCategory) {
         filteredByCategory = filteredProjects.filter(project => project.category === this.selectedCategory);
       }
 
-      // Urutkan proyek berdasarkan properti createdAt
-      const sortedProjects = filteredByCategory.sort((a, b) => b.createdAt - a.createdAt); // Urutkan dari yang terbaru ke yang terlama
+      const sortedProjects = filteredByCategory.sort((a, b) => b.createdAt - a.createdAt);
 
-      // Tentukan itemsPerPage berdasarkan ukuran layar
       const itemsPerPage = this.getItemsPerPage();
 
-      // Hitung indeks awal dan akhir untuk bagian yang akan ditampilkan
       const start = (this.currentPage - 1) * itemsPerPage;
       const end = start + itemsPerPage;
 
-      // Ambil sebagian data yang telah diurutkan
       const paginatedData = sortedProjects.slice(start, end);
 
       return paginatedData;
@@ -134,10 +127,8 @@ export default {
   },
   methods: {
     ...mapActions('settings', ['showAlertDevelopment']),
+    ...mapActions('property', ['fetchProject']),
     ...mapActions('categories', ['fetchCategories']),
-    fetchProjects() {
-      this.$store.dispatch('property/fetchProjects');
-    },
     prevPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -151,35 +142,29 @@ export default {
       }
     },
     scrollToTop() {
-      // Scroll to the top of the component
       this.$refs.porto.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
     getItemsPerPage() {
-      // Cek ukuran layar dan sesuaikan itemsPerPage
-      if (window.innerWidth <= 576) { // Ukuran layar untuk perangkat mobile
+      if (window.innerWidth <= 576) {
         return 3;
       } else {
-        return 6; // Ukuran layar untuk iPad ke desktop
+        return 6;
       }
     },
     updateItemsPerPage() {
-      // Perbarui itemsPerPage berdasarkan ukuran layar saat ini
       this.itemsPerPage = this.getItemsPerPage();
     },
   },
   mounted() {
-    // Hapus kelas animasi setelah elemen dimuat pertama kali
     setTimeout(() => {
       this.isFirstLoad = false;
-    }, 2000); // Waktu penundaan dalam milidetik, disesuaikan dengan durasi animasi
+    }, 2000);
 
-    // Panggil fetchCategories dan tunggu hingga selesai
     this.fetchCategories().then(() => {
       const defaultCategory = this.getCategories.find(category => category.id === 1);
       if (defaultCategory) {
         this.selectedCategory = defaultCategory.name;
       } else {
-        // Jika kategori dengan ID 1 tidak ditemukan, pilih kategori pertama sebagai default
         const firstCategory = this.getCategories[0];
         if (firstCategory) {
           this.selectedCategory = firstCategory.name;
@@ -188,49 +173,57 @@ export default {
     });
   },
   created() {
-    // Tambahkan event listener untuk perubahan ukuran layar
     window.addEventListener('resize', this.updateItemsPerPage);
-    // Set initial itemsPerPage value
     this.itemsPerPage = this.getItemsPerPage();
   },
   beforeDestroy() {
-    // Hapus event listener saat komponen dihancurkan
     window.removeEventListener('resize', this.updateItemsPerPage);
   },
 };
 </script>
-<style>
 
-  article:hover .absolute {
-    opacity: 1;
+<style scoped>
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.article-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+article:hover .absolute {
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .group:hover .transition-filter {
+    filter: blur(3px);
   }
-  
-  @media (min-width: 640px) {
-    .group:hover .transition-filter {
-      filter: blur(3px);
-    }
-    /* Style untuk overlay */
+
   .overlay {
-    opacity: 0; /* Mulai transparan */
-    position: absolute; /* Positioning overlay */
-    top: 0; /* Top position */
-    left: 0; /* Left position */
-    width: 100%; /* Full width */
-    height: 14rem; /* Full height */
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 14rem;
     background: #00000046;
-    display: flex; /* Center content vertically and horizontally */
+    display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.3s; /* Transition effect */
+    transition: opacity 0.3s;
+    border-radius: 20px;
   }
 
-  /* Tampilkan overlay saat hover */
   .article:hover .overlay {
-    opacity: 1; /* Tampilkan overlay */
+    opacity: 1;
   }
-  }
-  
-  .hidden.sm\:flex {
-    display: none !important;
-  }
+}
+
+.hidden.sm\:flex {
+  display: none !important;
+}
 </style>
