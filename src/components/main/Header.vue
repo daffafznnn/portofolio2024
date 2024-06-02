@@ -1,5 +1,5 @@
 <template>
-  <section class="mx-auto flex flex-col px-4 sm:max-w-xl md:max-w-screen-xl md:flex-row">
+  <section class="mx-auto flex flex-col px-8 sm:max-w-sm md:max-w-screen-xl md:flex-row">
     <!-- Left Column -->
     <div class="left-content mx-auto mt-16 w-full max-w-xl md:mt-36 lg:max-w-screen-xl lg:w-1/2 lg:mr-12">
       <div class="mb-16 lg:mb-0 lg:max-w-lg">

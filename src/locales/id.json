@@ -14,11 +14,11 @@
   }
   },
   "header":{
-    "welcome":{
-      "title": "Hi saya daffa",
-      "subtitle": "Jr. Back-End Web Developer",
-      "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya seorang Web Developer yang fokus pada backend dengan Node.js dan mahir dalam frontend menggunakan Vue.js. JavaScript adalah bahasa favorit saya, dan saya selalu antusias memperluas pengetahuan dalam ekosistemnya serta teknologi web lainnya.",
-      "button": "Kerjakan saya"
+    "welcome": {
+    "title": "Hi saya Daffa",
+    "subtitle": "Back-End Web Developer",
+    "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya seorang Web Developer yang fokus pada backend dengan Node.js dan memiliki kemampuan menengah dalam frontend menggunakan Vue.js. Saya sangat antusias memperluas pengetahuan dalam ekosistem JavaScript dan teknologi web lainnya.",
+    "button": "Kerjakan saya"
     },
     "stats":{
       "project": "Proyek",
@@ -69,6 +69,7 @@
     },
      "timeline-working":{
       "title": "Pengalaman kerja",
+      "button-fiverr": "Kunjungi di Fiverr",
       "items":[
         {
           "date":"Mei 2024 - Sekarang",

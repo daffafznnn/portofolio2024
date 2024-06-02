@@ -14,11 +14,11 @@
     }
   },
   "header":{
-    "welcome":{
-      "title": "Hi I am daffa",
-      "subtitle": "Jr. Back-End Web Developer",
-      "content": "My name is Daffa, {age} years old, living in Bandung. I am a Web Developer who focuses on backend with Node.js and proficient in frontend using Vue.js. JavaScript is my favourite language, and I'm always enthusiastic about expanding my knowledge in its ecosystem and other web technologies.",
-      "button": "Work on me"
+    "welcome": {
+      "title": "Hi, I'm Daffa",
+      "subtitle": "Back-End Web Developer",
+      "content": "My name is Daffa, I am {age} years old, and I live in Bandung. I am a Web Developer focusing on backend development with Node.js and have intermediate skills in frontend development using Vue.js. I am passionate about expanding my knowledge in the JavaScript ecosystem and other web technologies.",
+      "button": "Hire me"
     },
     "stats":{
       "project": "Projects",
@@ -69,6 +69,7 @@
     },
     "timeline-working":{
       "title": "Working experience",
+      "button-fiverr": "Visit on Fiverr",
       "items":[
         {
           "date":"May 2024 - Now",

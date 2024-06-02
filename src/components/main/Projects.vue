@@ -5,7 +5,7 @@
     <div class="flex justify-center mb-2">
     <div class="flex items-center gap-2 rounded-xl bg-white/10 p-2 text-white">
         <div v-for="item in getCategories" :key="item.id">
-          <input
+           <input
             type="radio"
             :name="'category-' + item.id"
             :id="'category-' + item.id"
@@ -74,7 +74,7 @@
     </article>
     <el-empty v-if="paginatedProjects.length === 0" description="No projects found" class="h-90 col-span-1 sm:col-span-3 mx-auto grid max-w-screen-xl" />
     </div>
-    <div v-if="totalPages > 1 && paginatedProjects.length !== 0" class="flex justify-center items-center mt-8">
+  <div v-if="shouldShowPagination" class="flex justify-center items-center mt-8">
       <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-2 mr-2 bg-transparent border-collapse border border-cyan-400 text-cyan-300 rounded-md cursor-pointer" :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }">{{ $t('porto.button.prev') }}</button>
       <button @click="nextPage" :disabled="currentPage === totalPages" class="px-4 py-2 bg-transparent border-collapse border border-cyan-400 text-cyan-300 rounded-md cursor-pointer" :class="{ 'opacity-50 cursor-not-allowed': currentPage === totalPages }">{{ $t('porto.button.next') }}</button>
     </div>
@@ -92,6 +92,8 @@ export default {
       itemsPerPage: 6,
       currentPage: 1,
       selectedCategory: null,
+      shouldShowPagination: false,
+      prevSelectedCategory: null
     };
   },
   computed: {
@@ -100,30 +102,46 @@ export default {
     totalPages() {
       return Math.ceil(this.getProject.length / this.itemsPerPage);
     },
-    paginatedProjects() {
-      const projectsWithDateTime = this.getProject.map(project => {
-        const createdAt = new Date(project.createdAt);
-        return { ...project, createdAt };
-      });
+paginatedProjects() {
+  // Reset currentPage to 1 when category changes
+  if (this.prevSelectedCategory !== this.selectedCategory) {
+    this.currentPage = 1;
+    this.prevSelectedCategory = this.selectedCategory;
+  }
 
-      const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
+  const projectsWithDateTime = this.getProject.map(project => {
+    const createdAt = new Date(project.createdAt);
+    return { ...project, createdAt };
+  });
 
-      let filteredByCategory = filteredProjects;
-      if (this.selectedCategory) {
-        filteredByCategory = filteredProjects.filter(project => project.category === this.selectedCategory);
-      }
+  const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
 
-      const sortedProjects = filteredByCategory.sort((a, b) => b.createdAt - a.createdAt);
+  let filteredByCategory = filteredProjects;
+  if (this.selectedCategory) {
+    // Filter berdasarkan kategori yang dipilih
+    filteredByCategory = filteredProjects.filter(project => project.category === this.selectedCategory);
+  }
 
-      const itemsPerPage = this.getItemsPerPage();
+  const sortedProjects = filteredByCategory.sort((a, b) => b.createdAt - a.createdAt);
 
-      const start = (this.currentPage - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
+  const totalItems = sortedProjects.length;
 
-      const paginatedData = sortedProjects.slice(start, end);
+  const itemsPerPage = this.getItemsPerPage();
 
-      return paginatedData;
-    }
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // Pastikan currentPage tidak melebihi totalPages
+  if (this.currentPage > totalPages) {
+    this.currentPage = totalPages;
+  }
+
+  const start = (this.currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+
+  const paginatedData = sortedProjects.slice(start, end);
+
+  return paginatedData;
+}
   },
   methods: {
     ...mapActions('settings', ['showAlertDevelopment']),
@@ -171,6 +189,12 @@ export default {
         }
       }
     });
+  },
+ watch: {
+    paginatedProjects() {
+      // Set shouldShowPagination based on conditions
+      this.shouldShowPagination = this.totalPages > 1 && this.paginatedProjects.length !== 0;
+    }
   },
   created() {
     window.addEventListener('resize', this.updateItemsPerPage);
