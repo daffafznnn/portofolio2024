@@ -80,8 +80,6 @@
     </div>
   </section>
 </template>
-
-
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
@@ -102,46 +100,39 @@ export default {
     totalPages() {
       return Math.ceil(this.getProject.length / this.itemsPerPage);
     },
-paginatedProjects() {
-  // Reset currentPage to 1 when category changes
-  if (this.prevSelectedCategory !== this.selectedCategory) {
-    this.currentPage = 1;
-    this.prevSelectedCategory = this.selectedCategory;
-  }
+    paginatedProjects() {
+      if (this.prevSelectedCategory !== this.selectedCategory) {
+        this.currentPage = 1;
+        this.prevSelectedCategory = this.selectedCategory;
+      }
 
-  const projectsWithDateTime = this.getProject.map(project => {
-    const createdAt = new Date(project.createdAt);
-    return { ...project, createdAt };
-  });
+      const projectsWithDateTime = this.getProject.map(project => {
+        const createdAt = new Date(project.createdAt);
+        return { ...project, createdAt };
+      });
 
-  const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
+      const filteredProjects = projectsWithDateTime.filter(project => project.status !== 'Pending');
 
-  let filteredByCategory = filteredProjects;
-  if (this.selectedCategory) {
-    // Filter berdasarkan kategori yang dipilih
-    filteredByCategory = filteredProjects.filter(project => project.category === this.selectedCategory);
-  }
+      let filteredByCategory = filteredProjects;
+      if (this.selectedCategory) {
+        filteredByCategory = filteredProjects.filter(project => project.category === this.selectedCategory);
+      }
 
-  const sortedProjects = filteredByCategory.sort((a, b) => b.createdAt - a.createdAt);
+      const sortedProjects = filteredByCategory.sort((a, b) => b.createdAt - a.createdAt);
 
-  const totalItems = sortedProjects.length;
+      const totalItems = sortedProjects.length;
+      const itemsPerPage = this.getItemsPerPage();
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  const itemsPerPage = this.getItemsPerPage();
+      if (this.currentPage > totalPages) {
+        this.currentPage = totalPages;
+      }
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+      const start = (this.currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
 
-  // Pastikan currentPage tidak melebihi totalPages
-  if (this.currentPage > totalPages) {
-    this.currentPage = totalPages;
-  }
-
-  const start = (this.currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-
-  const paginatedData = sortedProjects.slice(start, end);
-
-  return paginatedData;
-}
+      return sortedProjects.slice(start, end);
+    }
   },
   methods: {
     ...mapActions('settings', ['showAlertDevelopment']),
@@ -163,15 +154,11 @@ paginatedProjects() {
       this.$refs.porto.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
     getItemsPerPage() {
-      if (window.innerWidth <= 576) {
-        return 3;
-      } else {
-        return 6;
-      }
+      return window.innerWidth <= 576 ? 3 : 6;
     },
     updateItemsPerPage() {
       this.itemsPerPage = this.getItemsPerPage();
-    },
+    }
   },
   mounted() {
     setTimeout(() => {
@@ -188,24 +175,33 @@ paginatedProjects() {
           this.selectedCategory = firstCategory.name;
         }
       }
+
+      // Fetch projects after fetching categories
+      this.fetchProject().catch(error => {
+        console.error('Failed to fetch projects:', error);
+      });
+    }).catch(error => {
+      console.error('Failed to fetch categories:', error);
     });
   },
- watch: {
+  watch: {
     paginatedProjects() {
-      // Set shouldShowPagination based on conditions
       this.shouldShowPagination = this.totalPages > 1 && this.paginatedProjects.length !== 0;
     }
   },
   created() {
     window.addEventListener('resize', this.updateItemsPerPage);
     this.itemsPerPage = this.getItemsPerPage();
+
+    this.fetchProject().catch(error => {
+      console.error('Failed to fetch projects on creation:', error);
+    });
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.updateItemsPerPage);
-  },
+  }
 };
 </script>
-
 <style scoped>
 .animate-slide-up {
   opacity: 0;
