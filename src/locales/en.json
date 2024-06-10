@@ -15,9 +15,9 @@
   },
   "header":{
     "welcome": {
-      "title": "Hi, I'm Daffa",
-      "subtitle": "Back-End Web Developer",
-      "content": "My name is Daffa, I am {age} years old, and I live in Bandung. I am a Web Developer focusing on backend development with Node.js and have intermediate skills in frontend development using Vue.js. I am passionate about expanding my knowledge in the JavaScript ecosystem and other web technologies.",
+      "title": "Hi everyone",
+      "subtitle": "I'm Daffa",
+      "content": "I am Daffa, {age} years old, living in Bandung. A Passionate Junior back-end web developer.",
       "button": "Hire me"
     },
     "stats":{
@@ -67,25 +67,46 @@
         }
       ]
     },
-    "timeline-working":{
-      "title": "Working experience",
-      "button-fiverr": "Visit on Fiverr",
-      "items":[
+    "timeline-working": {
+  "title": "Working experience",
+  "items": [
+    {
+      "date": "May 2024 - Now",
+      "title": "Graphic content designer",
+      "subtitle": "Murder Consign",
+      "items-works": [
         {
-          "date":"May 2024 - Now",
-          "title":"Backend Developer on Fiverr",
-          "subtitle": "Freelancer (Self Employed)",
-          "items-works": [
-            {
-              "name": "API Integration"
-            },
-            {
-              "name": "Services & Bug Fixing"
-            }
-          ]
+          "name": "Create visual/video content"
+        },
+        {
+          "name": "Use Adobe Photoshop & Capcut Pro"
+        },
+        {
+          "name": "Analyze content performance"
+        }
+      ]
+    },
+    {
+      "date": "September 2023 - November 2023",
+      "title": "Software Engineer Internship",
+      "subtitle": "University of Inaba Bandung",
+      "items-works": [
+        {
+          "name": "Manage databases & data entry"
+        },
+        {
+          "name": "Learn Node.js best practices"
+        },
+        {
+          "name": "Build attendance app with Node.js"
+        },
+        {
+          "name": "Convert alumni data to digital"
         }
       ]
     }
+  ]
+}
   },
    "contact":{
     "head": {

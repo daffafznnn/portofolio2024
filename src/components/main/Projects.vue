@@ -161,6 +161,9 @@ export default {
     }
   },
   mounted() {
+      this.fetchProject().catch(error => {
+      console.error('Failed to fetch projects on creation:', error);
+    });
     setTimeout(() => {
       this.isFirstLoad = false;
     }, 2000);
@@ -192,10 +195,6 @@ export default {
   created() {
     window.addEventListener('resize', this.updateItemsPerPage);
     this.itemsPerPage = this.getItemsPerPage();
-
-    this.fetchProject().catch(error => {
-      console.error('Failed to fetch projects on creation:', error);
-    });
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.updateItemsPerPage);

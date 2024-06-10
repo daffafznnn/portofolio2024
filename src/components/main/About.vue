@@ -103,30 +103,36 @@
     </div>
     <!-- end timeline -->
 
-    <!-- timeline working -->
-    <div class="col-span-2 animate-timeline sm:animate-none mx-4 sm:mx-10 mt-8 mb-6 border border-cyan-400 rounded-xl">
-      <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline-working.title') }}</h3>
-      <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
-        <li class="mb-6 ms-4">
-          <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.0.date') }}</time>
-          <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.0.title') }}</h3>
-          <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.0.subtitle') }}</span>
-          <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
-            <li>{{ $t('about.timeline-working.items.0.items-works.0.name') }}</li>
-            <li>{{ $t('about.timeline-working.items.0.items-works.1.name') }}</li>
-          </ul>
-          <a href="https://www.fiverr.com/daffafznnn" target="_blank" class="inline-flex items-center px-2 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-            {{ $t('about.timeline-working.button-fiverr') }}
-            <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-            </svg>
-          </a>
-        </li>
-        <!-- Additional timeline items can be added here -->
-      </ol>
-    </div>
-    <!-- end timeline working -->
+   <!-- timeline working -->
+<div class="col-span-2 animate-timeline sm:animate-none mx-4 sm:mx-10 mt-8 mb-6 border border-cyan-400 rounded-xl">
+  <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline-working.title') }}</h3>
+  <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
+    <li class="mb-6 ms-4">
+      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+      <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.0.date') }}</time>
+      <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.0.title') }}</h3>
+      <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.0.subtitle') }}</span>
+      <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
+        <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.0.name') }}</li>
+        <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.1.name') }}</li>
+        <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.2.name') }}</li>
+      </ul>
+    </li>
+    <li class="mb-6 ms-4">
+      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+      <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.1.date') }}</time>
+      <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.1.title') }}</h3>
+      <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.1.subtitle') }}</span>
+      <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
+        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.0.name') }}</li>
+        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.1.name') }}</li>
+        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.2.name') }}</li>
+        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.3.name') }}</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+<!-- end timeline working -->
   </div>
 </section>
 

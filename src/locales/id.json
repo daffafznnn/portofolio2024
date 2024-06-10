@@ -16,8 +16,8 @@
   "header":{
     "welcome": {
     "title": "Hi saya Daffa",
-    "subtitle": "Back-End Web Developer",
-    "content": "Nama saya Daffa, umur {age} tahun, tinggal di Bandung. Saya seorang Web Developer yang fokus pada backend dengan Node.js dan memiliki kemampuan menengah dalam frontend menggunakan Vue.js. Saya sangat antusias memperluas pengetahuan dalam ekosistem JavaScript dan teknologi web lainnya.",
+    "subtitle": "Pengembang web back-end junior",
+    "content": "Saya daffa, umur {age} tahun, tinggal di Bandung.",
     "button": "Kerjakan saya"
     },
     "stats":{
@@ -67,25 +67,46 @@
         }
       ]
     },
-     "timeline-working":{
-      "title": "Pengalaman kerja",
-      "button-fiverr": "Kunjungi di Fiverr",
-      "items":[
+   "timeline-working": {
+  "title": "Pengalaman Kerja",
+  "items": [
+    {
+      "date": "Mei 2024 - Sekarang",
+      "title": "Desainer Konten Grafis",
+      "subtitle": "Murder Consign",
+      "items-works": [
         {
-          "date":"Mei 2024 - Sekarang",
-          "title":"Backend Developer di Fiverr",
-          "subtitle": "Freelancer (Pekerja Mandiri)",
-          "items-works": [
-            {
-              "name": "Integrasi API"
-            },
-            {
-              "name": "Layanan & Perbaikan Bug"
-            }
-          ]
+          "name": "Membuat konten visual/video"
+        },
+        {
+          "name": "Menggunakan Adobe Photoshop & Capcut Pro"
+        },
+        {
+          "name": "Analisis kinerja konten"
+        }
+      ]
+    },
+    {
+      "date": "September 2023 - November 2023",
+      "title": "Magang Software Engineer",
+      "subtitle": "Universitas Inaba Bandung",
+      "items-works": [
+        {
+          "name": "Mengelola basis data & entri data"
+        },
+        {
+          "name": "Belajar praktik terbaik Node.js"
+        },
+        {
+          "name": "Membangun aplikasi absensi dengan Node.js"
+        },
+        {
+          "name": "Mengonversi data alumni ke digital"
         }
       ]
     }
+  ]
+}
   },
   "contact":{
     "head": {
