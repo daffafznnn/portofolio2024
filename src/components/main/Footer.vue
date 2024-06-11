@@ -1,6 +1,6 @@
 <template>
-  <footer class="relative mt-20 bg-blue-950 px-4 pt-20">
-    <div class="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-blue-900 p-2">
+  <footer class="relative mt-20 px-4 pt-20">
+    <div class="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 p-2">
       <img class="h-full object-contain" src="../../assets/logo_polos_daffa_new-removebg-preview.png" alt="" />
     </div>
     <nav aria-label="Footer Navigation" class="mx-auto mb-10 pl-auto flex items-center justify-center gap-5 ">

@@ -1,6 +1,7 @@
 {
   "navbar": {
     "content":{
+    "home": "Beranda",
     "portfolio": "Proyek",
     "tech": "Keahlian",
     "about": "Tentang",
@@ -15,9 +16,7 @@
   },
   "header":{
     "welcome": {
-    "title": "Hi saya Daffa",
-    "subtitle": "Pengembang web back-end junior",
-    "content": "Saya daffa, umur {age} tahun, tinggal di Bandung.",
+    "subtitle": "Pengembang web back-end junior yang bersemangat",
     "button": "Kerjakan saya"
     },
     "stats":{
@@ -47,7 +46,7 @@
   "about":{
     "content1":{
       "title": "Tentang saya",
-      "text": "Nama lengkap saya Muhammad Daffa Fauzan, saya lahir pada tanggal 4 desember 2005 di bandung. Saya adalah anak pertama di keluarga saya, saya juga memiliki satu saudara laki-laki."
+      "text": "Saya Muhammad Daffa Fauzan, Backend Web Developer dengan pengalaman satu tahun. Saya antusias mengembangkan pengalaman web menarik dan dinamis. Saya memiliki rasa ingin tahu yang kuat terhadap teknologi web yang terus berkembang. Saya senang menciptakan solusi kreatif dalam tata letak visual dan mengoptimalkan pengalaman pengguna. Saya bangga menggunakan clean code dan clean architecture dalam setiap proyek karena saya yakin fondasi yang kuat penting untuk solusi yang scalable dan maintainable. Saya selalu siap untuk tantangan baru dan terus memperluas keterampilan saya."
     }, 
     "timeline": {
       "title": "Riwayat Pendidikan",
@@ -104,6 +103,21 @@
           "name": "Mengonversi data alumni ke digital"
         }
       ]
+    }
+  ]
+},
+"certificate": {
+  "title": "Sertifikat",
+  "items": [
+    {
+      "date": "Mei 2024",
+      "title": "Backend development & APIs",
+      "subtitle": "FreeCodeCamp"
+    },
+    {
+      "date": "March 2024",
+      "title": "Penyelesaian Magang Universitas Inaba",
+      "subtitle": "Universitas Inaba Bandung"
     }
   ]
 }

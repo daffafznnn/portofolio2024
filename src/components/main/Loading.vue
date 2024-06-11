@@ -1,6 +1,6 @@
 <template>
   <!-- component -->
-<div class="inset-0 bg-transparent fixed flex w-full h-full items-center justify-center duration-300 transition-opacity" style="z-index: 9999">
+ <div class="container mx-auto scale-125 inset-0 fixed top-0 left-0 flex w-screen h-screen items-center justify-center duration-300 transition-opacity bg-white bg-opacity-50" style="z-index: 9999">
   <div class="flex-col">
     <x-loading class="w-24 h-24">
       <svg viewBox="0 0 860.1 876.5">
@@ -39,3 +39,9 @@
   </div>
 </div>
 </template>
+<style scoped>
+.container{
+   background: rgb(0, 0, 0);
+   background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(23, 37, 84, 1) 100%, rgba(36, 199, 228, 1) 100%);
+}
+</style>

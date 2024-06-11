@@ -3,9 +3,9 @@ import App from "./App.vue";
 import router from "./router/index";
 import store from "./store/index";
 import "./style.css";
-import i18n from "./i18n.js";
+import i18n from "./utils/i18n.js";
 import ElementPlus from "element-plus";
-import apiClient from "./apiClient.js";
+import apiClient from "./utils/apiClient.js";
 
 const app = createApp(App);
 

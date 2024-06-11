@@ -1,20 +1,21 @@
 <template>
 <section id="about" class="py-8 sm:py-20 container mx-auto">
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+ <h3 class="text-5xl mx-4 md:mx-12 text-cyan-400 font-bold">
+  {{ $t('about.content1.title') }}
+ </h3>
+   <div class="relative">
+         <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
     <!-- about me -->
     <div class="col-span-2">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mx-4 sm:mx-12">
         <!-- Konten sebelah kiri -->
-        <div class="animate-left-content sm:animate-none">
-          <h3 class="text-4xl md:text-5xl text-cyan-400 pr-6 sm:pr-0 sm:leading-snug tracking-tight font-bold">
-            {{ $t('about.content1.title') }}
-          </h3>
+        <div class="animate-left-content">
           <p class="mt-4 text-white">
             {{ $t('about.content1.text') }}
           </p>
         </div>
         <!-- Konten sebelah kanan -->
-        <div class="animate-right-content sm:animate-none">
+        <div class="animate-right-content">
           <div class="grid grid-cols-2 gap-4">
             <!-- Gambar 1 -->
             <div class="relative">
@@ -22,9 +23,6 @@
                 src="../../assets/ab1.jpg"
                 class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
                 alt="Image 1"
-                @mouseover="hoverImage(1)"
-                @focus="hoverImage(1)"
-                @click="zoomImage(1)"
               />
               <div v-show="zoomed !== 1" class="hidden absolute inset-0 bg-black bg-opacity-50 z-10"></div>
             </div>
@@ -34,9 +32,6 @@
                 src="../../assets/ab2.jpg"
                 class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
                 alt="Image 2"
-                @mouseover="hoverImage(2)"
-                @focus="hoverImage(2)"
-                @click="zoomImage(2)"
               />
               <div v-show="zoomed !== 2" class="hidden absolute inset-0 bg-black bg-opacity-50 z-10"></div>
             </div>
@@ -45,9 +40,8 @@
       </div>
     </div>
     <!-- end about me -->
-
     <!-- timeline pendidikan -->
-    <div class="col-span-2 animate-timeline sm:animate-none mx-4 sm:mx-10 mt-8 -mb-6 border border-cyan-400 rounded-xl sm:h-56 md:h-64">
+    <div class="sm:hover:outline sm:hover:outline-cyan-400 sm:hover:transition-all sm:hover:bg-cyan-200 sm:hover:bg-opacity-15 col-span-2 group animate-timeline mx-4 sm:mx-10 mt-8 -mb-4 border border-cyan-400 rounded-xl sm:h-56 md:h-64">
       <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline.title') }}</h3>
       <ol class="items-center ml-5 sm:ml-16 sm:flex mt-6">
         <li class="relative mb-6 sm:mb-0">
@@ -102,40 +96,76 @@
       </ol>
     </div>
     <!-- end timeline -->
+      </div>
 
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:gap-4 mx-4 sm:mx-10">       
    <!-- timeline working -->
-<div class="col-span-2 animate-timeline sm:animate-none mx-4 sm:mx-10 mt-8 mb-6 border border-cyan-400 rounded-xl">
-  <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline-working.title') }}</h3>
+    <div class="sm:hover:outline sm:hover:outline-cyan-400 sm:hover:transition-all sm:hover:bg-cyan-200 sm:hover:bg-opacity-15 animate-timeline mt-8 -mb- sm:mb-6 border border-cyan-400 rounded-xl">
+      <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline-working.title') }}</h3>
+      <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
+        <li class="mb-6 ms-4">
+          <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+          <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.0.date') }}</time>
+          <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.0.title') }}</h3>
+          <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.0.subtitle') }}</span>
+          <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
+            <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.0.name') }}</li>
+            <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.1.name') }}</li>
+            <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.2.name') }}</li>
+          </ul>
+        </li>
+        <li class="mb-6 ms-4">
+          <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+          <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.1.date') }}</time>
+          <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.1.title') }}</h3>
+          <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.1.subtitle') }}</span>
+          <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
+            <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.0.name') }}</li>
+            <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.1.name') }}</li>
+            <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.2.name') }}</li>
+            <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.3.name') }}</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    <!-- end timeline working -->
+<!-- certificate -->
+<div class="sm:hover:outline sm:hover:outline-cyan-400 sm:hover:transition-all sm:hover:bg-cyan-200 sm:hover:bg-opacity-15 animate-timeline mt-8 mb-6 border border-cyan-400 rounded-xl">
+  <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.certificate.title') }}</h3>
   <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
     <li class="mb-6 ms-4">
       <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-      <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.0.date') }}</time>
-      <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.0.title') }}</h3>
-      <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.0.subtitle') }}</span>
-      <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
-        <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.0.name') }}</li>
-        <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.1.name') }}</li>
-        <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.2.name') }}</li>
-      </ul>
+      <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.certificate.items.0.date') }}</time>
+      <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.certificate.items.0.title') }}</h3>
+      <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.certificate.items.0.subtitle') }}</span>
+      <img
+        :src="certificateImages[0]"
+        alt="Description of image 1"
+        class="w-62 h-32 mb-5 mt-5 rounded-md hover:scale-105 transition-all object-cover"
+        @click="showPreview(0)"
+      />
     </li>
     <li class="mb-6 ms-4">
       <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-      <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.1.date') }}</time>
-      <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.1.title') }}</h3>
-      <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.1.subtitle') }}</span>
-      <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
-        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.0.name') }}</li>
-        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.1.name') }}</li>
-        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.2.name') }}</li>
-        <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.3.name') }}</li>
-      </ul>
+      <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.certificate.items.1.date') }}</time>
+      <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.certificate.items.1.title') }}</h3>
+      <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.certificate.items.1.subtitle') }}</span>
+      <img
+        :src="certificateImages[1]"
+        alt="Description of image 2"
+        class="w-62 h-32 mb-5 mt-5 rounded-md hover:scale-105 transition-all object-cover"
+        @click="showPreview(1)"
+      />
     </li>
   </ol>
-</div>
-<!-- end timeline working -->
+  <div v-show="showPreviewImage" @click="hidePreview" class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-75">
+    <img :src="previewImage" alt="Preview Image" class="max-w-3/4 max-h-3/4" @click.stop>
   </div>
+</div>
+<!-- certificate -->
+     </div>
+   </div>
 </section>
-
 </template>
 <script>
 import { mapGetters } from 'vuex';
@@ -143,7 +173,13 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-       zoomed: null
+      zoomed: null,
+        certificateImages: [
+        'https://i.ibb.co.com/6P0Mb8z/Certificate-Freee-Code-Camp-daffa-hd.jpg',
+        'https://i.ibb.co.com/mtCXPj4/sertifikat-magang-Muhammad-Daffa-Fauzan.jpg'
+      ],
+      showPreviewImage: false,
+      previewImage: ''
     }
   },
   mounted() {
@@ -155,15 +191,13 @@ export default {
     ...mapGetters('property', ['getAbout', 'getTextAbout']),
   }, 
   methods: {
-   hoverImage(index) {
-      this.zoomed = index;
+    showPreview(index) {
+      this.previewImage = this.certificateImages[index];
+      this.showPreviewImage = true;
     },
-    zoomImage(index) {
-      if (this.zoomed === index) {
-        this.zoomed = null;
-      } else {
-        this.zoomed = index;
-      }
+    hidePreview() {
+      this.showPreviewImage = false;
+      this.previewImage = '';
     },
     isHighSchool() {
       return JSON.stringify(this.$t.about.timeline.items) === JSON.stringify([2]);
@@ -211,4 +245,5 @@ export default {
   opacity: 0;
   transition: opacity 1s;
 }
+
 </style>

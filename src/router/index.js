@@ -10,7 +10,7 @@ import HomeDashboard from "../views/dashboard/HomeDashboard.vue";
 import QuestionDashboard from "../views/dashboard/QuestionDashboard.vue";
 import ProjectsDashboard from "../views/dashboard/ProjectsDashboard.vue";
 import AccountSettings from "../views/settings/AccountSettings.vue";
-import apiClient from "../apiClient.js";
+import apiClient from "../utils/apiClient.js";
 
 import store from "../store";
 

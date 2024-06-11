@@ -3,10 +3,11 @@
   <Navbar></Navbar>
   <Header></Header>
   <About></About>
-  <Portofolio></Portofolio>
   <Stack></Stack>
+  <projects></projects>
   <Contact></Contact>
   <Footer></Footer>
+  <animationBg></animationBg>
   <!-- <Cookie></Cookie> -->
   </div>
 </template>
@@ -15,10 +16,11 @@ import Navbar from "../components/main/Navbar.vue";
 import Header from '../components/main/Header.vue';
 import Footer from '../components/main/Footer.vue';
 import About from '../components/main/About.vue';
-import Portofolio from "../components/main/Projects.vue";
+import projects from "../components/main/Projects.vue";
 import Contact from "../components/main/Contact.vue";
 import Stack from "../components/main/Stack.vue";
 import Cookie from "../components/services/Cookie.vue";
+import animationBg from "../components/animation-bg.vue";
 
 
 export default{
@@ -28,10 +30,11 @@ export default{
     Header,
     Footer,
     About,
-    Portofolio,
+    projects,
     Contact,
     Stack,
-    Cookie
+    Cookie,
+    animationBg
  }
 };
 </script>

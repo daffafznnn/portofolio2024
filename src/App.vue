@@ -1,6 +1,7 @@
 <template>
   <transition name="fade">
     <div class="fade-container" v-if="!isLoading">
+      <DotCursor />
       <router-view />
     </div>
     <div class="fade-container" v-else>
@@ -37,10 +38,12 @@ onMounted(() => {
 
 <script>
 import Loading from './components/main/Loading.vue';
+import DotCursor from './components/DotCursor.vue';
 
 export default {
   components: {
-    'x-loading': Loading
+    'x-loading': Loading,
+    DotCursor
   }
 }
 </script>

@@ -1,30 +1,23 @@
 {
   "navbar": {
     "content":{
+    "home": "Home",
     "portfolio": "Projects",
     "tech": "Skills",
     "about": "About",
     "contact": "Contact"
-    },
-  "message": {
-      "confirmDownload": "Are you sure you want to download the CV?",
-      "cancel": "Cancel",
-      "download": "Download CV",
-      "downloadFailed": "An error occurred while downloading the CV"
     }
   },
   "header":{
     "welcome": {
-      "title": "Hi everyone",
-      "subtitle": "I'm Daffa",
-      "content": "I am Daffa, {age} years old, living in Bandung. A Passionate Junior back-end web developer.",
+      "subtitle": "A passionate Jr. back-end web developer",
       "button": "Hire me"
     },
-    "stats":{
-      "project": "Projects",
-      "year-experience": "experience",
-      "year": "year",
-      "achievement": "Achievement"
+    "message": {
+      "confirmDownload": "Are you sure you want to download the CV?",
+      "cancel": "Cancel",
+      "download": "Download CV",
+      "downloadFailed": "An error occurred while downloading the CV"
     }
   },
   "porto":{
@@ -47,7 +40,7 @@
   "about":{
     "content1":{
       "title": "About Me",
-      "text": "My full name is Muhammad Daffa Fauzan, I was born on December 4, 2005 in Bandung. I am the first child in my family, I also have one brother."
+      "text": "I'm Muhammad Daffa Fauzan, Backend Web Developer with one year experience. I am passionate about developing engaging and dynamic web experiences. I have a strong curiosity towards evolving web technologies. I enjoy creating creative solutions in visual layout and optimising user experience. I take pride in using clean code and clean architecture in every project because I believe a strong foundation is important for scalable and maintainable solutions. I am always up for new challenges and constantly expanding my skills."
     },
     "timeline": {
       "title": "Education Timeline",
@@ -104,6 +97,21 @@
           "name": "Convert alumni data to digital"
         }
       ]
+    }
+  ]
+},
+ "certificate": {
+  "title": "Certificate",
+  "items": [
+    {
+      "date": "May 2024",
+      "title": "Backend development & APIs",
+      "subtitle": "FreeCodeCamp"
+    },
+    {
+      "date": "March 2024",
+      "title": "inaba university internship completion",
+      "subtitle": "University of Inaba Bandung"
     }
   ]
 }

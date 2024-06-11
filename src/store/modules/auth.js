@@ -1,4 +1,4 @@
-import apiClient from "../../apiClient.js";
+import apiClient from "../../utils/apiClient.js";
 import { ElMessage } from "element-plus";
 
 const auth = {
