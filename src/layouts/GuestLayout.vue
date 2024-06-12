@@ -7,7 +7,7 @@
   <projects></projects>
   <Contact></Contact>
   <Footer></Footer>
-  <animationBg></animationBg>
+  <AnimationBg></AnimationBg>
   <!-- <Cookie></Cookie> -->
   </div>
 </template>
@@ -20,7 +20,7 @@ import projects from "../components/main/Projects.vue";
 import Contact from "../components/main/Contact.vue";
 import Stack from "../components/main/Stack.vue";
 import Cookie from "../components/services/Cookie.vue";
-import animationBg from "../components/animation-bg.vue";
+import AnimationBg from "../components/AnimationBg.vue";
 
 
 export default{
@@ -34,7 +34,7 @@ export default{
     Contact,
     Stack,
     Cookie,
-    animationBg
+    AnimationBg
  }
 };
 </script>
