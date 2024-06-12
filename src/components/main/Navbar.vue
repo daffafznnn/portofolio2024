@@ -1,15 +1,17 @@
   <template>
 <header
-    :class="{
-    'fixed -top-4 lg:top-0 left-1/2 transform -translate-x-1/2 mt-2 text-cyan-400 py-5 rounded-b-full transition duration-1000': true,
-    '-top-3 lg:-top-5': isScrolled,
+  :class="{
+    'fixed left-1/2 transform -translate-x-1/2 mt-2 text-cyan-400 py-5 rounded-b-full transition duration-1000': true,
+    '-top-2 lg:-top-2': isScrolled,
+    '-top-4 lg:top-0': !isScrolled,
     'shadow-lg shadow-cyan-400': isScrolled,
     'border border-cyan-400 px-6': !isScrolled,
-    'fixed  bg-cyan-500 bg-opacity-70 px-6': isScrolled,
+    'bg-cyan-500 bg-opacity-70 px-6': isScrolled,
     'lg:fixed lg:mt-4 lg:py-0 lg:shadow-none lg:border-none lg:bg-transparent': !isScrolled
   }"
   style="z-index: 9999;"
 >
+
     <nav class="flex w-full items-center justify-center overflow-hidden transition-all mx-0 sm:mx-3 -mb-4 md:-mb-4 lg:-mb-2">
       <ul class="flex w-full items-center justify-center ">
         <li class="md:mr-8 mr-5 mb-2 lg:mb-0" :class="{'font-medium': isScrolled}">
