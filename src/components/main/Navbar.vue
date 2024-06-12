@@ -2,7 +2,7 @@
 <header
     :class="{
     'fixed -top-4 lg:top-0 left-1/2 transform -translate-x-1/2 mt-2 text-cyan-400 py-5 rounded-b-full transition duration-1000': true,
-    '-top-3 lg:-top-7': isScrolled,
+    '-top-3 lg:-top-5': isScrolled,
     'shadow-lg shadow-cyan-400': isScrolled,
     'border border-cyan-400 px-6': !isScrolled,
     'fixed  bg-cyan-500 bg-opacity-70 px-6': isScrolled,
