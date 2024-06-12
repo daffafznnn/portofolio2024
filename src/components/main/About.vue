@@ -1,6 +1,6 @@
 <template>
 <section id="about" class="py-8 sm:py-20 container mx-auto">
- <h3 class="text-5xl mx-4 md:mx-12 text-cyan-400 font-bold">
+ <h3 class="animate-left-content text-5xl mx-4 md:mx-12 text-cyan-400 font-bold">
   {{ $t('about.content1.title') }}
  </h3>
    <div class="relative">
@@ -15,27 +15,12 @@
           </p>
         </div>
         <!-- Konten sebelah kanan -->
-        <div class="animate-right-content">
-          <div class="grid grid-cols-2 gap-4">
-            <!-- Gambar 1 -->
-            <div class="relative">
-              <img
-                src="../../assets/ab1.jpg"
-                class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
-                alt="Image 1"
-              />
-              <div v-show="zoomed !== 1" class="hidden absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-            </div>
-            <!-- Gambar 2 -->
-            <div class="relative">
+        <div class="animate-right-content flex items-center justify-center">
               <img
                 src="../../assets/ab2.jpg"
-                class="w-full h-full rounded-xl transition-transform duration-300 transform hover:scale-110 focus:scale-110"
+                class="w-80 h-56 rounded-xl md:hover:shadow-lg md:hover:shadow-cyan-400 md:hover:scale-105 transition-all duration-1000"
                 alt="Image 2"
               />
-              <div v-show="zoomed !== 2" class="hidden absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -174,7 +159,7 @@ export default {
   data() {
     return {
       zoomed: null,
-        certificateImages: [
+      certificateImages: [
         'https://i.ibb.co.com/6P0Mb8z/Certificate-Freee-Code-Camp-daffa-hd.jpg',
         'https://i.ibb.co.com/mtCXPj4/sertifikat-magang-Muhammad-Daffa-Fauzan.jpg'
       ],
@@ -231,14 +216,14 @@ export default {
 /* Animasi fade-in dan fade-out menggunakan CSS */
 .animate-left-content {
   opacity: 0;
-  transform: translateY(50%);
+  transform: translateX(-50%);
   transition: opacity 1s, transform 1s;
 }
 
 .animate-right-content {
   opacity: 0;
   transform: translateY(50%);
-  transition: opacity 1s, transform 1s;
+  transition: opacity 2s, transform 1s;
 }
 
 .animate-timeline {

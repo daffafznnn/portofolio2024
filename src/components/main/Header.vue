@@ -11,7 +11,7 @@
     </div>
     <div class="flex items-center justify-center ">
       <button @click="downloadCV"
-        class="cursor-pointer inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition duration-200 hover:scale-110 hover:bg-sky-500 focus:ring">
+        class="cursor-pointer inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition-all duration-500 hover:scale-110 hover:bg-sky-500 focus:ring">
         {{ $t('header.message.download')}}
       </button>
     </div>
