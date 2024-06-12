@@ -42,8 +42,8 @@ import DotCursor from './components/DotCursor.vue';
 
 export default {
   components: {
-    'x-loading': Loading,
-    DotCursor
+     DotCursor,
+    'x-loading': Loading
   }
 }
 </script>
