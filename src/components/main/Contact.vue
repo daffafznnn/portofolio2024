@@ -17,7 +17,7 @@
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16 text-cyan-400">
         
         <!-- Contact Details Section -->
-        <div class="p-8 text-cyan-400 rounded-lg md:shadow-lg border border-blue-gray-50 bg-cyan-800 transition duration-1000 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 hover:shadow-cyan-400">
+        <div class="animate-contact p-8 text-cyan-400 rounded-lg md:shadow-lg border border-blue-gray-50 bg-cyan-800 transition duration-1000 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 hover:shadow-cyan-400">
           <h2 class="mb-8 text-2xl font-black">{{ $t('contact.content.title1') }}</h2>
           <ul>
             <!-- Email -->
@@ -62,7 +62,7 @@
         </div>
         
         <!-- Contact Form Section -->
-        <div class="order-first md:order-last p-8 text-cyan-400 rounded-lg md:shadow-lg border border-blue-gray-50 bg-cyan-800 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 transition duration-1000 hover:shadow-cyan-400">
+        <div class="animate-contact order-first md:order-last p-8 text-cyan-400 rounded-lg md:shadow-lg border border-blue-gray-50 bg-cyan-800 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 transition duration-1000 hover:shadow-cyan-400">
           <h2 class="mb-8 text-2xl font-black">{{ $t('contact.content.title2') }}</h2>
           <p class="text-sm text-white">{{ $t('contact.content.subtitle') }}</p>
           <!-- Form -->
@@ -170,7 +170,37 @@ export default {
       this.messageType = ''; // Clear error message if email is valid
       this.messageText = '';
     }
-  }
-}
+   },
+   setupIntersectionObserver(targetClass) {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, options);
+
+      const targets = document.querySelectorAll(targetClass);
+      targets.forEach((target) => {
+        observer.observe(target);
+      });
+    },
+  },
+mounted() {
+  this.setupIntersectionObserver('.animate-contact')
+},
 };
 </script>
+<style>
+.animate-contact {
+  opacity: 0;
+  transition: opacity 1s;
+}
+</style>
