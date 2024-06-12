@@ -46,15 +46,20 @@ export default {
         this.isTypingFinished = true;
       }
     },
-    async downloadCV() {
+   async downloadCV() {
       try {
         const confirmResult = await ElMessageBox.confirm(this.$t('header.message.confirmDownload'), `${this.$t('header.message.download')}`);
         
         if (confirmResult === 'confirm') {
-          const cvFileUrl = 'https://drive.google.com/uc?export=download&id=12Lj6b6JqN33rbIf8p5vTBx9d27pPk5SY';
+          // URL Google Drive yang ingin diunduh
+          const driveFileUrl = 'https://drive.google.com/file/d/1qQzOShQzluj7DTQ9bbcz4V4axnw6XjHR/view?usp=drive_link';
+
+          // Konversi URL Google Drive menjadi URL download
+          const fileId = driveFileUrl.match(/\/file\/d\/([^\/]+)/)[1];
+          const convertedUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
           const link = document.createElement('a');
-          link.href = cvFileUrl;
+          link.href = convertedUrl;
           link.target = '_blank';
           link.download = 'cv.pdf'; // Nama file yang akan diunduh
 
