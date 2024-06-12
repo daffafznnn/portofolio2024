@@ -17,7 +17,7 @@
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16 text-cyan-400">
         
         <!-- Contact Details Section -->
-        <div class="p-8 text-cyan-400 rounded-lg shadow-xl border border-blue-gray-50 bg-cyan-800 transition duration-1000 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 hover:shadow-cyan-400">
+        <div class="p-8 text-cyan-400 rounded-lg md:shadow-lg border border-blue-gray-50 bg-cyan-800 transition duration-1000 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 hover:shadow-cyan-400">
           <h2 class="mb-8 text-2xl font-black">{{ $t('contact.content.title1') }}</h2>
           <ul>
             <!-- Email -->
@@ -62,7 +62,7 @@
         </div>
         
         <!-- Contact Form Section -->
-        <div class="order-first md:order-last p-8 text-cyan-400 rounded-lg shadow-xl border border-blue-gray-50 bg-cyan-800 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 transition duration-1000 hover:shadow-cyan-400">
+        <div class="order-first md:order-last p-8 text-cyan-400 rounded-lg md:shadow-lg border border-blue-gray-50 bg-cyan-800 sm:rounded-3xl hover:border-cyan-400 bg-clip-padding bg-opacity-55 transition duration-1000 hover:shadow-cyan-400">
           <h2 class="mb-8 text-2xl font-black">{{ $t('contact.content.title2') }}</h2>
           <p class="text-sm text-white">{{ $t('contact.content.subtitle') }}</p>
           <!-- Form -->

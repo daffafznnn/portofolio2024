@@ -40,7 +40,7 @@
      <article v-for="item in paginatedProjects" :key="item.id" :id="item.id" :class="{ 'animate-slide-up': !isFirstLoad, 'article': !isFirstLoad }" class="h-90 col-span-1 m-auto min-h-full cursor-pointer overflow-hidden rounded-sm pb-2 transition-transform duration-500 hover:translate-y-2 relative group">
       <div class="relative">
         <img class="h-56 w-full object-cover rounded-lg transition-filter duration-300 ease-in-out" alt="featured image" :src="item.url" loading="lazy" @load="imageLoaded" />
-        <div class="progress group-hover:filter group-hover:blur-sm">
+        <div class="progress lg:group-hover:filter lg:group-hover:blur-sm">
           <div :data-done="item.progress" class="progress-done"></div>
         </div>
       </div>
@@ -255,7 +255,7 @@ export default {
 .animate-slide-up {
   opacity: 0;
   transition: opacity 1s;
-  animation: slide-up 2s forwards;
+  animation: slide-up 1s forwards;
 }
 
 @keyframes slide-up {
@@ -273,7 +273,7 @@ article:hover .absolute {
   opacity: 1;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .group:hover .transition-filter {
     filter: blur(3px);
   }
@@ -307,7 +307,7 @@ article:hover .absolute {
   background-color: #ccd;
   width: 100%;
   height: 15px;
-  border-radius: 0px 10px 10px 10px;
+  border-radius: 0px 0px 10px 10px;
   color: white;
   position: absolute;
   bottom: 0; /* Position at the bottom */

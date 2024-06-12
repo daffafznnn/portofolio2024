@@ -20,15 +20,15 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-   background: linear-gradient(180deg, rgba(181,181,181,1) 0%, rgba(5,0,0,1) 100%);
+background: rgb(0, 0, 0);
 }
 
 *::-webkit-scrollbar-track:hover {
-   background: linear-gradient(180deg, rgba(181,181,181,1) 0%, rgba(5,0,0,1) 100%);
+background: rgb(0, 0, 0);
 }
 
 *::-webkit-scrollbar-track:active {
-   background: linear-gradient(180deg, rgba(181,181,181,1) 0%, rgba(5,0,0,1) 100%);
+background: rgb(0, 0, 0);
 }
 
 *::-webkit-scrollbar-thumb {
