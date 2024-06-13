@@ -17,8 +17,8 @@ export default {
         delay: 8,
         _x: 0,
         _y: 0,
-        endX: (window.innerWidth / 2),
-        endY: (window.innerHeight / 2),
+        endX: window.innerWidth / 2,
+        endY: window.innerHeight / 2,
         cursorVisible: true,
         cursorEnlarged: false,
         $dot: document.querySelector('.cursor-dot'),
@@ -75,8 +75,8 @@ export default {
             self.cursorVisible = true;
             self.toggleCursorVisibility();
 
-            // Position the dot
-            self.endX = e.pageX;
+            // Get the position, but constrain within the window width
+            self.endX = Math.min(Math.max(e.pageX, 0), window.innerWidth);
             self.endY = e.pageY;
             self.$dot.style.top = self.endY + 'px';
             self.$dot.style.left = self.endX + 'px';
@@ -117,7 +117,6 @@ export default {
             self.$outline.style.opacity = 0;
           }
         }
-        
       };
 
       cursor.init();
@@ -135,8 +134,6 @@ $primary-dark: mix(black, $primary, 25%);
 $primary-ultradark: mix(black, $primary, 80%);
 $black: #333333;
 $white: #eeeeee;
-
-
 
 .cursor-dot,
 .cursor-dot-outline {

@@ -1,9 +1,11 @@
 <template>
   <section id="porto" ref="porto" class="py-20">
-    <h1 class="mb-12 text-center font-sans text-5xl font-bold text-cyan-400">{{ $t('porto.head.title') }}</h1>
-    <span class="flex justify-center items-center font-medium text-gray-200 pb-8">{{ $t('porto.head.subtitle') }}</span>
+    <h1 class="animate-down-title mb-12 text-center font-sans text-5xl font-bold text-cyan-400">{{ $t('porto.head.title') }}</h1>
+    <span class="animate-down-title flex justify-center items-center font-medium text-gray-200 pb-8">{{ $t('porto.head.subtitle') }}</span>
     <div class="flex justify-center mb-2">
-      <div class="flex items-center gap-2 rounded-xl bg-white/10 p-2 text-white">
+      <div class="flex items-center gap-2 rounded-xl bg-white/10 p-2 text-white"
+      :class="{'scale-category': !isFirstLoad }"
+      >
         <div v-for="item in getCategories" :key="item.id">
           <input
             type="radio"
@@ -232,13 +234,34 @@ export default {
     },
     imageLoaded(event) {
       event.target.style.opacity = 1;
-    }
-  },
+    },
+     setupIntersectionObserver(targetClass) {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+      };
 
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, options);
+
+      const targets = document.querySelectorAll(targetClass);
+      targets.forEach((target) => {
+        observer.observe(target);
+      });
+    },
+  },
   mounted() {
     this.initializeProjects();
     this.updateItemsPerPage();
-   this.setupObserver();
+    this.setupObserver();
+    this.setupIntersectionObserver('.animate-down-title');
   },
 
   created() {
@@ -254,7 +277,7 @@ export default {
 <style scoped>
 .animate-slide-up {
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 2s;
   animation: slide-up 1s forwards;
 }
 
@@ -267,6 +290,26 @@ export default {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.animate-down-title {
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 1s, transform 1s;
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.scale-category {
+    animation: scale-up 1s forwards;
 }
 
 article:hover .absolute {

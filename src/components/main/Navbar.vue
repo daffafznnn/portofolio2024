@@ -1,35 +1,35 @@
   <template>
 <header
   :class="{
-    'fixed left-1/2 transform -translate-x-1/2 mt-2 text-cyan-400 py-5 rounded-b-full transition duration-1000': true,
-    '-top-2 lg:-top-2': isScrolled,
-    '-top-4 lg:top-0': !isScrolled,
+    'fixed left-1/2 transform -translate-x-1/2 mt-2 text-cyan-400 py-5 px-2 rounded-full transition duration-700': true,
+    'top-0 backdrop-blur-sm': isScrolled,
+    'top-0': !isScrolled,
     'shadow-lg shadow-cyan-400': isScrolled,
     'border border-cyan-400 px-6': !isScrolled,
-    'bg-cyan-500 bg-opacity-70 px-6': isScrolled,
+    'bg-cyan-500 bg-opacity-70 px-5': isScrolled,
     'lg:fixed lg:mt-4 lg:py-0 lg:shadow-none lg:border-none lg:bg-transparent': !isScrolled
   }"
-  style="z-index: 9999;"
+  style="z-index: 2000;"
 >
 
-    <nav class="flex w-full items-center justify-center overflow-hidden transition-all mx-0 sm:mx-3 -mb-4 md:-mb-4 lg:-mb-2">
+    <nav class="flex w-full items-center justify-center overflow-hidden transition-all mx-0 sm:mx-3">
       <ul class="flex w-full items-center justify-center ">
-        <li class="md:mr-8 mr-5 mb-2 lg:mb-0" :class="{'font-medium': isScrolled}">
+        <li class="md:mr-5 mr-2" :class="{'font-base': isScrolled}">
           <a class="rounded text-cyan-400 transition-all text-sm md:text-lg" :class="{'text-white md:hover:text-cyan-900': isScrolled, 'md:hover:text-white': !isScrolled}" href="#home">{{ $t('navbar.content.home') }}</a>
         </li>
-        <li class="md:mr-8 mr-5 mb-2 lg:mb-0" :class="{'font-medium': isScrolled}">
+        <li class="md:mr-5 mr-2" :class="{'font-base': isScrolled}">
           <a class="rounded text-cyan-400 transition-all text-sm md:text-lg" :class="{'text-white md:hover:text-cyan-900': isScrolled, 'md:hover:text-white': !isScrolled}" href="#about">{{ $t('navbar.content.about') }}</a>
         </li>
-        <li class="md:mr-8 mr-5 mb-2 lg:mb-0" :class="{'font-medium': isScrolled}">
+        <li class="md:mr-5 mr-2" :class="{'font-base': isScrolled}">
           <a class="rounded text-cyan-400 transition-all text-sm md:text-lg" :class="{'text-white md:hover:text-cyan-900': isScrolled, 'md:hover:text-white': !isScrolled}" href="#tech">{{ $t('navbar.content.tech') }}</a>
         </li>
-        <li class="md:mr-8 mr-5 mb-2 lg:mb-0" :class="{'font-medium': isScrolled}">
+        <li class="md:mr-5 mr-2" :class="{'font-base': isScrolled}">
           <a class="rounded text-cyan-400 transition-all text-sm md:text-lg" :class="{'text-white md:hover:text-cyan-900': isScrolled, 'md:hover:text-white': !isScrolled}" href="#porto">{{ $t('navbar.content.portfolio') }}</a>
         </li>
-        <li class="md:mr-8 mr-5 mb-2 lg:mb-0" :class="{'font-medium': isScrolled}">
+        <li class="md:mr-5 mr-2" :class="{'font-base': isScrolled}">
           <a class="rounded text-cyan-400 transition-all text-sm md:text-lg" :class="{'text-white md:hover:text-cyan-900': isScrolled, 'md:hover:text-white': !isScrolled}" href="#contact">{{ $t('navbar.content.contact') }}</a>
         </li>
-        <li class="md:mr-8 mr-5 mb-2 lg:mb-0">
+        <li class="md:mr-5 mr-2">
           <el-dropdown>
             <span class="cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-translate text-cyan-300" :class="{'text-white md:hover:text-cyan-900': isScrolled, 'md:hover:text-white': !isScrolled}" viewBox="0 0 16 16">
@@ -39,8 +39,8 @@
             </span>
             <template #dropdown>
               <el-dropdown-menu class="bg-blue-200 text-white">
-                <el-dropdown-item @click="toggleLanguage('id')">Indonesia</el-dropdown-item>
                 <el-dropdown-item @click="toggleLanguage('en')">English</el-dropdown-item>
+                <el-dropdown-item @click="toggleLanguage('id')">Indonesia</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -74,7 +74,7 @@
     },
     methods: {
       handleScroll() {
-        this.isScrolled = window.scrollY > 100;
+        this.isScrolled = window.scrollY > 10;
       },
       scrollToSection(sectionId) {
         VueScrollTo.scrollTo(sectionId, 500, { easing: 'ease-in-out' });
@@ -85,4 +85,3 @@
     },
   };
   </script>
-

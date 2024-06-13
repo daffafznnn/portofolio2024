@@ -15,10 +15,10 @@
           </p>
         </div>
         <!-- Konten sebelah kanan -->
-        <div class="animate-right-content flex items-center justify-center">
+        <div class="animate-right-content flex items-center justify-center group">
               <img
                 src="../../assets/ab2.jpg"
-                class="w-80 h-56 rounded-xl md:hover:shadow-lg md:hover:shadow-cyan-400 md:hover:scale-105 transition-all duration-1000"
+                class="w-80 h-56 rounded-xl md:hover:shadow-lg md:hover:shadow-cyan-400 md:hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                 alt="Image 2"
               />
         </div>
@@ -26,7 +26,7 @@
     </div>
     <!-- end about me -->
     <!-- timeline pendidikan -->
-    <div class="sm:hover:bg-cyan-400 sm:hover:shadow-cyan-400 shadow-lg transition-transform duration-700 sm:hover:bg-opacity-15 col-span-2 group animate-timeline mx-4 sm:mx-10 mt-8 -mb-4 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl sm:h-56 md:h-64">
+    <div class="sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 shadow-lg transition-all duration-700 bg-transparent sm:hover:bg-opacity-55 col-span-2 group animate-timeline backdrop-blur-sm mx-4 sm:mx-10 mt-8 -mb-4 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl sm:h-56 md:h-64">
       <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline.title') }}</h3>
       <ol class="items-center ml-5 sm:ml-16 sm:flex mt-6">
         <li class="relative mb-6 sm:mb-0">
@@ -85,7 +85,7 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:gap-4 mx-4 sm:mx-10">       
    <!-- timeline working -->
-    <div class="sm:hover:bg-cyan-400 sm:hover:shadow-cyan-400 shadow-lg transition-transform duration-700 sm:hover:bg-opacity-15 animate-timeline mt-8 -mb- sm:mb-6 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
+    <div class="sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 shadow-lg transition-all duration-700 bg-transparent sm:hover:bg-opacity-55 animate-timeline backdrop-blur-sm mt-8 -mb- sm:mb-6 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
       <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline-working.title') }}</h3>
       <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
         <li class="mb-6 ms-4">
@@ -115,7 +115,7 @@
     </div>
     <!-- end timeline working -->
 <!-- certificate -->
-<div class="sm:hover:bg-cyan-400 sm:hover:shadow-cyan-400 shadow-lg transition-transform duration-700 sm:hover:bg-opacity-15 animate-timeline mt-8 mb-6 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
+<div class="sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 shadow-lg transition-all duration-700 bg-transparent sm:hover:bg-opacity-55 animate-timeline backdrop-blur-sm mt-8 mb-6 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
   <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.certificate.title') }}</h3>
   <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
     <li class="mb-6 ms-4">

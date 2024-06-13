@@ -1,18 +1,18 @@
 <template>
   <section id="home" class="flex flex-col items-center justify-center min-h-screen sm:h-full w-full mx-auto py-auto">
     <div class="flex flex-col items-center justify-center">
-      <div class="animate-img border-4 border-cyan-400 p-2 rounded-full mb-6 shadow-inner shadow-cyan-400">
+      <div class="animate-img backdrop-blur-sm border-4 border-cyan-400 p-2 rounded-full mb-6 shadow-inner shadow-cyan-400">
         <img src="../../assets/daffa-formal-removebg-preview.png" alt="daffa" class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 object-scale-down rounded-full">
       </div>
       <h1 :class="{'typing': !isTypingFinished}" class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase text-cyan-400 font-extrabold text-center mb-4">
         {{ typedText }}
       </h1>
     </div>
-    <div class="flex items-center justify-center mt-2 mb-6">
+    <div class="flex items-center justify-center mt-2 mb-6 animate-down-subTitle">
       <span class="text-base sm:text-lg md:text-xl lg:text-2xl font-base text-white text-center">{{ $t('header.welcome.subtitle')}}</span>
     </div>
-    <div class="flex items-center justify-center">
-      <button @click="downloadCV" class="cursor-pointer inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition-all duration-500 hover:scale-110 hover:bg-sky-500 focus:ring">
+    <div class="flex items-center justify-center scale-button">
+      <button @click="downloadCV" class="animate-bounce inline-flex text-nowrap h-10 sm:h-12 w-36 sm:w-full items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition-all duration-500 hover:scale-110 hover:bg-sky-500 focus:ring">
         {{ $t('header.message.download')}}
       </button>
     </div>
@@ -35,6 +35,8 @@ export default {
   mounted() {
     this.startTyping();
     this.setupIntersectionObserver('.animate-img');
+    this.setupIntersectionObserver('.animate-down-subTitle');
+    this.setupIntersectionObserver('.scale-button');
   },
   methods: {
     startTyping() {
@@ -115,4 +117,25 @@ export default {
   transform: translateY(50%);
   transition: opacity 2s ease-out, transform 1s ease-out;
 }
+
+.animate-down-subTitle {
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 1s, transform 1s;
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.scale-button {
+    animation: scale-up 1s forwards;
+}
+
 </style>

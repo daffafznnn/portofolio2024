@@ -2,15 +2,15 @@
   <!-- component -->
   <section id="tech" class='flex min-h-screen items-center justify-center px-[5rem]'>
     <div class="container mx-auto">
-        <div class="group relative -ml-4 flex scroll-mt-40 items-center pl-4">
+        <div class="animate-left-title group relative -ml-4 flex scroll-mt-40 items-center pl-4">
         <h2 class="text-5xl font-bold leading-snug !mb-2  text-cyan-400">{{ $t('tech.title') }}</h2>
         </div>
-        <p class="block antialiased font-sans text-base font-light leading-relaxed text-inherit !mb-4  !text-white">{{ $t('tech.subtitle') }}</p>
+        <p class="animate-slideUp-subtitle block antialiased font-sans text-base font-light leading-relaxed text-inherit !mb-4  !text-white">{{ $t('tech.subtitle') }}</p>
         <div class="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4" id="frameworks-integration">
           <!-- html -->
-        <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+        <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-         <svg width="90" height="90" viewBox="0 0 32 32" fill="none" class="group-hover:brightness-100 group-hover:contrast-200" xmlns="http://www.w3.org/2000/svg">
+         <svg width="90" height="90" viewBox="0 0 32 32" fill="none" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#E44D26"/>
             <path d="M26 5H16V29.5L24 27L26 5Z" fill="#F16529"/>
             <path d="M9.5 17.5L8.5 8H24L23.5 11H11.5L12 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5H9.5Z" fill="white"/>
@@ -18,9 +18,9 @@
             </span>
         </span>
         <!-- css -->
-         <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+         <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-            <svg width="90" height="90" viewBox="0 0 32 32" class="group-hover:brightness-100 group-hover:contrast-200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="90" height="90" viewBox="0 0 32 32" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#1172B8"/>
               <path d="M26 5H16V29.5L24 27L26 5Z" fill="#33AADD"/>
               <path d="M19.5 17.5H9.5L9 14L17 11.5H9L8.5 8.5H24L23.5 12L17 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5Z" fill="white"/>
@@ -28,9 +28,9 @@
             </span>
         </span>
         <!-- javascript -->
-         <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+         <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-           <svg width="90" height="90" viewBox="0 0 256 256" version="1.1" class="group-hover:brightness-100 group-hover:contrast-200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+           <svg width="90" height="90" viewBox="0 0 256 256" version="1.1" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
             <g>
         <path d="M0,0 L256,0 L256,256 L0,256 L0,0 Z" fill="#F7DF1E">
         </path>
@@ -43,9 +43,9 @@
             </span>
         </span>
         <!-- Tailwind -->
-        <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+        <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-              <svg width="90" height="90" class="group-hover:brightness-100 group-hover:contrast-200" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <svg width="90" height="90" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
                 style="fill:#44a8b3" />
@@ -53,9 +53,9 @@
             </span>
         </span>
         <!-- boostrap -->
-                <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+                <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-          <svg width="90" height="90" class="group-hover:brightness-100 group-hover:contrast-200" viewBox="0 0 256 256" version="1.1"
+          <svg width="90" height="90" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" viewBox="0 0 256 256" version="1.1"
           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
           preserveAspectRatio="xMidYMid">
           <g>
@@ -74,9 +74,9 @@
             </span>
         </span>
                 <!-- vue -->
-        <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+        <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-          <svg width="90" height="90" viewBox="0 0 64 64" class="group-hover:brightness-100 group-hover:contrast-200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+          <svg width="90" height="90" viewBox="0 0 64 64" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
             <rect id="Icons" x="-512" y="-128" width="1280" height="800" style="fill:none;"/>
             <!-- Tambahkan path untuk logo Vue.js -->
             <path d="M17.595,11.204l8.91,0l5.536,9.391l5.591,-9.391l8.831,0l-14.422,25.359l-14.446,-25.359Z" style="fill:#435466;"/>
@@ -85,21 +85,21 @@
             </span>
         </span>
         <!-- node js -->
-         <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+         <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-           <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js logo.svg" height="361" width="590" class="group-hover:brightness-100 group-hover:contrast-200">
+           <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js logo.svg" height="361" width="590" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300">
             </span>
         </span>
         <!-- sequelize -->
-        <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+        <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-           <img src="https://www.vectorlogo.zone/logos/sequelizejs/sequelizejs-ar21.svg" alt="sequelize" srcset="" class="scale:125 sm:scale-150 group-hover:brightness-100 group-hover:contrast-200">
+           <img src="https://www.vectorlogo.zone/logos/sequelizejs/sequelizejs-ar21.svg" alt="sequelize" srcset="" class="scale:125 sm:scale-150 group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300">
             </span>
         </span>
         <!-- mysql -->
-         <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+         <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-           <svg width="120" height="120"  viewBox="-18.458 -22.75 191.151 191.151" class="-mt-4 -mx-4 group-hover:brightness-100 group-hover:contrast-200"
+           <svg width="120" height="120"  viewBox="-18.458 -22.75 191.151 191.151" class="-mt-4 -mx-4 group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M-18.458 6.58h191.151v132.49H-18.458V6.58z" fill="none" />
             <path
@@ -118,24 +118,24 @@
             </span>
         </span>
         <!-- postgres -->
-          <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+          <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="group-hover:brightness-100 group-hover:contrast-200" width="100" height="100" viewBox="0 0 100 100">
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" width="100" height="100" viewBox="0 0 100 100">
         <path fill="#6e78ac" d="M83.242,60.482c-6.349,1.924-9.957-0.415-9.957-0.415s-0.006,0-0.007,0l-0.394-0.488	c0.131-0.117,0.264-0.242,0.4-0.381l0.019-0.017l-0.001-0.002c5.639-5.753,15.838-29.562,9.749-37.378	c-8.553-10.979-25.66-5.745-25.66-5.745l0.064,0.183c-4.889-1.666-9.947-1.625-13.851,0.838c-0.661,0.417-1.273,0.873-1.844,1.357	l0.014-0.187c0,0-8.149-3.213-15.851-2.383c-7.954,0.857-12.319,6.83-12.319,15.83s6.17,30.553,10.17,34.553s6,2,7,1	c0.896-0.896,6.588-7.387,7.771-8.738c2.143,1.4,4.575,1.743,5.983,1.748c-0.184,0.991-1.31,4.988-7.562,5.714	c-2.809,0.447-1.915,2.298,0.128,2.872c2.002,0.563,8.415,1.967,12.335-3.509c-0.052,3.397-0.183,9.771,0.304,15.126	c0.574,6.319,3.983,8.376,6.511,8.713c7.878,1.048,10.628-4.308,11.394-6.702c0.702-2.194,1.839-10.809,2.213-16.588l0.503-0.089	l-0.004,0.05c8.106,1.277,12.734-1.66,14.362-3.191C86.338,61.12,85.349,59.844,83.242,60.482z"></path><path fill="none" stroke="#1f212b" stroke-miterlimit="10" stroke-width="2" d="M39,58c0,0-6.75,7.562-7.75,8.562s-3,3-7-1	s-10.25-25-10.25-34s4.234-15.518,12.188-16.375C33.89,14.358,42,18,42,18"></path><path fill="none" stroke="#1f212b" stroke-miterlimit="10" stroke-width="2" d="M71.213,56.947	c2.681-2.106,2.968-8.713,2.489-12.734c-0.479-4.021,0.331-6.392,0.235-11.275C70.682,19.629,53.612,10.839,43.75,17.062	s-8.854,20.137-8.375,24.062s-2.444,6.539-0.625,12.188s7.644,6.698,10.037,6.698c2.394,0,4.883,0.957,4.883,3.543	s-0.287,10.34,0.287,16.66c0.574,6.319,3.983,8.376,6.511,8.713c7.878,1.048,10.628-4.309,11.394-6.702s2.052-12.439,2.298-18.096	c0.191-4.404,3.351-4.309,3.351-4.309s3.608,2.339,9.957,0.415c2.106-0.638,3.096,0.638,1.468,2.17	c-1.628,1.532-6.017,4.56-14.124,3.283"></path><path fill="none" stroke="#1f212b" stroke-miterlimit="10" stroke-width="2" d="M74.085,33.617c0,0-6.523-2.242-8.71,2.195	c-1.893,3.841,3.987,18.294,8.199,23.592"></path><path fill="none" stroke="#1f212b" stroke-miterlimit="10" stroke-width="2" d="M34.574,36.617c0,0,7.652-4.612,11.801-1.867	S48.936,48.106,47.149,52c-1.787,3.894-2.362,7.787-2.362,7.787s-0.447,5.106-7.596,5.936c-2.809,0.447-1.915,2.298,0.128,2.872	c2.043,0.574,8.681,2.043,12.574-3.83"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M57.617,15.809	c0,0,17.356-4.174,25.383,5.629c6.553,8.003-4.766,33.882-10.191,38.158"></path><path fill="#1f212b" d="M69.154,38.037c-1.652,0.168-3.423-1.939-0.096-2.346C72.177,35.31,71.323,37.817,69.154,38.037z"></path><path fill="#1f212b" d="M43.223,38.848c-1.824-0.23-3.212-2.945,0.481-2.556C47.165,36.657,45.619,39.151,43.223,38.848z"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M39.492,27.447	c-0.236,0.688-0.451,1.425-0.641,2.213"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M47.808,18.479	c-2.789,0.876-5.771,2.939-7.731,7.456"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M55.064,18.298	c0,0-2.11-0.621-4.851-0.319"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M20.148,21.817	c-1.921,2.074-3.369,5.451-3.173,10.945"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M28.319,18.553	c0,0-3.417-0.258-6.503,1.833"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M53.549,82.6	c0.649,1.702,1.858,3.266,4.1,3.613"></path><path fill="none" stroke="#1f212b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M52.83,77.596	c0,0-0.095,1.358,0.186,3.001"></path>
         </svg>
             </span>
         </span>
         <!-- vscode -->
-         <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+         <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:brightness-100 group-hover:contrast-200" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+          <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
           <path fill="#29b6f6" d="M44,11.11v25.78c0,1.27-0.79,2.4-1.98,2.82l-8.82,4.14L34,33V15L33.2,4.15l8.82,4.14 C43.21,8.71,44,9.84,44,11.11z"></path><path fill="#0277bd" d="M9,33.896L34,15V5.353c0-1.198-1.482-1.758-2.275-0.86L4.658,29.239 c-0.9,0.83-0.849,2.267,0.107,3.032c0,0,1.324,1.232,1.803,1.574C7.304,34.37,8.271,34.43,9,33.896z"></path><path fill="#0288d1" d="M9,14.104L34,33v9.647c0,1.198-1.482,1.758-2.275,0.86L4.658,18.761 c-0.9-0.83-0.849-2.267,0.107-3.032c0,0,1.324-1.232,1.803-1.574C7.304,13.63,8.271,13.57,9,14.104z"></path>
           </svg>
             </span>
         </span>
-           <span class="group grid animate-tech transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:hover:border-blue-gray-100  hover:bsm:g-opacity-25">
+           <span class="group grid animate-tech backdrop-blur-sm transition duration-700 w-full min-w-[7rem] transform place-items-center rounded-xl border border-blue-gray-50 bg-cyan-800 shadow-lg sm:rounded-3xl sm:hover:border-cyan-400 bg-clip-padding bg-opacity-55 sm:hover:shadow-cyan-400 px-3 py-2 hover:scale-105 sm:border-cyan-50 border-cyan-400 hover:bsm:g-opacity-25">
             <span class="my-6 grid h-24 w-24 place-items-center">
-         <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:brightness-100 group-hover:contrast-200" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+         <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:brightness-100 group-hover:contrast-200 grayscale group-hover:grayscale-0 transition-all duration-300" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
         <path d="M10.9,2.1c-4.6,0.5-8.3,4.2-8.8,8.7c-0.5,4.7,2.2,8.9,6.3,10.5C8.7,21.4,9,21.2,9,20.8v-1.6c0,0-0.4,0.1-0.9,0.1 c-1.4,0-2-1.2-2.1-1.9c-0.1-0.4-0.3-0.7-0.6-1C5.1,16.3,5,16.3,5,16.2C5,16,5.3,16,5.4,16c0.6,0,1.1,0.7,1.3,1c0.5,0.8,1.1,1,1.4,1 c0.4,0,0.7-0.1,0.9-0.2c0.1-0.7,0.4-1.4,1-1.8c-2.3-0.5-4-1.8-4-4c0-1.1,0.5-2.2,1.2-3C7.1,8.8,7,8.3,7,7.6C7,7.2,7,6.6,7.3,6 c0,0,1.4,0,2.8,1.3C10.6,7.1,11.3,7,12,7s1.4,0.1,2,0.3C15.3,6,16.8,6,16.8,6C17,6.6,17,7.2,17,7.6c0,0.8-0.1,1.2-0.2,1.4 c0.7,0.8,1.2,1.8,1.2,3c0,2.2-1.7,3.5-4,4c0.6,0.5,1,1.4,1,2.3v2.6c0,0.3,0.3,0.6,0.7,0.5c3.7-1.5,6.3-5.1,6.3-9.3 C22,6.1,16.9,1.4,10.9,2.1z"></path>
     </svg>
             </span>
@@ -170,13 +170,25 @@ export default {
     },
   },
   mounted() {
-    this.setupIntersectionObserver('.animate-tech')
+    this.setupIntersectionObserver('.animate-tech backdrop-blur-sm'),
+    this.setupIntersectionObserver('.animate-left-title'),
+    this.setupIntersectionObserver('.animate-slideUp-subtitle')
   },
 };
 </script>
 <style>
-.animate-tech {
+.animate-tech backdrop-blur-sm {
   opacity: 0;
   transition: opacity 2s;
+}
+.animate-left-title {
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 1s, transform 1s;
+}
+.animate-slideUp-subtitle {
+  opacity: 0;
+  transform: translatey(50%);
+  transition: opacity 2s, transform 1s;
 }
 </style>
