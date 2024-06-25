@@ -40,7 +40,7 @@
   "about":{
     "content1":{
       "title": "About Me",
-      "text": "I'm Muhammad Daffa Fauzan, Backend Web Developer with one year experience. I am passionate about developing engaging and dynamic web experiences. I have a strong curiosity towards evolving web technologies. I enjoy creating creative solutions in visual layout and optimising user experience. I take pride in using clean code and clean architecture in every project because I believe a strong foundation is important for scalable and maintainable solutions. I am always up for new challenges and constantly expanding my skills."
+      "text": "I am Muhammad Daffa Fauzan, a Backend Web Developer with one year of experience. I am passionate about developing engaging and dynamic web experiences. Having a strong curiosity towards modern web technologies, I enjoy creating creative solutions in visual layout and optimising user experience. I take pride in using clean code and clean architecture in every project, as I believe a strong foundation is essential for scalable and maintainable solutions. I am always up for new challenges and constantly expanding my skills."
     },
     "timeline": {
       "title": "Education Timeline",
@@ -65,7 +65,7 @@
   "items": [
     {
       "date": "May 2024 - Now",
-      "title": "Graphic content designer",
+      "title": "Freelance graphic content designer",
       "subtitle": "Murder Consign",
       "items-works": [
         {

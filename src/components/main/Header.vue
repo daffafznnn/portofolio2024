@@ -1,18 +1,18 @@
 <template>
-  <section id="home" class="flex flex-col items-center justify-center min-h-screen sm:h-full w-full mx-auto py-auto">
+  <section id="home" class="flex flex-col items-center justify-center w-full min-h-screen mx-auto sm:h-full py-auto">
     <div class="flex flex-col items-center justify-center">
-      <div class="animate-img backdrop-blur-sm border-4 border-cyan-400 p-2 rounded-full mb-6 shadow-inner shadow-cyan-400">
-        <img src="../../assets/daffa-formal-removebg-preview.png" alt="daffa" class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 object-scale-down rounded-full">
+      <div class="p-2 mb-6 border-4 rounded-full shadow-inner animate-img backdrop-blur-sm border-cyan-400 shadow-cyan-400">
+        <img src="../../assets/daffa-formal-removebg-preview.png" alt="daffa" class="object-scale-down w-32 h-32 rounded-full sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64">
       </div>
-      <h1 :class="{'typing': !isTypingFinished}" class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase text-cyan-400 font-extrabold text-center mb-4">
+      <h1 :class="{'typing': !isTypingFinished}" class="mb-4 text-2xl font-extrabold text-center uppercase sm:text-3xl md:text-4xl lg:text-5xl text-cyan-400">
         {{ typedText }}
       </h1>
     </div>
     <div class="flex items-center justify-center mt-2 mb-6 animate-down-subTitle">
-      <span class="text-base sm:text-lg md:text-xl lg:text-2xl font-base text-white text-center">{{ $t('header.welcome.subtitle')}}</span>
+      <span class="text-base text-center text-white sm:text-lg md:text-xl lg:text-2xl font-base">{{ $t('header.welcome.subtitle')}}</span>
     </div>
     <div class="flex items-center justify-center scale-button">
-      <button @click="downloadCV" class="animate-bounce inline-flex text-nowrap h-10 sm:h-12 w-36 sm:w-full items-center justify-center rounded-full bg-gradient-to-r from-cyan-700 to-cyan-500 px-8 font-medium tracking-wide text-white shadow-md shadow-sky-300 outline-none transition-all duration-500 hover:scale-110 hover:bg-sky-500 focus:ring">
+      <button @click="downloadCV" class="inline-flex items-center justify-center h-10 px-8 font-medium tracking-wide text-white transition-all duration-500 rounded-full shadow-md outline-none animate-bounce text-nowrap sm:h-12 w-36 sm:w-full bg-gradient-to-r from-cyan-700 to-cyan-500 shadow-sky-300 hover:scale-110 hover:bg-sky-500 focus:ring">
         {{ $t('header.message.download')}}
       </button>
     </div>
@@ -54,7 +54,7 @@ export default {
         
         if (confirmResult === 'confirm') {
           // URL Google Drive yang ingin diunduh
-          const driveFileUrl = 'https://drive.google.com/file/d/1qQzOShQzluj7DTQ9bbcz4V4axnw6XjHR/view?usp=drive_link';
+          const driveFileUrl = import.meta.env.VITE_CV_URL
 
           // Konversi URL Google Drive menjadi URL download
           const fileId = driveFileUrl.match(/\/file\/d\/([^\/]+)/)[1];

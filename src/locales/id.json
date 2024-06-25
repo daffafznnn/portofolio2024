@@ -46,7 +46,7 @@
   "about":{
     "content1":{
       "title": "Tentang saya",
-      "text": "Saya Muhammad Daffa Fauzan, Backend Web Developer dengan pengalaman satu tahun. Saya antusias mengembangkan pengalaman web menarik dan dinamis. Saya memiliki rasa ingin tahu yang kuat terhadap teknologi web yang terus berkembang. Saya senang menciptakan solusi kreatif dalam tata letak visual dan mengoptimalkan pengalaman pengguna. Saya bangga menggunakan clean code dan clean architecture dalam setiap proyek karena saya yakin fondasi yang kuat penting untuk solusi yang scalable dan maintainable. Saya selalu siap untuk tantangan baru dan terus memperluas keterampilan saya."
+      "text": "Saya Muhammad Daffa Fauzan, seorang Backend Web Developer dengan pengalaman satu tahun. Saya sangat antusias dalam mengembangkan pengalaman web yang menarik dan dinamis. Memiliki rasa ingin tahu yang kuat terhadap teknologi web modern, saya senang menciptakan solusi kreatif dalam tata letak visual dan mengoptimalkan pengalaman pengguna. Saya bangga menggunakan clean code dan clean architecture dalam setiap proyek, karena saya yakin fondasi yang kuat sangat penting untuk solusi yang scalable dan maintainable. Saya selalu siap untuk tantangan baru dan terus memperluas keterampilan saya."
     }, 
     "timeline": {
       "title": "Riwayat Pendidikan",
@@ -71,7 +71,7 @@
   "items": [
     {
       "date": "Mei 2024 - Sekarang",
-      "title": "Desainer Konten Grafis",
+      "title": "Freelance desainer Konten Grafis",
       "subtitle": "Murder Consign",
       "items-works": [
         {
