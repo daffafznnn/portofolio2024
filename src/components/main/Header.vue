@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="flex flex-col items-center justify-center w-full min-h-screen mx-auto sm:h-full py-auto">
+  <header id="home" class="flex flex-col items-center justify-center w-full min-h-screen mx-auto sm:h-full py-auto">
     <div class="flex flex-col items-center justify-center">
       <div class="p-2 mb-6 border-4 rounded-full shadow-inner animate-img backdrop-blur-sm border-cyan-400 shadow-cyan-400">
         <img src="../../assets/daffa-formal-removebg-preview.png" alt="daffa" class="object-scale-down w-32 h-32 rounded-full sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64">
@@ -12,11 +12,11 @@
       <span class="text-base text-center text-white sm:text-lg md:text-xl lg:text-2xl font-base">{{ $t('header.welcome.subtitle')}}</span>
     </div>
     <div class="flex items-center justify-center scale-button">
-      <button @click="downloadCV" class="inline-flex items-center justify-center h-10 px-8 font-medium tracking-wide text-white transition-all duration-500 rounded-full shadow-md outline-none animate-bounce text-nowrap sm:h-12 w-36 sm:w-full bg-gradient-to-r from-cyan-700 to-cyan-500 shadow-sky-300 hover:scale-110 hover:bg-sky-500 focus:ring">
+      <button @click="downloadCV" class="inline-flex items-center justify-center h-10 px-8 font-medium tracking-wide text-white text-sm transition-all duration-500 rounded-full shadow-md outline-none animate-bounce text-nowrap sm:h-12 w-36 sm:w-full bg-gradient-to-r from-cyan-700 to-cyan-500 shadow-sky-300 hover:scale-110 hover:bg-sky-500 focus:ring">
         {{ $t('header.message.download')}}
       </button>
     </div>
-  </section>
+  </header>
 </template>
 
 <script>

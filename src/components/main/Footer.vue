@@ -8,8 +8,8 @@
       <a href="https://sociabuzz.com/daffafznnn_/tribe" target="_blank" class="font-medium text-white">{{ $t('footer.text2') }}</a>
     </nav>
     <p class="py-5 mx-auto text-center sm:text-center text-gray-300">{{ $t('footer.copyright') }}</p>
-    <p class="py-2 mx-auto text-center sm:text-center text-gray-300">
+    <!-- <p class="py-2 mx-auto text-center sm:text-center text-gray-300">
       {{ $t('footer.thanks.early') }} <a href="https://vuejs.org" target="_blank" class="text-white">Vue</a> {{ $t('footer.thanks.late') }}
-    </p>
+    </p> -->
   </footer>
 </template>

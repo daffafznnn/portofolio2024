@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
 import GuestLayout from "../layouts/GuestLayout.vue";
-import NotFound from "../components/services/NotFound.vue";
-import ServerError from "../components/services/ServerError.vue";
-import ServerNotFound from "../components/services/ServerNotFound.vue";
+import NotFound from "../components/stage/NotFound.vue";
+import ServerError from "../components/stage/ServerError.vue";
+import ServerNotFound from "../components/stage/ServerNotFound.vue";
 import Login from "../views/auth/Login.vue";
 import ForgotPassword from "../views/auth/ForgotPassword.vue";
 import DashboardLayouts from "../layouts/DashboardLayouts.vue";
@@ -66,10 +66,7 @@ const routes = [
   {
     path: "/",
     component: GuestLayout,
-    name: "GuestLayout",
-    meta: {
-      title: "welcome to my portofolio",
-    },
+    name: "GuestLayout"
   },
   {
     path: "/dashboard/home",
@@ -139,7 +136,7 @@ router.beforeEach(async (to, from, next) => {
   }
 
   // Set document title
-  document.title = "daffafznnn - " + (to.meta.title || "Default Text");
+  // document.title = "daffafznnn - " + (to.meta.title || "");
 });
 
 export default router;

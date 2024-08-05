@@ -1,13 +1,13 @@
 <template>
-<section id="about" class="py-8 sm:py-20 container mx-auto">
- <h3 class="animate-left-content text-5xl mx-4 md:mx-12 text-cyan-400 font-bold">
+<section id="about" class="container py-8 mx-auto sm:py-20">
+ <h3 class="mx-4 text-5xl font-bold animate-left-content md:mx-12 text-cyan-400">
   {{ $t('about.content1.title') }}
  </h3>
    <div class="relative">
          <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
     <!-- about me -->
     <div class="col-span-2">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mx-4 sm:mx-12">
+      <div class="grid grid-cols-1 gap-10 mx-4 sm:grid-cols-2 sm:mx-12">
         <!-- Konten sebelah kiri -->
         <div class="animate-left-content">
           <p class="mt-4 text-white">
@@ -15,10 +15,10 @@
           </p>
         </div>
         <!-- Konten sebelah kanan -->
-        <div class="animate-right-content flex items-center justify-center group">
+        <div class="flex items-center justify-center animate-right-content group">
               <img
                 src="../../assets/ab2.jpg"
-                class="w-80 h-56 rounded-xl md:hover:shadow-lg md:hover:shadow-cyan-400 md:hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
+                class="h-56 transition-all duration-700 w-80 rounded-xl md:hover:shadow-lg md:hover:shadow-cyan-400 md:hover:scale-105 grayscale group-hover:grayscale-0"
                 alt="Image 2"
               />
         </div>
@@ -26,9 +26,9 @@
     </div>
     <!-- end about me -->
     <!-- timeline pendidikan -->
-    <div class="sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 shadow-lg transition-all duration-700 bg-transparent sm:hover:bg-opacity-55 col-span-2 group animate-timeline backdrop-blur-sm mx-4 sm:mx-10 mt-8 -mb-4 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl sm:h-56 md:h-64">
-      <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline.title') }}</h3>
-      <ol class="items-center ml-5 sm:ml-16 sm:flex mt-6">
+    <div class="col-span-2 mx-4 mt-8 -mb-4 transition-all duration-700 bg-transparent border shadow-lg sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 sm:hover:bg-opacity-55 group animate-timeline backdrop-blur-sm sm:mx-10 border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl sm:h-56 md:h-64">
+      <h3 class="pl-5 mt-6 mb-4 text-3xl font-bold sm:pl-16 text-cyan-400">{{ $t('about.timeline.title') }}</h3>
+      <ol class="items-center mt-6 ml-5 sm:ml-16 sm:flex">
         <li class="relative mb-6 sm:mb-0">
           <div class="flex items-center">
             <div class="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
@@ -83,28 +83,28 @@
     <!-- end timeline -->
       </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:gap-4 mx-4 sm:mx-10">       
+    <div class="grid grid-cols-1 gap-0 mx-4 sm:grid-cols-2 sm:gap-4 sm:mx-10">       
    <!-- timeline working -->
-    <div class="sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 shadow-lg transition-all duration-700 bg-transparent sm:hover:bg-opacity-55 animate-timeline backdrop-blur-sm mt-8 -mb- sm:mb-6 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
-      <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.timeline-working.title') }}</h3>
-      <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
-        <li class="mb-6 ms-4">
+    <div class="mt-8 transition-all duration-700 bg-transparent border shadow-lg sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 sm:hover:bg-opacity-55 animate-timeline backdrop-blur-sm -mb- sm:mb-6 border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
+      <h3 class="pl-5 mt-6 mb-4 text-3xl font-bold sm:pl-16 text-cyan-400">{{ $t('about.timeline-working.title') }}</h3>
+      <ol class="relative mt-6 ml-8 border-gray-200 sm:ml-16 border-s dark:border-gray-700">
+        <!-- <li class="mb-6 ms-4">
           <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
           <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.0.date') }}</time>
           <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.0.title') }}</h3>
           <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.0.subtitle') }}</span>
-          <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
+          <ul class="max-w-md mx-2 mb-2 space-y-1 text-sm text-gray-300 list-disc list-inside dark:text-gray-400">
             <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.0.name') }}</li>
             <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.1.name') }}</li>
             <li class="mb-2">{{ $t('about.timeline-working.items.0.items-works.2.name') }}</li>
           </ul>
-        </li>
+        </li> -->
         <li class="mb-6 ms-4">
           <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
           <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.timeline-working.items.1.date') }}</time>
           <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.timeline-working.items.1.title') }}</h3>
           <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.timeline-working.items.1.subtitle') }}</span>
-          <ul class="max-w-md space-y-1 text-gray-300 list-disc list-inside dark:text-gray-400 mx-2 mb-2 text-sm">
+          <ul class="max-w-md mx-2 mb-2 space-y-1 text-sm text-gray-300 list-disc list-inside dark:text-gray-400">
             <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.0.name') }}</li>
             <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.1.name') }}</li>
             <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.2.name') }}</li>
@@ -115,9 +115,9 @@
     </div>
     <!-- end timeline working -->
 <!-- certificate -->
-<div class="sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 shadow-lg transition-all duration-700 bg-transparent sm:hover:bg-opacity-55 animate-timeline backdrop-blur-sm mt-8 mb-6 border border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
-  <h3 class="text-3xl font-bold mb-4 pl-5 sm:pl-16 mt-6 text-cyan-400">{{ $t('about.certificate.title') }}</h3>
-  <ol class="ml-8 sm:ml-16 mt-6 relative border-s border-gray-200 dark:border-gray-700">
+<div class="mt-8 mb-6 transition-all duration-700 bg-transparent border shadow-lg sm:hover:bg-cyan-800 sm:hover:shadow-cyan-400 sm:hover:bg-opacity-55 animate-timeline backdrop-blur-sm border-cyan-400 sm:border-gray-400 sm:hover:border-cyan-400 bg-clip-padding rounded-xl">
+  <h3 class="pl-5 mt-6 mb-4 text-3xl font-bold sm:pl-16 text-cyan-400">{{ $t('about.certificate.title') }}</h3>
+  <ol class="relative mt-6 ml-8 border-gray-200 sm:ml-16 border-s dark:border-gray-700">
     <li class="mb-6 ms-4">
       <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
       <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.certificate.items.0.date') }}</time>
@@ -126,7 +126,7 @@
       <img
         :src="certificateImages[0]"
         alt="Description of image 1"
-        class="w-62 h-32 mb-5 mt-5 rounded-md hover:scale-105 transition-all object-cover"
+        class="object-cover h-32 mt-5 mb-5 transition-all rounded-md w-62 hover:scale-105"
         @click="showPreview(0)"
       />
     </li>
@@ -138,12 +138,12 @@
       <img
         :src="certificateImages[1]"
         alt="Description of image 2"
-        class="w-62 h-32 mb-5 mt-5 rounded-md hover:scale-105 transition-all object-cover"
+        class="object-cover h-32 mt-5 mb-5 transition-all rounded-md w-62 hover:scale-105"
         @click="showPreview(1)"
       />
     </li>
   </ol>
-  <div v-show="showPreviewImage" @click="hidePreview" class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-75">
+  <div v-show="showPreviewImage" @click="hidePreview" class="absolute top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-75">
     <img :src="previewImage" alt="Preview Image" class="max-w-3/4 max-h-3/4" @click.stop>
   </div>
 </div>

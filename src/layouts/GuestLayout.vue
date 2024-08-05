@@ -19,7 +19,7 @@ import About from '../components/main/About.vue';
 import projects from "../components/main/Projects.vue";
 import Contact from "../components/main/Contact.vue";
 import Stack from "../components/main/Stack.vue";
-import Cookie from "../components/services/Cookie.vue";
+import Cookie from "../components/stage/Cookie.vue";
 import AnimationBg from "../components/AnimationBg.vue";
 
 
