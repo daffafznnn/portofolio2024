@@ -1,7 +1,7 @@
 <template>
     <div id="last-users">
-      <h1 class="font-bold py-4 uppercase">Question</h1>
-      <div class="flex items-center gap-x-2 mb-6">
+      <h1 class="py-4 font-bold uppercase">Question</h1>
+      <div class="flex items-center mb-6 gap-x-2">
         <el-select
           v-model="selectedFilter"
           placeholder="Select Filter"
@@ -48,7 +48,7 @@
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    class="w-8 h-8 text-gray-400 mx-auto"
+                    class="w-8 h-8 mx-auto text-gray-400"
                   >
                     <path
                       stroke-linecap="round"
@@ -56,30 +56,33 @@
                       d="M4 6h16M4 12h16m-7 6h7"
                     />
                   </svg>
-                  <p class="text-gray-500 mt-2">
+                  <p class="mt-2 text-gray-500">
                     No question found. Try changing your filters.
                   </p>
                 </div>
               </el-empty>
           <table v-else class="w-full whitespace-nowrap">
           <thead class="bg-black/25">
-            <th class="text-left py-3 px-2 ">Date</th>
-            <th class="text-left py-3 px-2">Email</th>
-            <th class="text-left py-3 px-2">Status</th>
-            <th class="text-left py-3 px-2 rounded-r-lg">Actions</th>
+            <tr>
+              <th class="px-2 py-3 text-left ">Date</th>
+            <th class="px-2 py-3 text-left">Email</th>
+            <th class="px-2 py-3 text-left">Status</th>
+            <th class="px-2 py-3 text-left rounded-r-lg">Actions</th>
+            </tr>
+
           </thead>
           <tbody>
             <tr v-for="(item, index) in paginatedQuestion" :key="index" class="border-b border-gray-200 hover:bg-slate-400">
               <!-- Row content -->
-             <td class="py-3 px-2 font-bold cursor-pointer" @click="toggleDetail(item)">
+             <td class="px-2 py-3 font-bold cursor-pointer" @click="toggleDetail(item)">
                 <div class="space-x-3 text-xs">
                   {{ formatDateWithAccent(item?.date) }}
                 </div>
                 <p class="text-xs font-normal">{{ formatTime(item?.time) }}</p>
               </td>
-              <td class="py-3 px-2">{{ item?.email }}</td>
-              <td class="py-3 px-2">{{ item?.status }}</td>
-              <td class="py-3 px-2">
+              <td class="px-2 py-3">{{ item?.email }}</td>
+              <td class="px-2 py-3">{{ item?.status }}</td>
+              <td class="px-2 py-3">
                 <div class="inline-flex items-center space-x-3">
                   <button title="Reply question" class="hover:text-white" @click="toggleDetail(item)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
@@ -104,7 +107,7 @@
          </template>
          <!-- Modal untuk menampilkan detail pertanyaan -->
       <transition name="modal">
-      <div v-if="selectedQuestion" class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10">
+      <div v-if="selectedQuestion" class="fixed top-0 left-0 flex items-center justify-center w-full h-full py-10 bg-black bg-opacity-50">
         <div class="max-h-screen w-full max-w-[90%] sm:max-w-xl rounded-xl sm:rounded-2xl outline outline-cyan-400 overflow-auto" style="background-color: #172554;">
           <div class="w-full">
             <div class="m-8 my-16 max-w-[400px] mx-auto">
@@ -112,7 +115,7 @@
                 <h1 class="mb-4 text-3xl font-extrabold text-cyan-400">{{ selectedQuestion.name }}</h1>
                 <span>{{ selectedQuestion.email }}</span>
               </div>
-              <div class="mb-4 mx-2 sm:mx-auto">
+              <div class="mx-2 mb-4 sm:mx-auto">
                 <label for="answer" class="block text-sm font-medium text-gray-300">Question:</label>
                 <div class="p-2">
                   <div class="flex justify-start">
@@ -120,27 +123,27 @@
                       <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
                     </svg>
                   </div>
-                  <p class="font-sans text-base text-left bg-white/15 w-auto rounded-md p-1 border">{{ selectedQuestion.question }}</p>
+                  <p class="w-auto p-1 font-sans text-base text-left border rounded-md bg-white/15">{{ selectedQuestion.question }}</p>
                   <div class="flex justify-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-quote rotate-180" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="rotate-180 bi bi-quote" viewBox="0 0 16 16">
                       <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
                     </svg>
                   </div>
                 </div>
               </div>
-              <div class="space-y-4 mx-2 sm:mx-auto">
+              <div class="mx-2 space-y-4 sm:mx-auto">
                 <!-- Form untuk menjawab pertanyaan -->
                   <div class="mb-4">
                     <label for="answer" class="block text-sm font-medium text-gray-300">Your Answer:</label>
-                    <textarea v-model="answer" :disabled="selectedQuestion.status === 'missed'" id="answer" name="answer" rows="4" placeholder="Input your answer..." class="bg-white/10 mt-1 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
+                    <textarea v-model="answer" :disabled="selectedQuestion.status === 'missed'" id="answer" name="answer" rows="4" placeholder="Input your answer..." class="block w-full mt-1 border-gray-300 rounded-md shadow-sm bg-white/10 placeholder:text-cyan-400 focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm" required></textarea>
                   </div>
                   <div class="flex justify-end">
                     <!-- Tombol untuk submit jawaban -->
-                    <button type="button" @click="submitAnswer(selectedQuestion)" :class="{ 'hidden': selectedQuestion.status === 'missed'}" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-cyan-500 hover:bg-cyan-600 mx-2">Submit</button>
-                    <button type="button" @click="deleteQuestionWithUuid(selectedQuestion)"  class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-600">Delete</button>
+                    <button type="button" @click="submitAnswer(selectedQuestion)" :class="{ 'hidden': selectedQuestion.status === 'missed'}" class="inline-flex items-center px-4 py-2 mx-2 text-base font-medium text-white border border-transparent rounded-md bg-cyan-500 hover:bg-cyan-600">Submit</button>
+                    <button type="button" @click="deleteQuestionWithUuid(selectedQuestion)"  class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-red-500 border border-transparent rounded-md hover:bg-red-600">Delete</button>
                   </div>
                 <!-- Tombol untuk menutup modal -->
-                <button @click="selectedQuestion = null" class="p-3 bg-white/10 border border-cyan-400 text-cyan-400 rounded-full w-full font-semibold">Close</button>
+                <button @click="selectedQuestion = null" class="w-full p-3 font-semibold border rounded-full bg-white/10 border-cyan-400 text-cyan-400">Close</button>
               </div>
             </div>
           </div>

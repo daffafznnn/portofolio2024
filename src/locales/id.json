@@ -10,14 +10,8 @@
   },
   "header":{
     "welcome": {
-    "subtitle": "Pengembang web back-end junior yang bersemangat",
+    "subtitle": "Pengembang web junior yang bersemangat",
     "button": "Kerjakan saya"
-    },
-    "stats":{
-      "project": "Proyek",
-      "year-experience": "Pengalaman",
-      "year": "tahun",
-      "achievement": "Pencapaian"
     },
     "message": {
     "confirmDownload": "Apakah Anda yakin ingin mengunduh CV?",
@@ -46,7 +40,7 @@
   "about":{
     "content1":{
       "title": "Tentang saya",
-      "text": "Saya Muhammad Daffa Fauzan, seorang Backend Web Developer dengan pengalaman satu tahun. Saya sangat antusias dalam mengembangkan pengalaman web yang menarik dan dinamis. Memiliki rasa ingin tahu yang kuat terhadap teknologi web modern, saya senang menciptakan solusi kreatif dalam tata letak visual dan mengoptimalkan pengalaman pengguna. Saya bangga menggunakan clean code dan clean architecture dalam setiap proyek, karena saya yakin fondasi yang kuat sangat penting untuk solusi yang scalable dan maintainable. Saya selalu siap untuk tantangan baru dan terus memperluas keterampilan saya."
+      "text": "Saya Muhammad Daffa Fauzan, seorang Web Developer dengan pengalaman satu tahun. Saya sangat antusias dalam mengembangkan pengalaman web yang menarik dan dinamis. Memiliki rasa ingin tahu yang kuat terhadap teknologi web modern, saya senang menciptakan solusi kreatif dalam tata letak visual dan mengoptimalkan pengalaman pengguna. Saya bangga menggunakan clean code dan clean architecture dalam setiap proyek, karena saya yakin fondasi yang kuat sangat penting untuk solusi yang scalable dan maintainable. Saya selalu siap untuk tantangan baru dan terus memperluas keterampilan saya."
     }, 
     "timeline": {
       "title": "Riwayat Pendidikan",
@@ -63,6 +57,11 @@
           "title": "SMK Assalaam Bandung",
           "date": "Bandung, 6 Mei 2024",
           "major": "(Rekayasa Perangkat Lunak)"
+        },
+        {
+          "title": "Universitas Teknologi Bandung",
+          "date": "Sekarang",
+          "major": "(Teknik Informatika)"
         }
       ]
     },
@@ -71,17 +70,20 @@
   "items": [
     {
       "date": "Mei 2024 - Sekarang",
-      "title": "Freelance desainer Konten Grafis",
-      "subtitle": "Murder Consign",
+      "title": "Magang Web Developer",
+      "subtitle": "PT Bartech Media Solution",
       "items-works": [
         {
-          "name": "Membuat konten visual/video"
+          "name": "Mempelajari sistem ERP pada aplikasi berbasis website"
         },
         {
-          "name": "Menggunakan Adobe Photoshop & Capcut Pro"
+          "name": "Mengembangkan data master perbankan menggunakan Laravel"
         },
         {
-          "name": "Analisis kinerja konten"
+          "name": "Mempelajari sistem keamanan data menggunakan Laravel"
+        },
+                {
+          "name": "Implementasi Best Practices Laravel dalam proyek sistem ERP"
         }
       ]
     },

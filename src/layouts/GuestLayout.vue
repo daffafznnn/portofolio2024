@@ -4,8 +4,10 @@
   <Header></Header>
   <About></About>
   <Stack></Stack>
+  <!-- <MarqueeStack></MarqueeStack> -->
   <projects></projects>
   <Contact></Contact>
+  <ChatBotButtonVue></ChatBotButtonVue>
   <Footer></Footer>
   <AnimationBg></AnimationBg>
   <!-- <Cookie></Cookie> -->
@@ -19,6 +21,8 @@ import About from '../components/main/About.vue';
 import projects from "../components/main/Projects.vue";
 import Contact from "../components/main/Contact.vue";
 import Stack from "../components/main/Stack.vue";
+import MarqueeStack from "../components/main/MarqueeStack.vue";
+import ChatBotButtonVue from "../components/main/ChatBotButton.vue";
 import Cookie from "../components/stage/Cookie.vue";
 import AnimationBg from "../components/AnimationBg.vue";
 
@@ -32,9 +36,11 @@ export default{
     About,
     projects,
     Contact,
+    MarqueeStack,
     Stack,
     Cookie,
-    AnimationBg
+    AnimationBg,
+    ChatBotButtonVue
  }
 };
 </script>

@@ -10,7 +10,7 @@
   },
   "header":{
     "welcome": {
-      "subtitle": "A passionate Jr. back-end web developer",
+      "subtitle": "A passionate Jr. web developer",
       "button": "Hire me"
     },
     "message": {
@@ -40,7 +40,7 @@
   "about":{
     "content1":{
       "title": "About Me",
-      "text": "I am Muhammad Daffa Fauzan, a Backend Web Developer with one year of experience. I am passionate about developing engaging and dynamic web experiences. Having a strong curiosity towards modern web technologies, I enjoy creating creative solutions in visual layout and optimising user experience. I take pride in using clean code and clean architecture in every project, as I believe a strong foundation is essential for scalable and maintainable solutions. I am always up for new challenges and constantly expanding my skills."
+      "text": "I am Muhammad Daffa Fauzan, a Web Developer with one year of experience. I am passionate about developing engaging and dynamic web experiences. Having a strong curiosity towards modern web technologies, I enjoy creating creative solutions in visual layout and optimising user experience. I take pride in using clean code and clean architecture in every project, as I believe a strong foundation is essential for scalable and maintainable solutions. I am always up for new challenges and constantly expanding my skills."
     },
     "timeline": {
       "title": "Education Timeline",
@@ -57,6 +57,11 @@
           "title": "Assalaam Bandung Vocational High School",
           "date": "Bandung, May 6, 2024",
            "major": "(Software Engineering)"
+        },
+        {
+          "title": "University of Technology Bandung",
+          "date": "Now",
+           "major": "(Informatics Engineering)"
         }
       ]
     },
@@ -64,18 +69,21 @@
   "title": "Working experience",
   "items": [
     {
-      "date": "May 2024 - Now",
-      "title": "Freelance graphic content designer",
-      "subtitle": "Murder Consign",
+      "date": "May 2024 - June 2024",
+      "title": "Web Developer Internship",
+      "subtitle": "PT Bartech Media Solution",
       "items-works": [
         {
-          "name": "Create visual/video content"
+          "name": "Learning ERP system on web-based application"
         },
         {
-          "name": "Use Adobe Photoshop & Capcut Pro"
+          "name": "Develop banking master data using Laravel"
         },
         {
-          "name": "Analyze content performance"
+          "name": "Learning data security system using Laravel"
+        },
+        {
+          "name": "Implementation of Laravel Best Practices in ERP system project"
         }
       ]
     },
