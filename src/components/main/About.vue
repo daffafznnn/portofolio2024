@@ -17,7 +17,7 @@
           <!-- Konten sebelah kanan -->
           <div class="flex items-center justify-center animate-right-content group">
             <img
-              src="../../assets/ab2.jpg"
+              src="../../assets/images/ab2.jpg"
               class="h-56 transition-all duration-700 w-80 rounded-xl md:hover:shadow-lg md:hover:shadow-cyan-400 md:hover:scale-105 grayscale group-hover:grayscale-0"
               alt="Image 2"
             />
@@ -127,7 +127,6 @@
             <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.0.name') }}</li>
             <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.1.name') }}</li>
             <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.2.name') }}</li>
-            <li class="mb-2">{{ $t('about.timeline-working.items.1.items-works.3.name') }}</li>
           </ul>
         </li>
         </ol>
@@ -162,6 +161,18 @@
             @click="showPreview(1)"
           />
         </li>
+        <li class="mb-6 ms-4">
+          <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+          <time class="mb-1 text-sm font-normal leading-none text-gray-200">{{ $t('about.certificate.items.2.date') }}</time>
+          <h3 class="text-lg font-semibold text-cyan-400 dark:text-white">{{ $t('about.certificate.items.2.title') }}</h3>
+          <span class="mb-4 text-base font-normal text-gray-300 dark:text-gray-400">{{ $t('about.certificate.items.2.subtitle') }}</span>
+          <img
+            :src="certificateImages[2]"
+            alt="Description of image 2"
+            class="object-cover h-32 mt-5 mb-5 transition-all rounded-md w-62 hover:scale-105"
+            @click="showPreview(2)"
+          />
+        </li>
         </ol>
         <div v-show="showPreviewImage" @click="hidePreview" class="absolute top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-75">
           <img :src="previewImage" alt="Preview Image" class="max-w-3/4 max-h-3/4" @click.stop>
@@ -183,7 +194,8 @@ export default {
       zoomed: null,
       certificateImages: [
         'https://i.ibb.co/6P0Mb8z/Certificate-Freee-Code-Camp-daffa-hd.jpg',
-        'https://i.ibb.co/mtCXPj4/sertifikat-magang-Muhammad-Daffa-Fauzan.jpg'
+        'https://i.ibb.co/mtCXPj4/sertifikat-magang-Muhammad-Daffa-Fauzan.jpg',
+        'https://i.ibb.co.com/XfBWyMHQ/Portalpreneur.png'
       ],
       showPreviewImage: false,
       previewImage: ''

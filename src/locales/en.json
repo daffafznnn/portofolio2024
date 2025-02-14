@@ -10,7 +10,7 @@
   },
   "header":{
     "welcome": {
-      "subtitle": "A passionate Jr. web developer",
+      "subtitle": "A passionate Full-Stack Web Developer",
       "button": "Hire me"
     },
     "message": {
@@ -40,7 +40,7 @@
   "about":{
     "content1":{
       "title": "About Me",
-      "text": "I am Muhammad Daffa Fauzan, a Web Developer with one year of experience. I am passionate about developing engaging and dynamic web experiences. Having a strong curiosity towards modern web technologies, I enjoy creating creative solutions in visual layout and optimising user experience. I take pride in using clean code and clean architecture in every project, as I believe a strong foundation is essential for scalable and maintainable solutions. I am always up for new challenges and constantly expanding my skills."
+      "text": "I'm Muhammad Daffa Fauzan, a Full-Stack Web Developer experienced in Laravel, Node.js, Vue.js, and React.js. I'm an expert in large-scale and efficient web application development with a strong emphasis on backend architecture, API integration, database management, and user-friendly UI/UX design. I have a great passion for learning existing web technologies, and I love to write clean, readable code and system optimization. My projects encompass medical record systems, online shopping websites, and online registration systems, which are all built following clean architecture principles and best practices. I have a great passion for facing new challenges and for continually enhancing my technical expertise."
     },
     "timeline": {
       "title": "Education Timeline",
@@ -69,21 +69,18 @@
   "title": "Working experience",
   "items": [
     {
-      "date": "May 2024 - June 2024",
-      "title": "Web Developer Internship",
-      "subtitle": "PT Bartech Media Solution",
+      "date": "November 2024 - January 2025",
+      "title": "Full-Stack Developer",
+      "subtitle": "PT Madhlan Digital Creative",
       "items-works": [
         {
-          "name": "Learning ERP system on web-based application"
+          "name": "Developed an odontogram medical record application, increasing patient record efficiency by 30% and speeding up medical record access for medical staff."
         },
         {
-          "name": "Develop banking master data using Laravel"
+          "name": "Built an e-commerce website, achieving a 25% increase in transaction conversion by prioritizing secure payment gateway integration and improving user experience."
         },
         {
-          "name": "Learning data security system using Laravel"
-        },
-        {
-          "name": "Implementation of Laravel Best Practices in ERP system project"
+          "name": "Implemented Laravel to create a scalable backend and efficient database handling using MySQL."
         }
       ]
     },
@@ -93,16 +90,13 @@
       "subtitle": "University of Inaba Bandung",
       "items-works": [
         {
-          "name": "Manage databases & data entry"
+          "name": "Maintained the university database, achieving a 40% increase in the accuracy of alumni data through digitization of hard copies."
         },
         {
-          "name": "Learn Node.js best practices"
+          "name": "Developed a web-based attendance application with Node.js, reducing attendance recording time by up to 50% from the previous system."
         },
         {
-          "name": "Build attendance app with Node.js"
-        },
-        {
-          "name": "Convert alumni data to digital"
+          "name": "Implemented secure coding best practices, enhancing system security and database efficiency."
         }
       ]
     }
@@ -120,6 +114,11 @@
       "date": "March 2024",
       "title": "inaba university internship completion",
       "subtitle": "University of Inaba Bandung"
+    },
+    {
+      "date": "Januari 2025",
+      "title": "Web Developer at PT Madhlan Digital Creative",
+      "subtitle": "PT Madhlan Digital Creative"
     }
   ]
 }

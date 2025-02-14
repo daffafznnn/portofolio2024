@@ -2,7 +2,7 @@
   <header id="home" class="flex flex-col items-center justify-center w-full min-h-screen mx-auto sm:h-full py-auto">
     <div class="flex flex-col items-center justify-center">
       <div ref="profileImage" class="p-2 mb-6 border-4 rounded-full shadow-inner backdrop-blur-sm border-cyan-400 shadow-cyan-400">
-        <img src="../../assets/daffa-formal-removebg-preview.png" alt="daffa" class="object-scale-down w-32 h-32 rounded-full sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64">
+        <img src="../../assets/images/daffa-formal-removebg-preview.png" alt="daffa" class="object-scale-down w-32 h-32 rounded-full sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64">
       </div>
       <h1 ref="headerTitle" class="mb-4 text-2xl font-extrabold text-center uppercase sm:text-3xl md:text-4xl lg:text-5xl text-cyan-400">
         {{ typedText }}

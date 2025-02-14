@@ -10,7 +10,7 @@
   },
   "header":{
     "welcome": {
-    "subtitle": "Pengembang web junior yang bersemangat",
+    "subtitle": "Pengembang Full-Stack Web Developer yang bersemangat",
     "button": "Kerjakan saya"
     },
     "message": {
@@ -40,7 +40,7 @@
   "about":{
     "content1":{
       "title": "Tentang saya",
-      "text": "Saya Muhammad Daffa Fauzan, seorang Web Developer dengan pengalaman satu tahun. Saya sangat antusias dalam mengembangkan pengalaman web yang menarik dan dinamis. Memiliki rasa ingin tahu yang kuat terhadap teknologi web modern, saya senang menciptakan solusi kreatif dalam tata letak visual dan mengoptimalkan pengalaman pengguna. Saya bangga menggunakan clean code dan clean architecture dalam setiap proyek, karena saya yakin fondasi yang kuat sangat penting untuk solusi yang scalable dan maintainable. Saya selalu siap untuk tantangan baru dan terus memperluas keterampilan saya."
+      "text": "Saya Muhammad Daffa Fauzan, seorang Full-Stack Web Developer yang berpengalaman dalam Laravel, Node.js, Vue.js, dan React.js. Saya ahli dalam pengembangan aplikasi web berskala besar dan efisien dengan penekanan kuat pada arsitektur backend, integrasi API, manajemen basis data, dan desain UI/UX yang ramah pengguna. Saya memiliki hasrat yang besar untuk mempelajari teknologi web yang ada, dan saya suka menulis kode yang bersih, mudah dibaca, dan pengoptimalan sistem. Proyek saya meliputi sistem rekam medis, situs web belanja online, dan sistem registrasi online, yang semuanya dibangun dengan mengikuti prinsip-prinsip arsitektur yang bersih dan praktik terbaik. Saya memiliki hasrat yang besar untuk menghadapi tantangan baru dan untuk terus meningkatkan keahlian teknis saya."
     }, 
     "timeline": {
       "title": "Riwayat Pendidikan",
@@ -69,40 +69,34 @@
   "title": "Pengalaman Kerja",
   "items": [
     {
-      "date": "Mei 2024 - Sekarang",
-      "title": "Magang Web Developer",
-      "subtitle": "PT Bartech Media Solution",
+      "date": "November 2024 - Januari 2025",
+      "title": "Full-Stack Web Developer",
+      "subtitle": "PT Madhlan Digital Creative",
       "items-works": [
         {
-          "name": "Mempelajari sistem ERP pada aplikasi berbasis website"
+          "name": "Mengembangkan aplikasi catatan medis odontogram, meningkatkan efisiensi catatan pasien 30% dan mempercepat akses catatan medis bagi staf medis."
         },
         {
-          "name": "Mengembangkan data master perbankan menggunakan Laravel"
+          "name": "Membangun situs web e-commerce, meningkatkan konversi transaksi 25% dengan mengutamakan integrasi gateway pembayaran yang aman dan meningkatkan pengalaman pengguna."
         },
         {
-          "name": "Mempelajari sistem keamanan data menggunakan Laravel"
-        },
-                {
-          "name": "Implementasi Best Practices Laravel dalam proyek sistem ERP"
+          "name": "Mengimplementasikan Laravel untuk menciptakan backend yang scalable dan efisiensi pengolahan database menggunakan MySQL."
         }
       ]
     },
     {
       "date": "September 2023 - November 2023",
-      "title": "Magang Software Engineer",
+      "title": "Magang Insinyur Perangkat Lunak",
       "subtitle": "Universitas Inaba Bandung",
       "items-works": [
         {
-          "name": "Mengelola basis data & entri data"
+          "name": "Mengelola database universitas, meningkatkan akurasi data alumni 40% melalui digitalisasi salinan keras."
         },
         {
-          "name": "Belajar praktik terbaik Node.js"
+          "name": "Mengembangkan aplikasi kehadiran web-based menggunakan Node.js, mengurangi waktu pencatatan kehadiran hingga 50% dari sistem sebelumnya."
         },
         {
-          "name": "Membangun aplikasi absensi dengan Node.js"
-        },
-        {
-          "name": "Mengonversi data alumni ke digital"
+          "name": "Mengimplementasikan praktik coding yang aman, meningkatkan keamanan sistem dan efisiensi database."
         }
       ]
     }
