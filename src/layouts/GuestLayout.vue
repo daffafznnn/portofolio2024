@@ -7,7 +7,7 @@
   <!-- <MarqueeStack></MarqueeStack> -->
   <projects></projects>
   <Contact></Contact>
-  <ChatBotButtonVue></ChatBotButtonVue>
+  <!-- <ChatBotButtonVue></ChatBotButtonVue> -->
   <Footer></Footer>
   <AnimationBg></AnimationBg>
   <!-- <Cookie></Cookie> -->
