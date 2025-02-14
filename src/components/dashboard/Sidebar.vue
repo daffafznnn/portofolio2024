@@ -13,7 +13,7 @@
        </div>
         <div v-else class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
             <div>
-                <img class="rounded-full w-10 h-10 relative object-cover outline outline-cyan-400" src="../../assets/daffa-formal-removebg-preview.png" alt="">
+                <img class="rounded-full w-10 h-10 relative object-cover outline outline-cyan-400" src="../../assets/images/daffa-formal-removebg-preview.png" alt="">
             </div>
             <div>
                 <p class="font-medium group-hover:text-cyan-400 leading-4 hidden sm:block">{{ profile?.username }}</p>
