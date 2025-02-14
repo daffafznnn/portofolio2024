@@ -127,11 +127,13 @@ export default {
 
 <style scoped lang="scss">
 
+@use "sass:color";
+
 $primary: #22d3ee;
-$primary-ultralight: mix(white, $primary, 80%);
-$primary-light: mix(white, $primary, 25%);
-$primary-dark: mix(black, $primary, 25%);
-$primary-ultradark: mix(black, $primary, 80%);
+$primary-ultralight: color.mix(white, $primary, 80%);
+$primary-light: color.mix(white, $primary, 25%);
+$primary-dark: color.mix(black, $primary, 25%);
+$primary-ultradark: color.mix(black, $primary, 80%);
 $black: #333333;
 $white: #eeeeee;
 
@@ -163,3 +165,5 @@ $white: #eeeeee;
   background-color: rgba($primary-light, 0.5);
 }
 </style>
+
+
